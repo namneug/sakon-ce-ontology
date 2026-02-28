@@ -1,0 +1,11 @@
+.git
+.claude
+*.pyc
+__pycache__
+frontend/node_modules
+frontend/build
+evaluation/results/*.png
+evaluation/results/*.csv
+evaluation/results/*.json
+*.log
+.DS_Store

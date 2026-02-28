@@ -1,0 +1,77 @@
+services:
+  # === Apache Jena Fuseki (Triple Store / SPARQL Endpoint) ===
+  fuseki:
+    image: stain/jena-fuseki
+    container_name: sakon-ce-fuseki
+    ports:
+      - "3030:3030"
+    environment:
+      - ADMIN_PASSWORD=sakon_ce_admin
+      - JVM_ARGS=-Xmx1g
+    volumes:
+      - fuseki_data:/fuseki
+      - ./ontology:/staging:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3030/$/ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  # === โหลดข้อมูล Ontology เข้า Fuseki ===
+  fuseki-init:
+    image: curlimages/curl:latest
+    container_name: sakon-ce-init
+    depends_on:
+      fuseki:
+        condition: service_healthy
+    environment:
+      - ADMIN_PASSWORD=sakon_ce_admin
+    volumes:
+      - ./ontology:/staging:ro
+      - ./docker/init_data.sh:/init.sh:ro
+    entrypoint: ["/bin/sh", "/init.sh"]
+    restart: "no"
+
+  # === Backend API (Python Flask) ===
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    container_name: sakon-ce-backend
+    ports:
+      - "5050:5050"
+    environment:
+      - FUSEKI_URL=http://fuseki:3030
+      - FUSEKI_DATASET=sakon_ce
+      - FLASK_HOST=0.0.0.0
+      - FLASK_PORT=5050
+    depends_on:
+      fuseki:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5050/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # === Frontend (React + Nginx) ===
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+      args:
+        - REACT_APP_API_URL=http://localhost:5050/api
+    container_name: sakon-ce-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  fuseki_data:

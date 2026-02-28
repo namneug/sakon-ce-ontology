@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:sce="http://sakon-ce.example.org/ontology#"
+    xml:base="http://sakon-ce.example.org/ontology">
+
+    <!-- =========================================== -->
+    <!-- Ontology Declaration                        -->
+    <!-- =========================================== -->
+    <owl:Ontology rdf:about="http://sakon-ce.example.org/ontology">
+        <rdfs:label xml:lang="th">ออนโทโลยีผลิตภัณฑ์อาหารวิสาหกิจชุมชนจังหวัดสกลนคร</rdfs:label>
+        <rdfs:comment xml:lang="th">ออนโทโลยีสำหรับจัดการความรู้เกี่ยวกับผลิตภัณฑ์อาหารของวิสาหกิจชุมชนในจังหวัดสกลนคร</rdfs:comment>
+        <owl:versionInfo>1.0</owl:versionInfo>
+    </owl:Ontology>
+
+    <!-- =========================================== -->
+    <!-- Classes                                     -->
+    <!-- =========================================== -->
+
+    <!-- CommunityEnterprise - วิสาหกิจชุมชน -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#CommunityEnterprise">
+        <rdfs:label xml:lang="th">วิสาหกิจชุมชน</rdfs:label>
+        <rdfs:comment xml:lang="th">กลุ่มวิสาหกิจชุมชนที่ผลิตและจำหน่ายผลิตภัณฑ์อาหารในจังหวัดสกลนคร</rdfs:comment>
+    </owl:Class>
+
+    <!-- FoodProduct - ผลิตภัณฑ์อาหาร -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#FoodProduct">
+        <rdfs:label xml:lang="th">ผลิตภัณฑ์อาหาร</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารที่ผลิตโดยวิสาหกิจชุมชน</rdfs:comment>
+    </owl:Class>
+
+    <!-- ProductCategory - หมวดหมู่ผลิตภัณฑ์ -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#ProductCategory">
+        <rdfs:label xml:lang="th">หมวดหมู่ผลิตภัณฑ์</rdfs:label>
+        <rdfs:comment xml:lang="th">หมวดหมู่สำหรับจำแนกประเภทผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- ProcessedMeat - แปรรูปเนื้อสัตว์ (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#ProcessedMeat">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">แปรรูปเนื้อสัตว์</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารประเภทเนื้อสัตว์แปรรูป เช่น หมูยอ แหนม ไส้กรอก</rdfs:comment>
+    </owl:Class>
+
+    <!-- Snack - ขนม/ของว่าง (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Snack">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">ขนม/ของว่าง</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารประเภทขนมและของว่าง</rdfs:comment>
+    </owl:Class>
+
+    <!-- Beverage - เครื่องดื่ม (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Beverage">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">เครื่องดื่ม</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารประเภทเครื่องดื่มไม่มีแอลกอฮอล์</rdfs:comment>
+    </owl:Class>
+
+    <!-- RiceProduct - ผลิตภัณฑ์จากข้าว (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#RiceProduct">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">ผลิตภัณฑ์จากข้าว</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารที่ทำจากข้าวเป็นวัตถุดิบหลัก</rdfs:comment>
+    </owl:Class>
+
+    <!-- FermentedFood - อาหารหมักดอง (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#FermentedFood">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">อาหารหมักดอง</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารที่ผ่านกระบวนการหมักหรือดอง</rdfs:comment>
+    </owl:Class>
+
+    <!-- Seasoning - เครื่องปรุงรส (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Seasoning">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">เครื่องปรุงรส</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์ประเภทเครื่องปรุงรสและซอสต่าง ๆ</rdfs:comment>
+    </owl:Class>
+
+    <!-- FreshProduce - ผลผลิตสด (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#FreshProduce">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">ผลผลิตสด</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลผลิตทางการเกษตรที่จำหน่ายในรูปแบบสด</rdfs:comment>
+    </owl:Class>
+
+    <!-- Bakery - เบเกอรี่/ขนมอบ (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Bakery">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">เบเกอรี่/ขนมอบ</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์ประเภทเบเกอรี่และขนมอบ</rdfs:comment>
+    </owl:Class>
+
+    <!-- FruitProduct - ผลิตภัณฑ์จากผลไม้ (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#FruitProduct">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">ผลิตภัณฑ์จากผลไม้</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารที่ทำจากผลไม้เป็นวัตถุดิบหลัก</rdfs:comment>
+    </owl:Class>
+
+    <!-- InsectFood - อาหารจากแมลง (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#InsectFood">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">อาหารจากแมลง</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์อาหารที่ทำจากแมลง เช่น จิ้งหรีดทอด แมลงอบกรอบ</rdfs:comment>
+    </owl:Class>
+
+    <!-- AlcoholicBeverage - เครื่องดื่มแอลกอฮอล์ (subclass of ProductCategory) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#AlcoholicBeverage">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+        <rdfs:label xml:lang="th">เครื่องดื่มแอลกอฮอล์</rdfs:label>
+        <rdfs:comment xml:lang="th">ผลิตภัณฑ์ประเภทเครื่องดื่มที่มีแอลกอฮอล์ เช่น สาโท อุ</rdfs:comment>
+    </owl:Class>
+
+    <!-- Ingredient - วัตถุดิบ -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Ingredient">
+        <rdfs:label xml:lang="th">วัตถุดิบ</rdfs:label>
+        <rdfs:comment xml:lang="th">วัตถุดิบที่ใช้ในการผลิตผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- ProductionProcess - กระบวนการผลิต -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#ProductionProcess">
+        <rdfs:label xml:lang="th">กระบวนการผลิต</rdfs:label>
+        <rdfs:comment xml:lang="th">กระบวนการและขั้นตอนในการผลิตผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- NutritionInfo - ข้อมูลโภชนาการ -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#NutritionInfo">
+        <rdfs:label xml:lang="th">ข้อมูลโภชนาการ</rdfs:label>
+        <rdfs:comment xml:lang="th">ข้อมูลคุณค่าทางโภชนาการของผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- Certification - การรับรองมาตรฐาน -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Certification">
+        <rdfs:label xml:lang="th">การรับรองมาตรฐาน</rdfs:label>
+        <rdfs:comment xml:lang="th">การรับรองมาตรฐานคุณภาพผลิตภัณฑ์ เช่น อย. OTOP มผช. GMP</rdfs:comment>
+    </owl:Class>
+
+    <!-- PackagingType - ประเภทบรรจุภัณฑ์ -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#PackagingType">
+        <rdfs:label xml:lang="th">ประเภทบรรจุภัณฑ์</rdfs:label>
+        <rdfs:comment xml:lang="th">ประเภทและรูปแบบของบรรจุภัณฑ์ที่ใช้สำหรับผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- ShelfLife - อายุการเก็บรักษา -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#ShelfLife">
+        <rdfs:label xml:lang="th">อายุการเก็บรักษา</rdfs:label>
+        <rdfs:comment xml:lang="th">ข้อมูลเกี่ยวกับอายุการเก็บรักษาและวิธีการเก็บรักษาผลิตภัณฑ์</rdfs:comment>
+    </owl:Class>
+
+    <!-- MarketingStrategy - กลยุทธ์การตลาด -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#MarketingStrategy">
+        <rdfs:label xml:lang="th">กลยุทธ์การตลาด</rdfs:label>
+        <rdfs:comment xml:lang="th">กลยุทธ์และแนวทางการตลาดของวิสาหกิจชุมชน</rdfs:comment>
+    </owl:Class>
+
+    <!-- DistributionChannel - ช่องทางการจัดจำหน่าย -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#DistributionChannel">
+        <rdfs:label xml:lang="th">ช่องทางการจัดจำหน่าย</rdfs:label>
+        <rdfs:comment xml:lang="th">ช่องทางการจัดจำหน่ายผลิตภัณฑ์ เช่น ออนไลน์ หน้าร้าน ตลาดนัด</rdfs:comment>
+    </owl:Class>
+
+    <!-- TargetCustomer - กลุ่มลูกค้าเป้าหมาย -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#TargetCustomer">
+        <rdfs:label xml:lang="th">กลุ่มลูกค้าเป้าหมาย</rdfs:label>
+        <rdfs:comment xml:lang="th">กลุ่มลูกค้าเป้าหมายของผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- Location - ที่ตั้ง -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Location">
+        <rdfs:label xml:lang="th">ที่ตั้ง</rdfs:label>
+        <rdfs:comment xml:lang="th">ที่ตั้งทางภูมิศาสตร์ของวิสาหกิจชุมชน</rdfs:comment>
+    </owl:Class>
+
+    <!-- Province - จังหวัด (subclass of Location) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Province">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#Location"/>
+        <rdfs:label xml:lang="th">จังหวัด</rdfs:label>
+        <rdfs:comment xml:lang="th">หน่วยการปกครองระดับจังหวัด</rdfs:comment>
+    </owl:Class>
+
+    <!-- District - อำเภอ (subclass of Location) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#District">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#Location"/>
+        <rdfs:label xml:lang="th">อำเภอ</rdfs:label>
+        <rdfs:comment xml:lang="th">หน่วยการปกครองระดับอำเภอ</rdfs:comment>
+    </owl:Class>
+
+    <!-- SubDistrict - ตำบล (subclass of Location) -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#SubDistrict">
+        <rdfs:subClassOf rdf:resource="http://sakon-ce.example.org/ontology#Location"/>
+        <rdfs:label xml:lang="th">ตำบล</rdfs:label>
+        <rdfs:comment xml:lang="th">หน่วยการปกครองระดับตำบล</rdfs:comment>
+    </owl:Class>
+
+    <!-- SeasonalAvailability - ความพร้อมตามฤดูกาล -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#SeasonalAvailability">
+        <rdfs:label xml:lang="th">ความพร้อมตามฤดูกาล</rdfs:label>
+        <rdfs:comment xml:lang="th">ข้อมูลความพร้อมในการผลิตและจำหน่ายตามฤดูกาล</rdfs:comment>
+    </owl:Class>
+
+    <!-- PriceRange - ช่วงราคา -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#PriceRange">
+        <rdfs:label xml:lang="th">ช่วงราคา</rdfs:label>
+        <rdfs:comment xml:lang="th">ช่วงราคาของผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- Review - รีวิว -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Review">
+        <rdfs:label xml:lang="th">รีวิว</rdfs:label>
+        <rdfs:comment xml:lang="th">รีวิวและความคิดเห็นจากผู้บริโภคเกี่ยวกับผลิตภัณฑ์</rdfs:comment>
+    </owl:Class>
+
+    <!-- ContactInfo - ข้อมูลติดต่อ -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#ContactInfo">
+        <rdfs:label xml:lang="th">ข้อมูลติดต่อ</rdfs:label>
+        <rdfs:comment xml:lang="th">ข้อมูลช่องทางการติดต่อของวิสาหกิจชุมชน</rdfs:comment>
+    </owl:Class>
+
+    <!-- ProductImage - รูปภาพผลิตภัณฑ์ -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#ProductImage">
+        <rdfs:label xml:lang="th">รูปภาพผลิตภัณฑ์</rdfs:label>
+        <rdfs:comment xml:lang="th">รูปภาพของผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- Award - รางวัล -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#Award">
+        <rdfs:label xml:lang="th">รางวัล</rdfs:label>
+        <rdfs:comment xml:lang="th">รางวัลที่ผลิตภัณฑ์หรือวิสาหกิจชุมชนได้รับ</rdfs:comment>
+    </owl:Class>
+
+    <!-- ProductionMethod - วิธีการผลิต -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#ProductionMethod">
+        <rdfs:label xml:lang="th">วิธีการผลิต</rdfs:label>
+        <rdfs:comment xml:lang="th">วิธีการและเทคนิคที่ใช้ในการผลิตผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- QualityStandard - มาตรฐานคุณภาพ -->
+    <owl:Class rdf:about="http://sakon-ce.example.org/ontology#QualityStandard">
+        <rdfs:label xml:lang="th">มาตรฐานคุณภาพ</rdfs:label>
+        <rdfs:comment xml:lang="th">มาตรฐานคุณภาพที่ใช้ในการควบคุมการผลิตผลิตภัณฑ์อาหาร</rdfs:comment>
+    </owl:Class>
+
+    <!-- =========================================== -->
+    <!-- Object Properties                           -->
+    <!-- =========================================== -->
+
+    <!-- hasProduct - มีผลิตภัณฑ์ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasProduct">
+        <rdfs:label xml:lang="th">มีผลิตภัณฑ์</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างวิสาหกิจชุมชนกับผลิตภัณฑ์อาหารที่ผลิต</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#CommunityEnterprise"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+    </owl:ObjectProperty>
+
+    <!-- producedBy - ผลิตโดย (inverse of hasProduct) -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#producedBy">
+        <rdfs:label xml:lang="th">ผลิตโดย</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับวิสาหกิจชุมชนที่เป็นผู้ผลิต</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#CommunityEnterprise"/>
+        <owl:inverseOf rdf:resource="http://sakon-ce.example.org/ontology#hasProduct"/>
+    </owl:ObjectProperty>
+
+    <!-- belongsToCategory - อยู่ในหมวดหมู่ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#belongsToCategory">
+        <rdfs:label xml:lang="th">อยู่ในหมวดหมู่</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับหมวดหมู่ผลิตภัณฑ์</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#ProductCategory"/>
+    </owl:ObjectProperty>
+
+    <!-- hasIngredient - มีวัตถุดิบ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasIngredient">
+        <rdfs:label xml:lang="th">มีวัตถุดิบ</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับวัตถุดิบที่ใช้</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#Ingredient"/>
+    </owl:ObjectProperty>
+
+    <!-- hasProductionProcess - มีกระบวนการผลิต -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasProductionProcess">
+        <rdfs:label xml:lang="th">มีกระบวนการผลิต</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับกระบวนการผลิต</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#ProductionProcess"/>
+    </owl:ObjectProperty>
+
+    <!-- hasCertification - มีการรับรอง -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasCertification">
+        <rdfs:label xml:lang="th">มีการรับรอง</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับการรับรองมาตรฐาน</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#Certification"/>
+    </owl:ObjectProperty>
+
+    <!-- hasNutritionInfo - มีข้อมูลโภชนาการ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasNutritionInfo">
+        <rdfs:label xml:lang="th">มีข้อมูลโภชนาการ</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับข้อมูลโภชนาการ</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#NutritionInfo"/>
+    </owl:ObjectProperty>
+
+    <!-- hasPackaging - มีบรรจุภัณฑ์ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasPackaging">
+        <rdfs:label xml:lang="th">มีบรรจุภัณฑ์</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับประเภทบรรจุภัณฑ์</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#PackagingType"/>
+    </owl:ObjectProperty>
+
+    <!-- locatedIn - ตั้งอยู่ที่ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#locatedIn">
+        <rdfs:label xml:lang="th">ตั้งอยู่ที่</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างวิสาหกิจชุมชนกับที่ตั้ง</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#CommunityEnterprise"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#Location"/>
+    </owl:ObjectProperty>
+
+    <!-- usesStrategy - ใช้กลยุทธ์ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#usesStrategy">
+        <rdfs:label xml:lang="th">ใช้กลยุทธ์</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างวิสาหกิจชุมชนกับกลยุทธ์การตลาดที่ใช้</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#CommunityEnterprise"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#MarketingStrategy"/>
+    </owl:ObjectProperty>
+
+    <!-- soldVia - จำหน่ายผ่าน -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#soldVia">
+        <rdfs:label xml:lang="th">จำหน่ายผ่าน</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับช่องทางการจัดจำหน่าย</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#DistributionChannel"/>
+    </owl:ObjectProperty>
+
+    <!-- targetsCustomer - มุ่งเป้าลูกค้า -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#targetsCustomer">
+        <rdfs:label xml:lang="th">มุ่งเป้าลูกค้า</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับกลุ่มลูกค้าเป้าหมาย</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#TargetCustomer"/>
+    </owl:ObjectProperty>
+
+    <!-- hasReview - มีรีวิว -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasReview">
+        <rdfs:label xml:lang="th">มีรีวิว</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับรีวิวจากผู้บริโภค</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#Review"/>
+    </owl:ObjectProperty>
+
+    <!-- hasAward - ได้รับรางวัล -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasAward">
+        <rdfs:label xml:lang="th">ได้รับรางวัล</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างผลิตภัณฑ์อาหารกับรางวัลที่ได้รับ</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#FoodProduct"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#Award"/>
+    </owl:ObjectProperty>
+
+    <!-- hasContactInfo - มีข้อมูลติดต่อ -->
+    <owl:ObjectProperty rdf:about="http://sakon-ce.example.org/ontology#hasContactInfo">
+        <rdfs:label xml:lang="th">มีข้อมูลติดต่อ</rdfs:label>
+        <rdfs:comment xml:lang="th">ความสัมพันธ์ระหว่างวิสาหกิจชุมชนกับข้อมูลช่องทางการติดต่อ</rdfs:comment>
+        <rdfs:domain rdf:resource="http://sakon-ce.example.org/ontology#CommunityEnterprise"/>
+        <rdfs:range rdf:resource="http://sakon-ce.example.org/ontology#ContactInfo"/>
+    </owl:ObjectProperty>
+
+    <!-- =========================================== -->
+    <!-- Datatype Properties                         -->
+    <!-- =========================================== -->
+
+    <!-- hasName - ชื่อ -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasName">
+        <rdfs:label xml:lang="th">ชื่อ</rdfs:label>
+        <rdfs:comment xml:lang="th">ชื่อของทรัพยากร เช่น ชื่อผลิตภัณฑ์ ชื่อวิสาหกิจชุมชน</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasPrice - ราคา -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasPrice">
+        <rdfs:label xml:lang="th">ราคา</rdfs:label>
+        <rdfs:comment xml:lang="th">ราคาของผลิตภัณฑ์อาหาร (หน่วย: บาท)</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasWeight - น้ำหนัก -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasWeight">
+        <rdfs:label xml:lang="th">น้ำหนัก</rdfs:label>
+        <rdfs:comment xml:lang="th">น้ำหนักหรือปริมาณของผลิตภัณฑ์อาหาร</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasDescription - รายละเอียด -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasDescription">
+        <rdfs:label xml:lang="th">รายละเอียด</rdfs:label>
+        <rdfs:comment xml:lang="th">รายละเอียดหรือคำอธิบายเพิ่มเติมของทรัพยากร</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasEstablishedYear - ปีที่ก่อตั้ง -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasEstablishedYear">
+        <rdfs:label xml:lang="th">ปีที่ก่อตั้ง</rdfs:label>
+        <rdfs:comment xml:lang="th">ปี พ.ศ. ที่วิสาหกิจชุมชนก่อตั้ง</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasMemberCount - จำนวนสมาชิก -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasMemberCount">
+        <rdfs:label xml:lang="th">จำนวนสมาชิก</rdfs:label>
+        <rdfs:comment xml:lang="th">จำนวนสมาชิกของวิสาหกิจชุมชน</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasShelfLifeDays - อายุการเก็บรักษา (วัน) -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasShelfLifeDays">
+        <rdfs:label xml:lang="th">อายุการเก็บรักษา (วัน)</rdfs:label>
+        <rdfs:comment xml:lang="th">จำนวนวันที่สามารถเก็บรักษาผลิตภัณฑ์ได้</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasRating - คะแนนรีวิว -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasRating">
+        <rdfs:label xml:lang="th">คะแนนรีวิว</rdfs:label>
+        <rdfs:comment xml:lang="th">คะแนนรีวิวจากผู้บริโภค</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasPhoneNumber - หมายเลขโทรศัพท์ -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasPhoneNumber">
+        <rdfs:label xml:lang="th">หมายเลขโทรศัพท์</rdfs:label>
+        <rdfs:comment xml:lang="th">หมายเลขโทรศัพท์สำหรับติดต่อวิสาหกิจชุมชน</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+    <!-- hasImageURL - URL รูปภาพ -->
+    <owl:DatatypeProperty rdf:about="http://sakon-ce.example.org/ontology#hasImageURL">
+        <rdfs:label xml:lang="th">URL รูปภาพ</rdfs:label>
+        <rdfs:comment xml:lang="th">URL ของรูปภาพผลิตภัณฑ์หรือวิสาหกิจชุมชน</rdfs:comment>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+
+</rdf:RDF>

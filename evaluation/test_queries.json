@@ -1,0 +1,192 @@
+{
+  "metadata": {
+    "title": "ชุดคำถามทดสอบระบบฐานข้อมูลออนโทโลยีวิสาหกิจชุมชน จ.สกลนคร",
+    "version": "1.0",
+    "total_queries": 20,
+    "basic_queries": 10,
+    "semantic_queries": 10,
+    "description": "ชุดคำถามสำหรับวัดประสิทธิภาพการค้นหาพื้นฐานและเชิงความหมาย"
+  },
+  "queries": [
+    {
+      "id": 1,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'ข้าว' ในชื่อ",
+      "search_keyword": "ข้าว",
+      "api_endpoint": "/api/search?q=ข้าว",
+      "expected_results": 4,
+      "expected_product_ids": ["JasmineBrownRice", "KhaoHang", "RiceberryBrownRice", "BrownRiceCookie"]
+    },
+    {
+      "id": 2,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'ปลาร้า' ในชื่อ",
+      "search_keyword": "ปลาร้า",
+      "api_endpoint": "/api/search?q=ปลาร้า",
+      "expected_results": 3,
+      "expected_product_ids": ["NamPlaRaSeasoned", "NamPrikPlaRaBong", "NamPrikPlaRaHerbal"]
+    },
+    {
+      "id": 3,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'กุนเชียง' ในชื่อ",
+      "search_keyword": "กุนเชียง",
+      "api_endpoint": "/api/search?q=กุนเชียง",
+      "expected_results": 2,
+      "expected_product_ids": ["Kunchiang_01", "Kunchiang_02"]
+    },
+    {
+      "id": 4,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'คุกกี้' ในชื่อ",
+      "search_keyword": "คุกกี้",
+      "api_endpoint": "/api/search?q=คุกกี้",
+      "expected_results": 2,
+      "expected_product_ids": ["BrownRiceCookie", "HerbalCookie"]
+    },
+    {
+      "id": 5,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'อินทรีย์' ในชื่อหรือคำอธิบาย",
+      "search_keyword": "อินทรีย์",
+      "api_endpoint": "/api/search?q=อินทรีย์",
+      "expected_results": 4,
+      "expected_product_ids": ["JasmineBrownRice", "RiceberryBrownRice", "SaltedFishInOil", "OrganicLime"]
+    },
+    {
+      "id": 6,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'หมู' ในชื่อ",
+      "search_keyword": "หมู",
+      "api_endpoint": "/api/search?q=หมู",
+      "expected_results": 1,
+      "expected_product_ids": ["PorkCrispySheet"]
+    },
+    {
+      "id": 7,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ในหมวดแปรรูปเนื้อสัตว์",
+      "search_keyword": "ProcessedMeat",
+      "api_endpoint": "/api/products?category=ProcessedMeat",
+      "expected_results": 5,
+      "expected_product_ids": ["Kunchiang_01", "Kunchiang_02", "PorkCrispySheet", "NaemNueng", "SaiKrokIsan"]
+    },
+    {
+      "id": 8,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ในหมวดเครื่องปรุงรส",
+      "search_keyword": "Seasoning",
+      "api_endpoint": "/api/products?category=Seasoning",
+      "expected_results": 4,
+      "expected_product_ids": ["NamPlaRaSeasoned", "NamPrikPlaRaBong", "NamPrikPlaRaHerbal", "NamPrikReadyMade"]
+    },
+    {
+      "id": 9,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ในหมวดขนม/ของว่าง",
+      "search_keyword": "Snack",
+      "api_endpoint": "/api/products?category=Snack",
+      "expected_results": 4,
+      "expected_product_ids": ["BananaGranola", "BananaChips", "PeanutRoasted", "PotatoChipsHerbal"]
+    },
+    {
+      "id": 10,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'ไข่' ในชื่อ",
+      "search_keyword": "ไข่",
+      "api_endpoint": "/api/search?q=ไข่",
+      "expected_results": 1,
+      "expected_product_ids": ["SaltedEgg"]
+    },
+    {
+      "id": 11,
+      "type": "semantic",
+      "query_thai": "อยากได้อาหารเพื่อสุขภาพ",
+      "query_params": { "intent": "health_products" },
+      "api_endpoint": "/api/search/semantic?q=สุขภาพ",
+      "expected_results": 7,
+      "expected_product_ids": ["BananaGranola", "JasmineBrownRice", "KhaoHang", "RiceberryBrownRice", "BrownRiceCookie", "CricketCrispy", "MakMaoJuice"]
+    },
+    {
+      "id": 12,
+      "type": "semantic",
+      "query_thai": "หาของฝากจากสกลนคร",
+      "query_params": { "intent": "gift_products" },
+      "api_endpoint": "/api/search/semantic?q=ของฝาก",
+      "expected_results": 15,
+      "expected_product_ids": ["SaltedEgg", "BananaChips", "PotatoChipsHerbal", "MangoPreserved", "NamPlaRaSeasoned", "MakMaoJuice", "NamPrikPlaRaBong", "PorkCrispySheet", "BrownRiceCookie", "CricketCrispy", "HerbalCookie", "PlaSomFak", "NaemNueng", "SaiKrokIsan", "MakMaoWine"]
+    },
+    {
+      "id": 13,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์ที่ซื้อออนไลน์ได้",
+      "query_params": { "intent": "online_products" },
+      "api_endpoint": "/api/search/semantic?q=ซื้อออนไลน์",
+      "expected_results": 2,
+      "expected_product_ids": ["CricketCrispy", "MakMaoWine"]
+    },
+    {
+      "id": 14,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์ราคาถูกไม่เกิน 50 บาท",
+      "query_params": { "intent": "cheap_products", "max_price": 50 },
+      "api_endpoint": "/api/search/semantic?q=ราคาถูก",
+      "expected_results": 14,
+      "expected_product_ids": ["OrganicLime", "SaltedEgg", "PeanutRoasted", "BananaChips", "BananaGranola", "PotatoChipsHerbal", "MangoPreserved", "NamPlaRaSeasoned", "NamPrikPlaRaHerbal", "MakMaoJuice", "PorkCrispySheet", "JasmineBrownRice", "RiceberryBrownRice", "NamPrikPlaRaBong"]
+    },
+    {
+      "id": 15,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์จากข้าว",
+      "query_params": { "intent": "rice_products", "category": "RiceProduct" },
+      "api_endpoint": "/api/search/semantic?q=ข้าว",
+      "expected_results": 3,
+      "expected_product_ids": ["JasmineBrownRice", "RiceberryBrownRice", "KhaoHang"]
+    },
+    {
+      "id": 16,
+      "type": "semantic",
+      "query_thai": "อาหารหมักดอง",
+      "query_params": { "intent": "fermented_products", "category": "FermentedFood" },
+      "api_endpoint": "/api/search/semantic?q=หมัก",
+      "expected_results": 3,
+      "expected_product_ids": ["SaltedEgg", "PlaSomFak", "SaltedFishInOil"]
+    },
+    {
+      "id": 17,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์จากแมลง โปรตีนสูง",
+      "query_params": { "intent": "insect_products", "category": "InsectFood" },
+      "api_endpoint": "/api/search/semantic?q=แมลง",
+      "expected_results": 1,
+      "expected_product_ids": ["CricketCrispy"]
+    },
+    {
+      "id": 18,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์เครื่องปรุงรส น้ำพริก",
+      "query_params": { "intent": "seasoning_products", "category": "Seasoning" },
+      "api_endpoint": "/api/search/semantic?q=เครื่องปรุง",
+      "expected_results": 4,
+      "expected_product_ids": ["NamPlaRaSeasoned", "NamPrikPlaRaHerbal", "NamPrikPlaRaBong", "NamPrikReadyMade"]
+    },
+    {
+      "id": 19,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์จากอำเภอวานรนิวาส",
+      "query_params": { "intent": "district_search", "district": "วานรนิวาส" },
+      "api_endpoint": "/api/search/semantic?q=วานรนิวาส",
+      "expected_results": 2,
+      "expected_product_ids": ["ข้าวฮาง", "มันฝรั่งทอดกรอบสมุนไพร"]
+    },
+    {
+      "id": 20,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์ราคาสูง พรีเมียม 100 บาทขึ้นไป",
+      "query_params": { "intent": "expensive_products", "min_price": 100 },
+      "api_endpoint": "/api/search/semantic?q=แพง",
+      "expected_results": 8,
+      "expected_product_ids": ["MakMaoWine", "Kunchiang_02", "Kunchiang_01", "SaiKrokIsan", "SaltedFishInOil", "NaemNueng", "PlaSomFak", "KhaoHang"]
+    }
+  ]
+}

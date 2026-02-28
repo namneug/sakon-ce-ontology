@@ -1,0 +1,138 @@
+# ============================================
+# SPARQL Queries พื้นฐาน
+# สำหรับระบบฐานข้อมูลออนโทโลยีวิสาหกิจชุมชน จ.สกลนคร
+# ============================================
+
+PREFIX sce: <http://sakon-ce.example.org/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# ============================================
+# Query 1: ดึงข้อมูลผลิตภัณฑ์ทั้งหมด
+# ============================================
+# SELECT ?product ?name ?price ?description
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?name ;
+#              sce:hasPrice ?price .
+#     OPTIONAL { ?product sce:hasDescription ?description }
+# }
+# ORDER BY ?name
+
+# ============================================
+# Query 2: ดึงข้อมูลวิสาหกิจชุมชนทั้งหมด
+# ============================================
+# SELECT ?enterprise ?name ?location
+# WHERE {
+#     ?enterprise rdf:type sce:CommunityEnterprise ;
+#                 sce:hasName ?name .
+#     OPTIONAL {
+#         ?enterprise sce:locatedIn ?loc .
+#         ?loc sce:hasName ?location .
+#     }
+# }
+# ORDER BY ?name
+
+# ============================================
+# Query 3: ดึงผลิตภัณฑ์ตามหมวดหมู่
+# ============================================
+# SELECT ?product ?name ?price ?categoryName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?name ;
+#              sce:hasPrice ?price ;
+#              sce:belongsToCategory ?category .
+#     ?category sce:hasName ?categoryName .
+# }
+# ORDER BY ?categoryName ?name
+
+# ============================================
+# Query 4: ดึงผลิตภัณฑ์ที่มีราคาต่ำกว่า 50 บาท
+# ============================================
+# SELECT ?product ?name ?price
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?name ;
+#              sce:hasPrice ?price .
+#     FILTER (?price < 50)
+# }
+# ORDER BY ?price
+
+# ============================================
+# Query 5: ดึงผลิตภัณฑ์ที่ได้รับ OTOP 5 ดาว
+# ============================================
+# SELECT ?product ?name ?price
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?name ;
+#              sce:hasPrice ?price ;
+#              sce:hasCertification sce:OTOP_5Star .
+# }
+
+# ============================================
+# Query 6: นับจำนวนผลิตภัณฑ์แต่ละหมวดหมู่
+# ============================================
+# SELECT ?categoryName (COUNT(?product) AS ?count)
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:belongsToCategory ?category .
+#     ?category sce:hasName ?categoryName .
+# }
+# GROUP BY ?categoryName
+# ORDER BY DESC(?count)
+
+# ============================================
+# Query 7: ดึงข้อมูลวิสาหกิจพร้อมจำนวนผลิตภัณฑ์
+# ============================================
+# SELECT ?enterpriseName (COUNT(?product) AS ?productCount)
+# WHERE {
+#     ?enterprise rdf:type sce:CommunityEnterprise ;
+#                 sce:hasName ?enterpriseName ;
+#                 sce:hasProduct ?product .
+# }
+# GROUP BY ?enterpriseName
+# ORDER BY DESC(?productCount)
+
+# ============================================
+# Query 8: ดึงผลิตภัณฑ์พร้อมข้อมูลวิสาหกิจผู้ผลิต
+# ============================================
+# SELECT ?productName ?price ?enterpriseName ?locationName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:producedBy ?enterprise .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     OPTIONAL {
+#         ?enterprise sce:locatedIn ?location .
+#         ?location sce:hasName ?locationName .
+#     }
+# }
+# ORDER BY ?productName
+
+# ============================================
+# Query 9: ดึงช่องทางจำหน่ายของแต่ละผลิตภัณฑ์
+# ============================================
+# SELECT ?productName (GROUP_CONCAT(?channelName; separator=", ") AS ?channels)
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:soldVia ?channel .
+#     ?channel sce:hasName ?channelName .
+# }
+# GROUP BY ?productName
+# ORDER BY ?productName
+
+# ============================================
+# Query 10: ดึงการรับรองมาตรฐานของแต่ละผลิตภัณฑ์
+# ============================================
+# SELECT ?productName (GROUP_CONCAT(?certName; separator=", ") AS ?certifications)
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasCertification ?cert .
+#     ?cert sce:hasName ?certName .
+# }
+# GROUP BY ?productName
+# ORDER BY ?productName

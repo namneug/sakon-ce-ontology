@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+node_modules/
+frontend/build/
+evaluation/results/*.png
+evaluation/results/survey_responses.json
+*.log
+.DS_Store
+.env

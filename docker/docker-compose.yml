@@ -1,0 +1,36 @@
+# Docker Compose สำหรับระบบฐานข้อมูลออนโทโลยีวิสาหกิจชุมชน จ.สกลนคร
+version: '3.8'
+
+services:
+  # Apache Jena Fuseki - SPARQL Endpoint
+  fuseki:
+    image: stain/jena-fuseki
+    container_name: sakon-ce-fuseki
+    ports:
+      - "3030:3030"
+    environment:
+      - ADMIN_PASSWORD=sakon_ce_admin
+      - FUSEKI_DATASET_1=sakon_ce
+    volumes:
+      - fuseki_data:/fuseki
+      - ../ontology:/staging
+    restart: unless-stopped
+
+  # Python Flask Backend API
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.backend
+    container_name: sakon-ce-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FUSEKI_URL=http://fuseki:3030
+      - FUSEKI_DATASET=sakon_ce
+      - FLASK_ENV=development
+    depends_on:
+      - fuseki
+    restart: unless-stopped
+
+volumes:
+  fuseki_data:

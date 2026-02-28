@@ -1,0 +1,710 @@
+{
+  "metadata": {
+    "title": "ผลการประเมินระบบฐานข้อมูลออนโทโลยีวิสาหกิจชุมชน จ.สกลนคร",
+    "timestamp": "2026-02-28 23:39:20",
+    "num_rounds_per_query": 5
+  },
+  "summary": {
+    "overall": {
+      "total_queries": 20,
+      "avg_precision": 1.0,
+      "avg_recall": 1.0,
+      "avg_f1": 1.0,
+      "avg_response_time_ms": 11.3
+    },
+    "basic_search": {
+      "total_queries": 10,
+      "avg_precision": 1.0,
+      "avg_recall": 1.0,
+      "avg_f1": 1.0,
+      "avg_response_time_ms": 12.67
+    },
+    "semantic_search": {
+      "total_queries": 10,
+      "avg_precision": 1.0,
+      "avg_recall": 1.0,
+      "avg_f1": 1.0,
+      "avg_response_time_ms": 9.93
+    }
+  },
+  "results": [
+    {
+      "id": 1,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'ข้าว' ในชื่อ",
+      "expected_count": 4,
+      "retrieved_count": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 17.01,
+      "response_time_min_ms": 12.41,
+      "response_time_max_ms": 29.68,
+      "response_time_median_ms": 14.49,
+      "response_times": [
+        29.68,
+        13.8,
+        12.41,
+        14.49,
+        14.65
+      ],
+      "expected_ids": [
+        "JasmineBrownRice",
+        "KhaoHang",
+        "RiceberryBrownRice",
+        "BrownRiceCookie"
+      ],
+      "retrieved_ids": [
+        "JasmineBrownRice",
+        "KhaoHang",
+        "RiceberryBrownRice",
+        "BrownRiceCookie"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'ปลาร้า' ในชื่อ",
+      "expected_count": 3,
+      "retrieved_count": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 12.07,
+      "response_time_min_ms": 9.57,
+      "response_time_max_ms": 14.18,
+      "response_time_median_ms": 12.14,
+      "response_times": [
+        14.18,
+        12.14,
+        9.57,
+        14.07,
+        10.39
+      ],
+      "expected_ids": [
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaBong",
+        "NamPrikPlaRaHerbal"
+      ],
+      "retrieved_ids": [
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaBong",
+        "NamPrikPlaRaHerbal"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'กุนเชียง' ในชื่อ",
+      "expected_count": 2,
+      "retrieved_count": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 9.91,
+      "response_time_min_ms": 8.41,
+      "response_time_max_ms": 11.26,
+      "response_time_median_ms": 9.87,
+      "response_times": [
+        10.81,
+        9.18,
+        9.87,
+        8.41,
+        11.26
+      ],
+      "expected_ids": [
+        "Kunchiang_01",
+        "Kunchiang_02"
+      ],
+      "retrieved_ids": [
+        "Kunchiang_02",
+        "Kunchiang_01"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'คุกกี้' ในชื่อ",
+      "expected_count": 2,
+      "retrieved_count": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 24.24,
+      "response_time_min_ms": 8.62,
+      "response_time_max_ms": 56.9,
+      "response_time_median_ms": 15.81,
+      "response_times": [
+        8.62,
+        15.81,
+        56.9,
+        25.12,
+        14.78
+      ],
+      "expected_ids": [
+        "BrownRiceCookie",
+        "HerbalCookie"
+      ],
+      "retrieved_ids": [
+        "BrownRiceCookie",
+        "HerbalCookie"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'อินทรีย์' ในชื่อหรือคำอธิบาย",
+      "expected_count": 4,
+      "retrieved_count": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 11.12,
+      "response_time_min_ms": 9.01,
+      "response_time_max_ms": 12.39,
+      "response_time_median_ms": 11.09,
+      "response_times": [
+        12.38,
+        12.39,
+        9.01,
+        11.09,
+        10.75
+      ],
+      "expected_ids": [
+        "JasmineBrownRice",
+        "RiceberryBrownRice",
+        "SaltedFishInOil",
+        "OrganicLime"
+      ],
+      "retrieved_ids": [
+        "JasmineBrownRice",
+        "RiceberryBrownRice",
+        "SaltedFishInOil",
+        "OrganicLime"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'หมู' ในชื่อ",
+      "expected_count": 1,
+      "retrieved_count": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 11.68,
+      "response_time_min_ms": 9.46,
+      "response_time_max_ms": 16.67,
+      "response_time_median_ms": 10.95,
+      "response_times": [
+        10.95,
+        16.67,
+        11.83,
+        9.46,
+        9.5
+      ],
+      "expected_ids": [
+        "PorkCrispySheet"
+      ],
+      "retrieved_ids": [
+        "PorkCrispySheet"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ในหมวดแปรรูปเนื้อสัตว์",
+      "expected_count": 5,
+      "retrieved_count": 5,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 10.18,
+      "response_time_min_ms": 8.14,
+      "response_time_max_ms": 14.57,
+      "response_time_median_ms": 9.14,
+      "response_times": [
+        10.15,
+        14.57,
+        8.14,
+        8.91,
+        9.14
+      ],
+      "expected_ids": [
+        "Kunchiang_01",
+        "Kunchiang_02",
+        "PorkCrispySheet",
+        "NaemNueng",
+        "SaiKrokIsan"
+      ],
+      "retrieved_ids": [
+        "Kunchiang_02",
+        "Kunchiang_01",
+        "PorkCrispySheet",
+        "NaemNueng",
+        "SaiKrokIsan"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ในหมวดเครื่องปรุงรส",
+      "expected_count": 4,
+      "retrieved_count": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 9.63,
+      "response_time_min_ms": 7.23,
+      "response_time_max_ms": 13.02,
+      "response_time_median_ms": 9.86,
+      "response_times": [
+        13.02,
+        7.71,
+        7.23,
+        9.86,
+        10.32
+      ],
+      "expected_ids": [
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaBong",
+        "NamPrikPlaRaHerbal",
+        "NamPrikReadyMade"
+      ],
+      "retrieved_ids": [
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaBong",
+        "NamPrikPlaRaHerbal",
+        "NamPrikReadyMade"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ในหมวดขนม/ของว่าง",
+      "expected_count": 4,
+      "retrieved_count": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 9.72,
+      "response_time_min_ms": 8.17,
+      "response_time_max_ms": 11.02,
+      "response_time_median_ms": 10.42,
+      "response_times": [
+        10.62,
+        8.17,
+        11.02,
+        10.42,
+        8.38
+      ],
+      "expected_ids": [
+        "BananaGranola",
+        "BananaChips",
+        "PeanutRoasted",
+        "PotatoChipsHerbal"
+      ],
+      "retrieved_ids": [
+        "BananaGranola",
+        "BananaChips",
+        "PeanutRoasted",
+        "PotatoChipsHerbal"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "basic",
+      "query_thai": "ค้นหาผลิตภัณฑ์ที่มีคำว่า 'ไข่' ในชื่อ",
+      "expected_count": 1,
+      "retrieved_count": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 11.18,
+      "response_time_min_ms": 8.48,
+      "response_time_max_ms": 18.14,
+      "response_time_median_ms": 10.27,
+      "response_times": [
+        8.52,
+        10.5,
+        8.48,
+        18.14,
+        10.27
+      ],
+      "expected_ids": [
+        "SaltedEgg"
+      ],
+      "retrieved_ids": [
+        "SaltedEgg"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "semantic",
+      "query_thai": "อยากได้อาหารเพื่อสุขภาพ",
+      "expected_count": 7,
+      "retrieved_count": 7,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 9.24,
+      "response_time_min_ms": 7.48,
+      "response_time_max_ms": 11.56,
+      "response_time_median_ms": 8.92,
+      "response_times": [
+        7.48,
+        11.56,
+        8.92,
+        8.3,
+        9.92
+      ],
+      "expected_ids": [
+        "BananaGranola",
+        "JasmineBrownRice",
+        "KhaoHang",
+        "RiceberryBrownRice",
+        "BrownRiceCookie",
+        "CricketCrispy",
+        "MakMaoJuice"
+      ],
+      "retrieved_ids": [
+        "BananaGranola",
+        "JasmineBrownRice",
+        "KhaoHang",
+        "RiceberryBrownRice",
+        "BrownRiceCookie",
+        "CricketCrispy",
+        "MakMaoJuice"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "semantic",
+      "query_thai": "หาของฝากจากสกลนคร",
+      "expected_count": 15,
+      "retrieved_count": 15,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 12.54,
+      "response_time_min_ms": 10.51,
+      "response_time_max_ms": 15.31,
+      "response_time_median_ms": 12.52,
+      "response_times": [
+        15.31,
+        10.51,
+        11.27,
+        13.11,
+        12.52
+      ],
+      "expected_ids": [
+        "SaltedEgg",
+        "BananaChips",
+        "PotatoChipsHerbal",
+        "MangoPreserved",
+        "NamPlaRaSeasoned",
+        "MakMaoJuice",
+        "NamPrikPlaRaBong",
+        "PorkCrispySheet",
+        "BrownRiceCookie",
+        "CricketCrispy",
+        "HerbalCookie",
+        "PlaSomFak",
+        "NaemNueng",
+        "SaiKrokIsan",
+        "MakMaoWine"
+      ],
+      "retrieved_ids": [
+        "SaltedEgg",
+        "BananaChips",
+        "PotatoChipsHerbal",
+        "MangoPreserved",
+        "NamPlaRaSeasoned",
+        "MakMaoJuice",
+        "NamPrikPlaRaBong",
+        "PorkCrispySheet",
+        "BrownRiceCookie",
+        "CricketCrispy",
+        "HerbalCookie",
+        "PlaSomFak",
+        "NaemNueng",
+        "SaiKrokIsan",
+        "MakMaoWine"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์ที่ซื้อออนไลน์ได้",
+      "expected_count": 2,
+      "retrieved_count": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 12.32,
+      "response_time_min_ms": 9.19,
+      "response_time_max_ms": 20.33,
+      "response_time_median_ms": 9.98,
+      "response_times": [
+        20.33,
+        12.14,
+        9.19,
+        9.98,
+        9.97
+      ],
+      "expected_ids": [
+        "CricketCrispy",
+        "MakMaoWine"
+      ],
+      "retrieved_ids": [
+        "CricketCrispy",
+        "MakMaoWine"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์ราคาถูกไม่เกิน 50 บาท",
+      "expected_count": 14,
+      "retrieved_count": 14,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 13.62,
+      "response_time_min_ms": 11.68,
+      "response_time_max_ms": 17.66,
+      "response_time_median_ms": 12.1,
+      "response_times": [
+        12.1,
+        11.68,
+        14.83,
+        11.82,
+        17.66
+      ],
+      "expected_ids": [
+        "OrganicLime",
+        "SaltedEgg",
+        "PeanutRoasted",
+        "BananaChips",
+        "BananaGranola",
+        "PotatoChipsHerbal",
+        "MangoPreserved",
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaHerbal",
+        "MakMaoJuice",
+        "PorkCrispySheet",
+        "JasmineBrownRice",
+        "RiceberryBrownRice",
+        "NamPrikPlaRaBong"
+      ],
+      "retrieved_ids": [
+        "OrganicLime",
+        "SaltedEgg",
+        "PeanutRoasted",
+        "BananaChips",
+        "BananaGranola",
+        "PotatoChipsHerbal",
+        "MangoPreserved",
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaHerbal",
+        "MakMaoJuice",
+        "PorkCrispySheet",
+        "JasmineBrownRice",
+        "RiceberryBrownRice",
+        "NamPrikPlaRaBong"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์จากข้าว",
+      "expected_count": 3,
+      "retrieved_count": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 9.28,
+      "response_time_min_ms": 8.08,
+      "response_time_max_ms": 10.3,
+      "response_time_median_ms": 9.22,
+      "response_times": [
+        10.3,
+        9.58,
+        8.08,
+        9.21,
+        9.22
+      ],
+      "expected_ids": [
+        "JasmineBrownRice",
+        "RiceberryBrownRice",
+        "KhaoHang"
+      ],
+      "retrieved_ids": [
+        "JasmineBrownRice",
+        "RiceberryBrownRice",
+        "KhaoHang"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "semantic",
+      "query_thai": "อาหารหมักดอง",
+      "expected_count": 3,
+      "retrieved_count": 3,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 8.95,
+      "response_time_min_ms": 6.44,
+      "response_time_max_ms": 11.79,
+      "response_time_median_ms": 7.66,
+      "response_times": [
+        11.79,
+        11.41,
+        7.47,
+        6.44,
+        7.66
+      ],
+      "expected_ids": [
+        "SaltedEgg",
+        "PlaSomFak",
+        "SaltedFishInOil"
+      ],
+      "retrieved_ids": [
+        "SaltedEgg",
+        "PlaSomFak",
+        "SaltedFishInOil"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์จากแมลง โปรตีนสูง",
+      "expected_count": 1,
+      "retrieved_count": 1,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 14.92,
+      "response_time_min_ms": 7.37,
+      "response_time_max_ms": 26.81,
+      "response_time_median_ms": 8.52,
+      "response_times": [
+        7.92,
+        8.52,
+        26.81,
+        23.99,
+        7.37
+      ],
+      "expected_ids": [
+        "CricketCrispy"
+      ],
+      "retrieved_ids": [
+        "CricketCrispy"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์เครื่องปรุงรส น้ำพริก",
+      "expected_count": 4,
+      "retrieved_count": 4,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 6.1,
+      "response_time_min_ms": 5.42,
+      "response_time_max_ms": 8.23,
+      "response_time_median_ms": 5.62,
+      "response_times": [
+        8.23,
+        5.52,
+        5.62,
+        5.42,
+        5.7
+      ],
+      "expected_ids": [
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaHerbal",
+        "NamPrikPlaRaBong",
+        "NamPrikReadyMade"
+      ],
+      "retrieved_ids": [
+        "NamPlaRaSeasoned",
+        "NamPrikPlaRaHerbal",
+        "NamPrikPlaRaBong",
+        "NamPrikReadyMade"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์จากอำเภอวานรนิวาส",
+      "expected_count": 2,
+      "retrieved_count": 2,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 5.2,
+      "response_time_min_ms": 5.06,
+      "response_time_max_ms": 5.49,
+      "response_time_median_ms": 5.1,
+      "response_times": [
+        5.06,
+        5.1,
+        5.09,
+        5.49,
+        5.24
+      ],
+      "expected_ids": [
+        "ข้าวฮาง",
+        "มันฝรั่งทอดกรอบสมุนไพร"
+      ],
+      "retrieved_ids": [
+        "ข้าวฮาง",
+        "มันฝรั่งทอดกรอบสมุนไพร"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "semantic",
+      "query_thai": "ผลิตภัณฑ์ราคาสูง พรีเมียม 100 บาทขึ้นไป",
+      "expected_count": 8,
+      "retrieved_count": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "response_time_avg_ms": 7.12,
+      "response_time_min_ms": 5.88,
+      "response_time_max_ms": 8.96,
+      "response_time_median_ms": 6.56,
+      "response_times": [
+        8.96,
+        6.56,
+        7.67,
+        6.53,
+        5.88
+      ],
+      "expected_ids": [
+        "MakMaoWine",
+        "Kunchiang_02",
+        "Kunchiang_01",
+        "SaiKrokIsan",
+        "SaltedFishInOil",
+        "NaemNueng",
+        "PlaSomFak",
+        "KhaoHang"
+      ],
+      "retrieved_ids": [
+        "MakMaoWine",
+        "Kunchiang_02",
+        "Kunchiang_01",
+        "SaiKrokIsan",
+        "SaltedFishInOil",
+        "NaemNueng",
+        "PlaSomFak",
+        "KhaoHang"
+      ]
+    }
+  ]
+}

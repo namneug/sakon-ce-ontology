@@ -1,0 +1,1589 @@
+# ============================================
+# ข้อมูลตัวอย่างระบบออนโทโลยีวิสาหกิจชุมชน จ.สกลนคร
+# Sakon Nakhon Community Enterprise Ontology - Sample Data
+# ~250 instances, ~1,500 RDF triples
+# ============================================
+
+@prefix sce: <http://sakon-ce.example.org/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ============================================
+# 1. ที่ตั้ง (Location Instances) - 35 instances
+# ============================================
+
+# จังหวัด
+sce:SakonNakhon a sce:Province ;
+    sce:hasName "จังหวัดสกลนคร" ;
+    sce:hasDescription "จังหวัดสกลนคร ภาคตะวันออกเฉียงเหนือ ประเทศไทย" .
+
+# อำเภอ (12 อำเภอ)
+sce:MueangSakonNakhon a sce:District ;
+    sce:hasName "อำเภอเมืองสกลนคร" ;
+    sce:hasDescription "อำเภอเมืองสกลนคร จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:Kusuman a sce:District ;
+    sce:hasName "อำเภอกุสุมาลย์" ;
+    sce:hasDescription "อำเภอกุสุมาลย์ จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:Phangkhon a sce:District ;
+    sce:hasName "อำเภอพังโคน" ;
+    sce:hasDescription "อำเภอพังโคน จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:PhuPhan a sce:District ;
+    sce:hasName "อำเภอภูพาน" ;
+    sce:hasDescription "อำเภอภูพาน จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:SawangDaenDin a sce:District ;
+    sce:hasName "อำเภอสว่างแดนดิน" ;
+    sce:hasDescription "อำเภอสว่างแดนดิน จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:Wanonniwat a sce:District ;
+    sce:hasName "อำเภอวานรนิวาส" ;
+    sce:hasDescription "อำเภอวานรนิวาส จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:PhonNaKaew a sce:District ;
+    sce:hasName "อำเภอโพนนาแก้ว" ;
+    sce:hasDescription "อำเภอโพนนาแก้ว จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:KhamTaKla a sce:District ;
+    sce:hasName "อำเภอคำตากล้า" ;
+    sce:hasDescription "อำเภอคำตากล้า จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:BanMuang a sce:District ;
+    sce:hasName "อำเภอบ้านม่วง" ;
+    sce:hasDescription "อำเภอบ้านม่วง จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:KutBak a sce:District ;
+    sce:hasName "อำเภอกุดบาก" ;
+    sce:hasDescription "อำเภอกุดบาก จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:AkatAmnuai a sce:District ;
+    sce:hasName "อำเภออากาศอำนวย" ;
+    sce:hasDescription "อำเภออากาศอำนวย จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+sce:BanPong a sce:District ;
+    sce:hasName "อำเภอบ้านโป่ง" ;
+    sce:hasDescription "อำเภอบ้านโป่ง จังหวัดสกลนคร" ;
+    sce:locatedIn sce:SakonNakhon .
+
+# ตำบล (22 ตำบล)
+sce:LaoPoDaeng a sce:SubDistrict ;
+    sce:hasName "ตำบลเหล่าปอแดง" ;
+    sce:hasDescription "ตำบลเหล่าปอแดง อำเภอเมืองสกลนคร" ;
+    sce:locatedIn sce:MueangSakonNakhon .
+
+sce:UmChan a sce:SubDistrict ;
+    sce:hasName "ตำบลอุ่มจาน" ;
+    sce:hasDescription "ตำบลอุ่มจาน อำเภอกุสุมาลย์" ;
+    sce:locatedIn sce:Kusuman .
+
+sce:HaiYong a sce:SubDistrict ;
+    sce:hasName "ตำบลไฮหย่อง" ;
+    sce:hasDescription "ตำบลไฮหย่อง อำเภอพังโคน" ;
+    sce:locatedIn sce:Phangkhon .
+
+sce:SangKho a sce:SubDistrict ;
+    sce:hasName "ตำบลสร้างค้อ" ;
+    sce:hasDescription "ตำบลสร้างค้อ อำเภอภูพาน" ;
+    sce:locatedIn sce:PhuPhan .
+
+sce:KhokSi a sce:SubDistrict ;
+    sce:hasName "ตำบลโคกสี" ;
+    sce:hasDescription "ตำบลโคกสี อำเภอสว่างแดนดิน" ;
+    sce:locatedIn sce:SawangDaenDin .
+
+sce:SawangDaenDin_Sub a sce:SubDistrict ;
+    sce:hasName "ตำบลสว่างแดนดิน" ;
+    sce:hasDescription "ตำบลสว่างแดนดิน อำเภอสว่างแดนดิน" ;
+    sce:locatedIn sce:SawangDaenDin .
+
+sce:NaKham a sce:SubDistrict ;
+    sce:hasName "ตำบลนาคำ" ;
+    sce:hasDescription "ตำบลนาคำ อำเภอวานรนิวาส" ;
+    sce:locatedIn sce:Wanonniwat .
+
+sce:NaKaew a sce:SubDistrict ;
+    sce:hasName "ตำบลนาแก้ว" ;
+    sce:hasDescription "ตำบลนาแก้ว อำเภอโพนนาแก้ว" ;
+    sce:locatedIn sce:PhonNaKaew .
+
+sce:NaTongWattana a sce:SubDistrict ;
+    sce:hasName "ตำบลนาตงวัฒนา" ;
+    sce:hasDescription "ตำบลนาตงวัฒนา อำเภอโพนนาแก้ว" ;
+    sce:locatedIn sce:PhonNaKaew .
+
+sce:BanThon a sce:SubDistrict ;
+    sce:hasName "ตำบลบ้านถ่อน" ;
+    sce:hasDescription "ตำบลบ้านถ่อน อำเภอสว่างแดนดิน" ;
+    sce:locatedIn sce:SawangDaenDin .
+
+sce:ThatonChan a sce:SubDistrict ;
+    sce:hasName "ตำบลท่าต้นจันทร์" ;
+    sce:hasDescription "ตำบลท่าต้นจันทร์ อำเภอคำตากล้า" ;
+    sce:locatedIn sce:KhamTaKla .
+
+sce:Phangkhon_Sub a sce:SubDistrict ;
+    sce:hasName "ตำบลพังโคน" ;
+    sce:hasDescription "ตำบลพังโคน อำเภอพังโคน" ;
+    sce:locatedIn sce:Phangkhon .
+
+sce:BanBua a sce:SubDistrict ;
+    sce:hasName "ตำบลบ้านบัว" ;
+    sce:hasDescription "ตำบลบ้านบัว อำเภอเมืองสกลนคร" ;
+    sce:locatedIn sce:MueangSakonNakhon .
+
+sce:DongMaFai a sce:SubDistrict ;
+    sce:hasName "ตำบลดงมะไฟ" ;
+    sce:hasDescription "ตำบลดงมะไฟ อำเภอเมืองสกลนคร" ;
+    sce:locatedIn sce:MueangSakonNakhon .
+
+sce:PhonNgam a sce:SubDistrict ;
+    sce:hasName "ตำบลโพนงาม" ;
+    sce:hasDescription "ตำบลโพนงาม อำเภออากาศอำนวย" ;
+    sce:locatedIn sce:AkatAmnuai .
+
+sce:NaPhot a sce:SubDistrict ;
+    sce:hasName "ตำบลนาโพธิ์" ;
+    sce:hasDescription "ตำบลนาโพธิ์ อำเภอกุสุมาลย์" ;
+    sce:locatedIn sce:Kusuman .
+
+sce:KutHaed a sce:SubDistrict ;
+    sce:hasName "ตำบลกุดแฮด" ;
+    sce:hasDescription "ตำบลกุดแฮด อำเภอกุดบาก" ;
+    sce:locatedIn sce:KutBak .
+
+sce:TanLoeng a sce:SubDistrict ;
+    sce:hasName "ตำบลตาลเนิ้ง" ;
+    sce:hasDescription "ตำบลตาลเนิ้ง อำเภอเมืองสกลนคร" ;
+    sce:locatedIn sce:MueangSakonNakhon .
+
+sce:NonDaeng a sce:SubDistrict ;
+    sce:hasName "ตำบลโนนแดง" ;
+    sce:hasDescription "ตำบลโนนแดง อำเภอบ้านม่วง" ;
+    sce:locatedIn sce:BanMuang .
+
+sce:NaSo a sce:SubDistrict ;
+    sce:hasName "ตำบลนาซอ" ;
+    sce:hasDescription "ตำบลนาซอ อำเภอวานรนิวาส" ;
+    sce:locatedIn sce:Wanonniwat .
+
+sce:KhokPhu a sce:SubDistrict ;
+    sce:hasName "ตำบลโคกภู" ;
+    sce:hasDescription "ตำบลโคกภู อำเภอภูพาน" ;
+    sce:locatedIn sce:PhuPhan .
+
+sce:LatBuaKhao a sce:SubDistrict ;
+    sce:hasName "ตำบลลาดบัวขาว" ;
+    sce:hasDescription "ตำบลลาดบัวขาว อำเภอบ้านโป่ง" ;
+    sce:locatedIn sce:BanPong .
+
+sce:NongKwang a sce:SubDistrict ;
+    sce:hasName "ตำบลหนองกวั่ง" ;
+    sce:hasDescription "ตำบลหนองกวั่ง อำเภอบ้านม่วง" ;
+    sce:locatedIn sce:BanMuang .
+
+
+# ============================================
+# 2. การรับรองมาตรฐาน (Certification) - 9 instances
+# ============================================
+
+sce:FDA_Certificate a sce:Certification ;
+    sce:hasName "อย." ;
+    sce:hasDescription "สำนักงานคณะกรรมการอาหารและยา (อย.) รับรองความปลอดภัยของอาหาร" .
+
+sce:MPCH_Certificate a sce:Certification ;
+    sce:hasName "มผช." ;
+    sce:hasDescription "มาตรฐานผลิตภัณฑ์ชุมชน (มผช.) รับรองคุณภาพผลิตภัณฑ์ชุมชน" .
+
+sce:OTOP_1Star a sce:Certification ;
+    sce:hasName "OTOP 1 ดาว" ;
+    sce:hasDescription "ผลิตภัณฑ์ OTOP ระดับ 1 ดาว" .
+
+sce:OTOP_2Star a sce:Certification ;
+    sce:hasName "OTOP 2 ดาว" ;
+    sce:hasDescription "ผลิตภัณฑ์ OTOP ระดับ 2 ดาว" .
+
+sce:OTOP_3Star a sce:Certification ;
+    sce:hasName "OTOP 3 ดาว" ;
+    sce:hasDescription "ผลิตภัณฑ์ OTOP ระดับ 3 ดาว" .
+
+sce:OTOP_4Star a sce:Certification ;
+    sce:hasName "OTOP 4 ดาว" ;
+    sce:hasDescription "ผลิตภัณฑ์ OTOP ระดับ 4 ดาว" .
+
+sce:OTOP_5Star a sce:Certification ;
+    sce:hasName "OTOP 5 ดาว" ;
+    sce:hasDescription "ผลิตภัณฑ์ OTOP ระดับ 5 ดาว ระดับสูงสุด" .
+
+sce:OrganicThailand a sce:Certification ;
+    sce:hasName "มาตรฐานเกษตรอินทรีย์" ;
+    sce:hasDescription "มาตรฐานเกษตรอินทรีย์ไทย รับรองกระบวนการผลิตปลอดสารเคมี" .
+
+sce:GMP_Certificate a sce:Certification ;
+    sce:hasName "GMP" ;
+    sce:hasDescription "หลักเกณฑ์วิธีการที่ดีในการผลิต (Good Manufacturing Practice)" .
+
+# ============================================
+# 3. ช่องทางจำหน่าย (DistributionChannel) - 16 instances
+# ============================================
+
+sce:DirectSale a sce:DistributionChannel ;
+    sce:hasName "ขายเอง" ;
+    sce:hasDescription "จำหน่ายเอง ณ ที่ทำการกลุ่มวิสาหกิจชุมชน" .
+
+sce:ConsignmentSale a sce:DistributionChannel ;
+    sce:hasName "ฝากขาย" ;
+    sce:hasDescription "ฝากขายตามร้านค้าต่างๆ" .
+
+sce:CommunityMarket a sce:DistributionChannel ;
+    sce:hasName "ตลาดชุมชน" ;
+    sce:hasDescription "จำหน่ายในตลาดชุมชนและตลาดนัด" .
+
+sce:CommunityShop a sce:DistributionChannel ;
+    sce:hasName "ร้านค้าชุมชน" ;
+    sce:hasDescription "จำหน่ายผ่านร้านค้าชุมชน" .
+
+sce:MadeToOrder a sce:DistributionChannel ;
+    sce:hasName "ผลิตตามสั่ง" ;
+    sce:hasDescription "ผลิตตามคำสั่งซื้อของลูกค้า" .
+
+sce:Broker a sce:DistributionChannel ;
+    sce:hasName "ขายผ่านนายหน้า" ;
+    sce:hasDescription "จำหน่ายผ่านตัวแทนหรือนายหน้า" .
+
+sce:OTOPExhibition a sce:DistributionChannel ;
+    sce:hasName "งาน OTOP" ;
+    sce:hasDescription "จำหน่ายในงานแสดงสินค้า OTOP" .
+
+sce:SouvenirShop a sce:DistributionChannel ;
+    sce:hasName "ร้านของฝาก" ;
+    sce:hasDescription "จำหน่ายผ่านร้านของฝากของที่ระลึก" .
+
+sce:GovernmentOrder a sce:DistributionChannel ;
+    sce:hasName "หน่วยงานราชการ" ;
+    sce:hasDescription "จำหน่ายให้หน่วยงานราชการ" .
+
+sce:OnlineFacebook a sce:DistributionChannel ;
+    sce:hasName "Facebook" ;
+    sce:hasDescription "จำหน่ายออนไลน์ผ่าน Facebook" .
+
+sce:OnlineLINE a sce:DistributionChannel ;
+    sce:hasName "LINE" ;
+    sce:hasDescription "จำหน่ายออนไลน์ผ่าน LINE" .
+
+sce:OnlineShopee a sce:DistributionChannel ;
+    sce:hasName "Shopee" ;
+    sce:hasDescription "จำหน่ายออนไลน์ผ่าน Shopee" .
+
+sce:Hotel a sce:DistributionChannel ;
+    sce:hasName "โรงแรม/รีสอร์ท" ;
+    sce:hasDescription "จำหน่ายผ่านโรงแรมและรีสอร์ท" .
+
+sce:DepartmentStore a sce:DistributionChannel ;
+    sce:hasName "ห้างสรรพสินค้า" ;
+    sce:hasDescription "จำหน่ายในห้างสรรพสินค้า โซน OTOP" .
+
+sce:Restaurant a sce:DistributionChannel ;
+    sce:hasName "ร้านอาหาร" ;
+    sce:hasDescription "จำหน่ายผ่านร้านอาหาร" .
+
+sce:SchoolShop a sce:DistributionChannel ;
+    sce:hasName "ร้านค้าโรงเรียน" ;
+    sce:hasDescription "จำหน่ายในร้านค้าโรงเรียน" .
+
+# ============================================
+# 4. กลุ่มลูกค้าเป้าหมาย (TargetCustomer) - 16 instances
+# ============================================
+
+sce:GeneralConsumer a sce:TargetCustomer ;
+    sce:hasName "ผู้บริโภคทั่วไป" ;
+    sce:hasDescription "ผู้บริโภคทั่วไปในชุมชนและพื้นที่ใกล้เคียง" .
+
+sce:Tourist a sce:TargetCustomer ;
+    sce:hasName "นักท่องเที่ยว" ;
+    sce:hasDescription "นักท่องเที่ยวที่มาเยี่ยมชมจังหวัดสกลนคร" .
+
+sce:GovernmentAgency a sce:TargetCustomer ;
+    sce:hasName "หน่วยงานราชการ" ;
+    sce:hasDescription "หน่วยงานราชการที่สั่งซื้อผลิตภัณฑ์สำหรับงานต่างๆ" .
+
+sce:Reseller a sce:TargetCustomer ;
+    sce:hasName "ผู้ซื้อจำหน่ายต่อ" ;
+    sce:hasDescription "พ่อค้าแม่ค้าที่ซื้อไปจำหน่ายต่อ" .
+
+sce:Restaurant_Customer a sce:TargetCustomer ;
+    sce:hasName "ร้านอาหาร" ;
+    sce:hasDescription "ร้านอาหารที่สั่งซื้อวัตถุดิบหรือผลิตภัณฑ์" .
+
+sce:GiftBuyer a sce:TargetCustomer ;
+    sce:hasName "ผู้ซื้อเป็นของฝาก" ;
+    sce:hasDescription "ผู้ที่ซื้อผลิตภัณฑ์เพื่อเป็นของฝากของที่ระลึก" .
+
+sce:HealthConscious a sce:TargetCustomer ;
+    sce:hasName "ผู้รักสุขภาพ" ;
+    sce:hasDescription "ผู้บริโภคที่ใส่ใจสุขภาพและเลือกอาหารที่มีประโยชน์" .
+
+sce:Elderly a sce:TargetCustomer ;
+    sce:hasName "ผู้สูงอายุ" ;
+    sce:hasDescription "กลุ่มผู้สูงอายุที่ต้องการอาหารเพื่อสุขภาพ" .
+
+sce:Family a sce:TargetCustomer ;
+    sce:hasName "ครอบครัว" ;
+    sce:hasDescription "ครอบครัวที่ต้องการอาหารคุณภาพ" .
+
+sce:ForeignTourist a sce:TargetCustomer ;
+    sce:hasName "ชาวต่างชาติ" ;
+    sce:hasDescription "นักท่องเที่ยวชาวต่างชาติ" .
+
+sce:Student a sce:TargetCustomer ;
+    sce:hasName "นักเรียน" ;
+    sce:hasDescription "นักเรียน นักศึกษา" .
+
+sce:EventOrganizer a sce:TargetCustomer ;
+    sce:hasName "ผู้จัดงานเลี้ยง" ;
+    sce:hasDescription "ผู้จัดงานเลี้ยงและงานสังสรรค์" .
+
+sce:MarketVendor a sce:TargetCustomer ;
+    sce:hasName "แม่ค้าตลาดสด" ;
+    sce:hasDescription "แม่ค้าในตลาดสดที่รับซื้อผลผลิต" .
+
+sce:Housewife a sce:TargetCustomer ;
+    sce:hasName "แม่บ้าน" ;
+    sce:hasDescription "แม่บ้านที่ซื้อเครื่องปรุงและวัตถุดิบประกอบอาหาร" .
+
+sce:WineLover a sce:TargetCustomer ;
+    sce:hasName "ผู้ชื่นชอบไวน์" ;
+    sce:hasDescription "ผู้ที่ชื่นชอบไวน์ผลไม้และเครื่องดื่มพิเศษ" .
+
+sce:InsectFoodFan a sce:TargetCustomer ;
+    sce:hasName "ผู้สนใจอาหารจากแมลง" ;
+    sce:hasDescription "ผู้ที่สนใจอาหารทางเลือกจากแมลง โปรตีนสูง" .
+
+
+# ============================================
+# 5. ประเภทบรรจุภัณฑ์ (PackagingType) - 8 instances
+# ============================================
+
+sce:SealedBag a sce:PackagingType ;
+    sce:hasName "ถุงซีล" ;
+    sce:hasDescription "บรรจุภัณฑ์ถุงพลาสติกซีลสุญญากาศ" .
+
+sce:VacuumBag a sce:PackagingType ;
+    sce:hasName "ถุงสุญญากาศ" ;
+    sce:hasDescription "บรรจุภัณฑ์ถุงสุญญากาศเก็บรักษาได้นาน" .
+
+sce:PlasticBox a sce:PackagingType ;
+    sce:hasName "กล่องพลาสติก" ;
+    sce:hasDescription "บรรจุภัณฑ์กล่องพลาสติกใส" .
+
+sce:GlassBottle a sce:PackagingType ;
+    sce:hasName "ขวดแก้ว" ;
+    sce:hasDescription "บรรจุภัณฑ์ขวดแก้ว" .
+
+sce:PlasticBottle a sce:PackagingType ;
+    sce:hasName "ขวดพลาสติก" ;
+    sce:hasDescription "บรรจุภัณฑ์ขวดพลาสติก" .
+
+sce:PaperBox a sce:PackagingType ;
+    sce:hasName "กล่องกระดาษ" ;
+    sce:hasDescription "บรรจุภัณฑ์กล่องกระดาษ" .
+
+sce:PlasticJar a sce:PackagingType ;
+    sce:hasName "กระปุกพลาสติก" ;
+    sce:hasDescription "บรรจุภัณฑ์กระปุกพลาสติกฝาเกลียว" .
+
+sce:CorkBottle a sce:PackagingType ;
+    sce:hasName "ขวดแก้วปิดคอร์ก" ;
+    sce:hasDescription "บรรจุภัณฑ์ขวดแก้วปิดจุกคอร์ก สำหรับไวน์" .
+
+# ============================================
+# 6. วิธีการผลิต (ProductionMethod) - 4 instances
+# ============================================
+
+sce:Traditional a sce:ProductionMethod ;
+    sce:hasName "ทำมือแบบดั้งเดิม" ;
+    sce:hasDescription "กระบวนการผลิตแบบดั้งเดิม ทำมือ ใช้ภูมิปัญญาท้องถิ่น" .
+
+sce:SemiIndustrial a sce:ProductionMethod ;
+    sce:hasName "กึ่งอุตสาหกรรม" ;
+    sce:hasDescription "กระบวนการผลิตกึ่งอุตสาหกรรม ใช้เครื่องจักรบางส่วน" .
+
+sce:OrganicFarming a sce:ProductionMethod ;
+    sce:hasName "เกษตรอินทรีย์" ;
+    sce:hasDescription "กระบวนการเกษตรอินทรีย์ ไม่ใช้สารเคมี" .
+
+sce:SolarDrying a sce:ProductionMethod ;
+    sce:hasName "อบพลังงานแสงอาทิตย์" ;
+    sce:hasDescription "ใช้ตู้อบพลังงานแสงอาทิตย์ในการตากแห้ง" .
+
+# ============================================
+# 7. ช่วงเวลาจำหน่าย (SeasonalAvailability) - 5 instances
+# ============================================
+
+sce:AllYear a sce:SeasonalAvailability ;
+    sce:hasName "ตลอดปี" ;
+    sce:hasDescription "ผลิตและจำหน่ายได้ตลอดทั้งปี" .
+
+sce:AugToOct a sce:SeasonalAvailability ;
+    sce:hasName "สิงหาคม-ตุลาคม" ;
+    sce:hasDescription "ผลิตตามฤดูกาลหมากเม่า สิงหาคม-ตุลาคม" .
+
+sce:MarToJun a sce:SeasonalAvailability ;
+    sce:hasName "มีนาคม-มิถุนายน" ;
+    sce:hasDescription "ผลิตตามฤดูกาลมะม่วง มีนาคม-มิถุนายน" .
+
+sce:January a sce:SeasonalAvailability ;
+    sce:hasName "มกราคม" ;
+    sce:hasDescription "ผลิตในช่วงเดือนมกราคม ฤดูเก็บเกี่ยวข้าว" .
+
+sce:ExceptRainy a sce:SeasonalAvailability ;
+    sce:hasName "ตลอดปียกเว้นฤดูฝน" ;
+    sce:hasDescription "ผลิตได้ตลอดปียกเว้นช่วงฤดูฝน" .
+
+# ============================================
+# 8. ข้อมูลโภชนาการ (NutritionInfo) - 4 instances
+# ============================================
+
+sce:NutritionInfo_MakMao a sce:NutritionInfo ;
+    sce:hasName "โภชนาการน้ำหมากเม่า" ;
+    sce:hasDescription "แอนโทไซยานิน 299.9 มก./100ก. โพลีฟีนอล 566 มก./100ก. ช่วยลดความเสี่ยงโรคมะเร็ง ชะลอความแก่ ลดโรคหัวใจ" .
+
+sce:NutritionInfo_KhaoHang a sce:NutritionInfo ;
+    sce:hasName "โภชนาการข้าวฮาง" ;
+    sce:hasDescription "เหมาะสำหรับผู้ป่วยเบาหวาน ไขมันสูง โรคหัวใจ โรคอ้วน ไขข้ออักเสบ โรคไต มีใยอาหารสูง วิตามินบีสูง" .
+
+sce:NutritionInfo_Cricket a sce:NutritionInfo ;
+    sce:hasName "โภชนาการจิ้งหรีด" ;
+    sce:hasDescription "โปรตีนสูง อาหารทางเลือกเพื่อสุขภาพ มีแคลเซียมและธาตุเหล็กสูง" .
+
+sce:NutritionInfo_BananaGranola a sce:NutritionInfo ;
+    sce:hasName "โภชนาการกล้วยหน้าธัญพืช" ;
+    sce:hasDescription "กล้วย 50% ถั่ว/งา 30% น้ำตาล 5% น้ำมันพืช 15% มีคุณค่าทางอาหารสูง ไม่ใส่สีและสารกันบูด" .
+
+# ============================================
+# 9. ช่วงราคา (PriceRange) - 5 instances
+# ============================================
+
+sce:PriceRange_Under20 a sce:PriceRange ;
+    sce:hasName "ต่ำกว่า 20 บาท" ;
+    sce:hasDescription "ช่วงราคาต่ำกว่า 20 บาท" .
+
+sce:PriceRange_20to50 a sce:PriceRange ;
+    sce:hasName "20-50 บาท" ;
+    sce:hasDescription "ช่วงราคา 20-50 บาท" .
+
+sce:PriceRange_50to100 a sce:PriceRange ;
+    sce:hasName "50-100 บาท" ;
+    sce:hasDescription "ช่วงราคา 50-100 บาท" .
+
+sce:PriceRange_100to200 a sce:PriceRange ;
+    sce:hasName "100-200 บาท" ;
+    sce:hasDescription "ช่วงราคา 100-200 บาท" .
+
+sce:PriceRange_Over200 a sce:PriceRange ;
+    sce:hasName "มากกว่า 200 บาท" ;
+    sce:hasDescription "ช่วงราคามากกว่า 200 บาท" .
+
+# ============================================
+# 10. รางวัล (Award) - 3 instances
+# ============================================
+
+sce:Award_OTOP5_MakMaoJuice a sce:Award ;
+    sce:hasName "รางวัล OTOP 5 ดาว น้ำหมากเม่า" ;
+    sce:hasDescription "ผลิตภัณฑ์น้ำหมากเม่าพร้อมดื่ม ได้รับรางวัล OTOP 5 ดาว รหัส 471800034" .
+
+sce:Award_OTOP5_KhaoHang a sce:Award ;
+    sce:hasName "รางวัล OTOP 5 ดาว ข้าวฮาง" ;
+    sce:hasDescription "ผลิตภัณฑ์ข้าวฮาง ได้รับรางวัล OTOP 5 ดาว" .
+
+sce:Award_OTOP5_MakMaoWine a sce:Award ;
+    sce:hasName "รางวัล OTOP 5 ดาว ไวน์หมากเม่า" ;
+    sce:hasDescription "ผลิตภัณฑ์ไวน์หมากเม่าภูพาน ได้รับรางวัล OTOP 5 ดาว รหัส 471800059" .
+
+# ============================================
+# 11. ข้อมูลติดต่อ (ContactInfo) - 1 instance
+# ============================================
+
+sce:ContactInfo_CE20 a sce:ContactInfo ;
+    sce:hasName "ข้อมูลติดต่อแปรรูปอาหารบ้านนาโพธิ์" ;
+    sce:hasDescription "ข้อมูลติดต่อวิสาหกิจชุมชนแปรรูปอาหารบ้านนาโพธิ์" ;
+    sce:hasPhoneNumber "087-546-3219" .
+
+
+# ============================================
+# 12. วัตถุดิบ (Ingredient) - 58 instances
+# ============================================
+
+sce:Pork a sce:Ingredient ;
+    sce:hasName "เนื้อหมู" ;
+    sce:hasDescription "เนื้อหมูสด คัดเกรดคุณภาพ" .
+
+sce:PorkFat a sce:Ingredient ;
+    sce:hasName "มันหมู" ;
+    sce:hasDescription "มันหมูสด" .
+
+sce:PorkCasing a sce:Ingredient ;
+    sce:hasName "ไส้หมู" ;
+    sce:hasDescription "ไส้หมูธรรมชาติสำหรับทำไส้กรอก" .
+
+sce:Seasoning_Mix a sce:Ingredient ;
+    sce:hasName "เครื่องปรุงรส" ;
+    sce:hasDescription "เครื่องปรุงรสสูตรดั้งเดิม" .
+
+sce:Peanut a sce:Ingredient ;
+    sce:hasName "ถั่วลิสง" ;
+    sce:hasDescription "ถั่วลิสงคัดเกรดคุณภาพ" .
+
+sce:DuckEgg a sce:Ingredient ;
+    sce:hasName "ไข่เป็ด" ;
+    sce:hasDescription "ไข่เป็ดสด" .
+
+sce:Salt a sce:Ingredient ;
+    sce:hasName "เกลือ" ;
+    sce:hasDescription "เกลือสมุทร" .
+
+sce:Iodine a sce:Ingredient ;
+    sce:hasName "ไอโอดีน" ;
+    sce:hasDescription "ไอโอดีนเสริมสารอาหาร" .
+
+sce:Water a sce:Ingredient ;
+    sce:hasName "น้ำ" ;
+    sce:hasDescription "น้ำสะอาด" .
+
+sce:MakMao a sce:Ingredient ;
+    sce:hasName "หมากเม่า" ;
+    sce:hasDescription "ผลหมากเม่าสุก จากเทือกเขาภูพาน" .
+
+sce:Lime_Fruit a sce:Ingredient ;
+    sce:hasName "มะนาว" ;
+    sce:hasDescription "ผลมะนาวสดเกษตรอินทรีย์" .
+
+sce:JasmineBrownRice_Ing a sce:Ingredient ;
+    sce:hasName "ข้าวขาวดอกมะลิ 105 อินทรีย์กล้อง" ;
+    sce:hasDescription "ข้าวขาวดอกมะลิ 105 ปลูกระบบอินทรีย์ สีเป็นข้าวกล้อง" .
+
+sce:RiceberryBrownRice_Ing a sce:Ingredient ;
+    sce:hasName "ข้าวไรซ์เบอรี่อินทรีย์กล้อง" ;
+    sce:hasDescription "ข้าวไรซ์เบอรี่ปลูกระบบอินทรีย์ สีเป็นข้าวกล้อง" .
+
+sce:HangRice a sce:Ingredient ;
+    sce:hasName "ข้าวฮาง" ;
+    sce:hasDescription "ข้าวฮาง 100% ภูมิปัญญาอีสาน" .
+
+sce:LebMueNangBanana a sce:Ingredient ;
+    sce:hasName "กล้วยเล็บมือนาง" ;
+    sce:hasDescription "กล้วยเล็บมือนางแก่จัด" .
+
+sce:VegetableOil a sce:Ingredient ;
+    sce:hasName "น้ำมันพืช" ;
+    sce:hasDescription "น้ำมันพืชคุณภาพ" .
+
+sce:Syrup a sce:Ingredient ;
+    sce:hasName "น้ำเชื่อม" ;
+    sce:hasDescription "น้ำเชื่อมจากน้ำตาลทราย" .
+
+sce:Sugar a sce:Ingredient ;
+    sce:hasName "น้ำตาลทราย" ;
+    sce:hasDescription "น้ำตาลทรายขาว" .
+
+sce:PalmSugar a sce:Ingredient ;
+    sce:hasName "น้ำตาลปี๊บ" ;
+    sce:hasDescription "น้ำตาลปี๊บจากน้ำตาลมะพร้าว" .
+
+sce:Chili_Dried a sce:Ingredient ;
+    sce:hasName "พริกแห้ง" ;
+    sce:hasDescription "พริกแห้งคัดเกรด" .
+
+sce:Shallot a sce:Ingredient ;
+    sce:hasName "หอมแดง" ;
+    sce:hasDescription "หอมแดงสด" .
+
+sce:Garlic a sce:Ingredient ;
+    sce:hasName "กระเทียม" ;
+    sce:hasDescription "กระเทียมสด" .
+
+sce:FishSauce a sce:Ingredient ;
+    sce:hasName "น้ำปลา" ;
+    sce:hasDescription "น้ำปลาชั้นดี" .
+
+sce:Galangal a sce:Ingredient ;
+    sce:hasName "ข่า" ;
+    sce:hasDescription "ข่าสด" .
+
+sce:Lemongrass a sce:Ingredient ;
+    sce:hasName "ตะไคร้" ;
+    sce:hasDescription "ตะไคร้สด" .
+
+sce:KaffirLimeLeaf a sce:Ingredient ;
+    sce:hasName "ใบมะกรูด" ;
+    sce:hasDescription "ใบมะกรูดสด" .
+
+sce:ShrimpPaste a sce:Ingredient ;
+    sce:hasName "กะปิ" ;
+    sce:hasDescription "กะปิคุณภาพ" .
+
+sce:Tamarind a sce:Ingredient ;
+    sce:hasName "มะขามเปียก" ;
+    sce:hasDescription "มะขามเปียกสด" .
+
+sce:FreshwaterFish a sce:Ingredient ;
+    sce:hasName "ปลาน้ำจืด" ;
+    sce:hasDescription "ปลาน้ำจืด (ปลาตะเพียน ปลานิล)" .
+
+sce:CookedRice a sce:Ingredient ;
+    sce:hasName "ข้าวสุก" ;
+    sce:hasDescription "ข้าวสุกสำหรับหมักปลาส้ม" .
+
+sce:MSG a sce:Ingredient ;
+    sce:hasName "ผงชูรส" ;
+    sce:hasDescription "ผงชูรส" .
+
+sce:WheatFlour a sce:Ingredient ;
+    sce:hasName "แป้งสาลี" ;
+    sce:hasDescription "แป้งสาลีอเนกประสงค์" .
+
+sce:Butter a sce:Ingredient ;
+    sce:hasName "เนย" ;
+    sce:hasDescription "เนยสด" .
+
+sce:Egg a sce:Ingredient ;
+    sce:hasName "ไข่ไก่" ;
+    sce:hasDescription "ไข่ไก่สด" .
+
+sce:BlackSesame a sce:Ingredient ;
+    sce:hasName "งาดำ" ;
+    sce:hasDescription "งาดำคัดเกรด" .
+
+sce:Herbs a sce:Ingredient ;
+    sce:hasName "สมุนไพร" ;
+    sce:hasDescription "สมุนไพรพื้นบ้านหลายชนิด" .
+
+sce:Milk a sce:Ingredient ;
+    sce:hasName "นมสด" ;
+    sce:hasDescription "นมสดพาสเจอร์ไรซ์" .
+
+sce:BrownRice_Flour a sce:Ingredient ;
+    sce:hasName "แป้งข้าวกล้อง" ;
+    sce:hasDescription "แป้งจากข้าวกล้องบด" .
+
+sce:PorkLoin a sce:Ingredient ;
+    sce:hasName "เนื้อหมูสะโพก" ;
+    sce:hasDescription "เนื้อหมูสะโพกไม่มีมัน" .
+
+sce:SoySauce a sce:Ingredient ;
+    sce:hasName "ซีอิ๊วขาว" ;
+    sce:hasDescription "ซีอิ๊วขาว" .
+
+sce:CorianderRoot a sce:Ingredient ;
+    sce:hasName "รากผักชี" ;
+    sce:hasDescription "รากผักชีสด" .
+
+sce:Pepper a sce:Ingredient ;
+    sce:hasName "พริกไทย" ;
+    sce:hasDescription "พริกไทยป่น" .
+
+sce:PorkBelly a sce:Ingredient ;
+    sce:hasName "หมูสามชั้น" ;
+    sce:hasDescription "เนื้อหมูสามชั้น" .
+
+sce:PorkGround a sce:Ingredient ;
+    sce:hasName "เนื้อหมูบด" ;
+    sce:hasDescription "เนื้อหมูบดละเอียด" .
+
+sce:Cucumber a sce:Ingredient ;
+    sce:hasName "แตงกวา" ;
+    sce:hasDescription "แตงกวาสด" .
+
+sce:Lettuce a sce:Ingredient ;
+    sce:hasName "สลัด" ;
+    sce:hasDescription "ผักสลัดสด" .
+
+sce:HolyBasil a sce:Ingredient ;
+    sce:hasName "ใบโหระพา" ;
+    sce:hasDescription "ใบโหระพาสด" .
+
+sce:Mint a sce:Ingredient ;
+    sce:hasName "ใบสะระแหน่" ;
+    sce:hasDescription "ใบสะระแหน่สด" .
+
+sce:Cricket_Organic a sce:Ingredient ;
+    sce:hasName "จิ้งหรีดเลี้ยงอินทรีย์" ;
+    sce:hasDescription "จิ้งหรีดเลี้ยงระบบเกษตรอินทรีย์ อายุ 45-50 วัน" .
+
+sce:RiceBranOil a sce:Ingredient ;
+    sce:hasName "น้ำมันรำข้าว" ;
+    sce:hasDescription "น้ำมันรำข้าวคุณภาพ" .
+
+sce:SeaSalt a sce:Ingredient ;
+    sce:hasName "เกลือทะเล" ;
+    sce:hasDescription "เกลือทะเลธรรมชาติ" .
+
+sce:PandanLeaf a sce:Ingredient ;
+    sce:hasName "ใบเตย" ;
+    sce:hasDescription "ใบเตยหอม" .
+
+sce:Potato_Organic a sce:Ingredient ;
+    sce:hasName "มันฝรั่งเกษตรอินทรีย์" ;
+    sce:hasDescription "มันฝรั่งปลูกระบบเกษตรอินทรีย์" .
+
+sce:TurmericPowder a sce:Ingredient ;
+    sce:hasName "ผงขมิ้น" ;
+    sce:hasDescription "ผงขมิ้นชัน" .
+
+sce:ChiliPowder a sce:Ingredient ;
+    sce:hasName "พริกป่น" ;
+    sce:hasDescription "พริกป่นละเอียด" .
+
+sce:MakMaoFruit_Organic a sce:Ingredient ;
+    sce:hasName "หมากเม่าภูพาน 100%" ;
+    sce:hasDescription "ผลหมากเม่าภูพานสุก 100% เกรดพรีเมียม สำหรับทำไวน์" .
+
+sce:NaturalYeast a sce:Ingredient ;
+    sce:hasName "ยีสต์ธรรมชาติ" ;
+    sce:hasDescription "ยีสต์ธรรมชาติสำหรับหมักไวน์" .
+
+sce:Basil a sce:Ingredient ;
+    sce:hasName "ใบแมงลัก" ;
+    sce:hasDescription "ใบแมงลักสด" .
+
+sce:PlaRa a sce:Ingredient ;
+    sce:hasName "ปลาร้า" ;
+    sce:hasDescription "ปลาร้าหมักแบบดั้งเดิม" .
+
+sce:FishOrganic a sce:Ingredient ;
+    sce:hasName "ปลาอินทรีย์" ;
+    sce:hasDescription "ปลาอินทรีย์สด" .
+
+sce:MangoGreen a sce:Ingredient ;
+    sce:hasName "มะม่วงเขียวเสวย" ;
+    sce:hasDescription "มะม่วงเขียวเสวยแก่พอเหมาะ" .
+
+sce:LimeWater a sce:Ingredient ;
+    sce:hasName "น้ำปูนใส" ;
+    sce:hasDescription "น้ำปูนใสสำหรับแช่ผลไม้" .
+
+sce:SaltWater a sce:Ingredient ;
+    sce:hasName "น้ำเกลือ" ;
+    sce:hasDescription "น้ำเกลือสำหรับแช่" .
+
+sce:ChiliFresh a sce:Ingredient ;
+    sce:hasName "พริกสด" ;
+    sce:hasDescription "พริกสดพื้นบ้าน" .
+
+sce:SeasoningSauce a sce:Ingredient ;
+    sce:hasName "ซอสปรุงรส" ;
+    sce:hasDescription "ซอสปรุงรสสำเร็จ" .
+
+
+# ============================================
+# 13. รีวิว (Review) - 15 instances
+# ============================================
+
+sce:Review_MakMao_01 a sce:Review ;
+    sce:hasName "สมศรี ใจดี" ;
+    sce:hasRating "5.0"^^xsd:decimal ;
+    sce:hasDescription "น้ำหมากเม่าอร่อยมาก รสชาติเข้มข้น ดื่มแล้วสดชื่น เหมาะกับคนรักสุขภาพ" .
+
+sce:Review_MakMao_02 a sce:Review ;
+    sce:hasName "วิชัย สุขสวัสดิ์" ;
+    sce:hasRating "4.5"^^xsd:decimal ;
+    sce:hasDescription "ซื้อไปฝากที่บ้าน ทุกคนชอบ น้ำหมากเม่าหอมเฉพาะตัว อร่อยมาก" .
+
+sce:Review_MakMao_03 a sce:Review ;
+    sce:hasName "นิภา แสงจันทร์" ;
+    sce:hasRating "4.0"^^xsd:decimal ;
+    sce:hasDescription "ดื่มเพื่อสุขภาพ รสชาติดี แต่อยากให้มีขนาดขวดเล็กลงด้วย" .
+
+sce:Review_KhaoHang_01 a sce:Review ;
+    sce:hasName "ประยุทธ์ อินทร์แก้ว" ;
+    sce:hasRating "5.0"^^xsd:decimal ;
+    sce:hasDescription "ข้าวฮางอร่อยมาก หุงง่าย นุ่ม มีกลิ่นหอม เหมาะกับคนเป็นเบาหวาน" .
+
+sce:Review_KhaoHang_02 a sce:Review ;
+    sce:hasName "สุดา วงศ์ศรี" ;
+    sce:hasRating "4.5"^^xsd:decimal ;
+    sce:hasDescription "ซื้อให้คุณแม่กิน ท่านชอบมาก น้ำตาลไม่ขึ้น ข้าวหอมนุ่ม" .
+
+sce:Review_KhaoHang_03 a sce:Review ;
+    sce:hasName "อนุชา คำพลอย" ;
+    sce:hasRating "4.0"^^xsd:decimal ;
+    sce:hasDescription "คุณภาพดี ข้าวเมล็ดสวย แต่ราคาค่อนข้างสูง คุ้มค่ากับคุณภาพ" .
+
+sce:Review_Wine_01 a sce:Review ;
+    sce:hasName "ธนกร เพชรดี" ;
+    sce:hasRating "5.0"^^xsd:decimal ;
+    sce:hasDescription "ไวน์หมากเม่ารสชาติเยี่ยม กลมกล่อม สีสวย กลิ่นหอมเฉพาะตัว ไม่แพ้ไวน์นำเข้า" .
+
+sce:Review_Wine_02 a sce:Review ;
+    sce:hasName "พรทิพย์ มั่นคง" ;
+    sce:hasRating "4.5"^^xsd:decimal ;
+    sce:hasDescription "ซื้อเป็นของขวัญ ผู้รับประทับใจมาก ขวดสวย รสชาตินุ่มนวล" .
+
+sce:Review_Wine_03 a sce:Review ;
+    sce:hasName "มนัส จันทวงศ์" ;
+    sce:hasRating "4.0"^^xsd:decimal ;
+    sce:hasDescription "ไวน์ผลไม้รสดี ดีกรีกำลังพอดี เหมาะสำหรับดื่มเบาๆ" .
+
+sce:Review_PlaSom_01 a sce:Review ;
+    sce:hasName "จินดา สายทอง" ;
+    sce:hasRating "5.0"^^xsd:decimal ;
+    sce:hasDescription "ปลาส้มฟักอร่อยมาก เนื้อนุ่ม ไม่เหม็นคาว ทอดกรอบอร่อย" .
+
+sce:Review_PlaSom_02 a sce:Review ;
+    sce:hasName "สมพร ตรีเพชร" ;
+    sce:hasRating "4.5"^^xsd:decimal ;
+    sce:hasDescription "ปลาส้มฟักรสดี ไม่เปรี้ยวจนเกินไป เนื้อแน่น ราคาเหมาะสม" .
+
+sce:Review_PlaSom_03 a sce:Review ;
+    sce:hasName "รัตนา ภูมิใจ" ;
+    sce:hasRating "4.0"^^xsd:decimal ;
+    sce:hasDescription "ซื้อกลับบ้านทอดกิน อร่อยมาก ปลาส้มสดใหม่ สะอาด" .
+
+sce:Review_PorkSheet_01 a sce:Review ;
+    sce:hasName "กิตติ สุวรรณ" ;
+    sce:hasRating "5.0"^^xsd:decimal ;
+    sce:hasDescription "หมูแผ่นอบกรอบอร่อยมาก ไม่มัน กรอบ หอม ไม่ใช้น้ำมันทอด สุดยอด" .
+
+sce:Review_PorkSheet_02 a sce:Review ;
+    sce:hasName "ปิยะ ลือชา" ;
+    sce:hasRating "4.5"^^xsd:decimal ;
+    sce:hasDescription "กินเป็นของว่างได้เรื่อยๆ กรอบอร่อย ราคาไม่แพง" .
+
+sce:Review_PorkSheet_03 a sce:Review ;
+    sce:hasName "นารี ชัยมงคล" ;
+    sce:hasRating "3.5"^^xsd:decimal ;
+    sce:hasDescription "รสชาติดี แต่อยากให้มีหลายรสมากกว่านี้ เช่น รสพริกไทยดำ" .
+
+
+# ============================================
+# 14. กระบวนการผลิต (ProductionProcess) - 25 instances
+# ============================================
+
+sce:Process_SaiKrokIsan a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตไส้กรอกอีสาน" ;
+    sce:hasDescription "คัดเลือกเนื้อหมู → หั่นเนื้อและมัน → ผสมเครื่องปรุงสูตรดั้งเดิม → บรรจุในไส้หมู → ตากให้แห้ง → บรรจุภัณฑ์" .
+
+sce:Process_Kunchiang_01 a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตกุนเชียง (หนองปลาน้อย)" ;
+    sce:hasDescription "คัดเลือกเนื้อหมูและมัน → สับละเอียด → ผสมเครื่องปรุง → บรรจุในไส้หมู → ตากให้แห้ง → บรรจุภัณฑ์" .
+
+sce:Process_PeanutRoasted a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตถั่วลิสงคั่วทรายน้ำโขง" ;
+    sce:hasDescription "คัดเลือกถั่วลิสง → ล้างและตากแห้ง → คั่วด้วยทรายน้ำโขง → คัดแยกเปลือก → คัดเกรดและบรรจุ" .
+
+sce:Process_SaltedEgg a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตไข่เค็มผสมไอโอดีน" ;
+    sce:hasDescription "คัดเลือกไข่เป็ด → ล้างและเช็ดแห้ง → เตรียมน้ำเกลือผสมไอโอดีน → แช่ไข่ → หมักตามระยะเวลา → ต้มสุก → บรรจุ" .
+
+sce:Process_MakMaoJuice a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตน้ำหมากเม่า" ;
+    sce:hasDescription "คัดเลือกหมากเม่าสุก → ล้างและคัดแยก → สกัดน้ำ → กรอง → พาสเจอร์ไรซ์ → บรรจุขวด → ปิดฝาติดฉลาก" .
+
+sce:Process_OrganicLime a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตมะนาวอินทรีย์" ;
+    sce:hasDescription "ปลูกระบบเกษตรอินทรีย์ → ดูแลไม่ใช้สารเคมี → คัดเลือกผลสมบูรณ์ → คัดเกรด → บรรจุ" .
+
+sce:Process_JasmineBrownRice a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตข้าวขาวดอกมะลิอินทรีย์กล้อง" ;
+    sce:hasDescription "ปลูกระบบอินทรีย์ → เก็บเกี่ยว → สีเป็นข้าวกล้อง → คัดคุณภาพ → บรรจุ" .
+
+sce:Process_RiceberryBrownRice a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตข้าวไรซ์เบอรี่อินทรีย์กล้อง" ;
+    sce:hasDescription "ปลูกระบบอินทรีย์ → เก็บเกี่ยว → สีเป็นข้าวกล้อง → คัดคุณภาพ → บรรจุ" .
+
+sce:Process_KhaoHang a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตข้าวฮาง" ;
+    sce:hasDescription "แช่ข้าวเปลือกในน้ำ → นึ่งให้สุก → ตากแห้ง → สีเป็นข้าวกล้อง → คัดคุณภาพและบรรจุ" .
+
+sce:Process_BananaChips a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตกล้วยเล็บมือนางฉาบ" ;
+    sce:hasDescription "คัดเลือกกล้วย → ปอกเปลือกหั่นบาง → ทอดกรอบ → ปรุงรส → ตาก/อบแห้ง → บรรจุ" .
+
+sce:Process_BananaGranola a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตกล้วยหน้าธัญพืช" ;
+    sce:hasDescription "คัดเลือกกล้วยสุก → ปอกเปลือกหั่น → ทอดกรอบ → สะเด็ดน้ำมัน → โรยธัญพืช → บรรจุ" .
+
+sce:Process_NamPrikReadyMade a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตน้ำพริกสำเร็จรูป" ;
+    sce:hasDescription "คัดเลือกวัตถุดิบ → ล้าง → ตำให้เข้ากัน → ปรุงรส → ตากแดด/อบแห้ง → บรรจุ" .
+
+sce:Process_Kunchiang_02 a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตกุนเชียง (ทุ่งใหญ่สามัคคี)" ;
+    sce:hasDescription "คัดเลือกเนื้อหมูและมัน → สับละเอียด → ผสมเครื่องปรุง → บรรจุในไส้หมู → ตากในที่ร่ม → บรรจุ" .
+
+sce:Process_SaltedFishInOil a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตปลาอินทรีย์เค็มในน้ำมัน" ;
+    sce:hasDescription "คัดเลือกปลาสด → ล้าง → หมักเกลือ → ตากแดด → แช่น้ำมัน → บรรจุขวด" .
+
+sce:Process_HerbalCookie a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตคุกกี้สมุนไพร" ;
+    sce:hasDescription "ผสมแป้งกับเนย น้ำตาล ไข่ → นวด → เติมสมุนไพรและงาดำ → ปั้นและอบ → พักเย็น → บรรจุ" .
+
+sce:Process_BrownRiceCookie a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตคุกกี้ข้าวกล้อง" ;
+    sce:hasDescription "คั่วข้าวกล้องแล้วบด → ผสมเนย น้ำตาล ไข่ นม → เติมข้าวกล้องบดและงาดำ → นวด → ปั้น → อบ 180°C 15-20 นาที → พักเย็น → บรรจุ" .
+
+sce:Process_NamPrikPlaRaBong a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตน้ำพริกปลาร้าบอง" ;
+    sce:hasDescription "คัดเลือกปลาร้า → นึ่งสุกแกะก้าง → คั่วพริกหอมกระเทียมข่าตะไคร้ → โขลกละเอียด → ผัดรวมกับน้ำตาลปี๊บกะปิ → ผัดจนแห้งหอม → พักเย็น → บรรจุ" .
+
+sce:Process_PlaSomFak a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตปลาส้มฟัก" ;
+    sce:hasDescription "คัดเลือกปลาสด แล่เนื้อ → สับละเอียดผสมข้าวสุก → เติมกระเทียมเกลือน้ำตาล → นวดเข้ากัน → ปั้นก้อน → หมัก 3-5 วัน → บรรจุสุญญากาศ" .
+
+sce:Process_NamPlaRaSeasoned a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตน้ำปลาร้าปรุงรส" ;
+    sce:hasDescription "คัดเลือกปลาร้า → ต้มกับน้ำกรองเอาแต่น้ำ → คั่วโขลกเครื่องเทศ → ผัดให้หอม → เติมน้ำปลาร้า น้ำตาลปี๊บ มะขาม → เคี่ยว → กรอง → ต้มฆ่าเชื้ออีกครั้ง → บรรจุขวดร้อน" .
+
+sce:Process_NamPrikPlaRaHerbal a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตน้ำพริกปลาร้าสมุนไพร" ;
+    sce:hasDescription "ล้างนึ่งปลาร้า → แกะเนื้อ → ล้างสมุนไพร → โขลกเครื่องเทศ → ผัดจนหอม → ใส่เนื้อปลาร้า → ปรุงรส → ผัดจนแห้ง → พักเย็น → บรรจุ" .
+
+sce:Process_PorkCrispySheet a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตหมูแผ่นอบกรอบ" ;
+    sce:hasDescription "คัดเลือกเนื้อหมูไม่มีมัน → หั่นบาง → หมักเครื่องปรุง → ตีให้นุ่มบาง → ตากในตู้อบพลังงานแสงอาทิตย์ → อบจนกรอบ → พักเย็น → บรรจุ" .
+
+sce:Process_MangoPreserved a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตมะม่วงแช่อิ่ม" ;
+    sce:hasDescription "คัดเลือกมะม่วงแก่พอเหมาะ → ล้างปอกเปลือก → หั่นชิ้นพอดีคำ → แช่น้ำปูนใส → ล้างแช่น้ำเกลือ → ต้มกับน้ำเชื่อม → ผึ่งแห้ง → บรรจุ" .
+
+sce:Process_NaemNueng a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตแหนมเนือง" ;
+    sce:hasDescription "คัดเลือกหมูสด → บดผสมเครื่องปรุง → หั่นหมูสามชั้นย่าง → เตรียมซอสพิเศษ → เตรียมผักสด → บรรจุแยกส่วน" .
+
+sce:Process_CricketCrispy a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตจิ้งหรีดทอดกรอบ" ;
+    sce:hasDescription "เลี้ยงจิ้งหรีดอินทรีย์ → คัดเลือกอายุ 45-50 วัน → ล้างแช่น้ำเกลือ → ล้างคัดแยก → ทอดน้ำมันรำข้าว → หมักสมุนไพร → อบอุณหภูมิต่ำ → บรรจุสุญญากาศ" .
+
+sce:Process_PotatoChipsHerbal a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตมันฝรั่งทอดกรอบสมุนไพร" ;
+    sce:hasDescription "คัดเลือกมันฝรั่ง → ล้าง → ปอกเปลือกหั่นบาง → แช่น้ำเกลือ → สะเด็ดน้ำ → ทอดน้ำมันรำข้าว → สะเด็ดน้ำมัน → โรยเครื่องปรุงสมุนไพร → พักเย็น → บรรจุ" .
+
+sce:Process_MakMaoWine a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตไวน์หมากเม่า" ;
+    sce:hasDescription "คัดเลือกหมากเม่าสุก (ส.ค.-ต.ค.) → ล้างคัดแยก → บีบคั้นสุญญากาศ → กรอง → ปรับความหวาน → เติมยีสต์ → หมักในถังสแตนเลส 6-12 เดือน → กรองตะกอนบ่มในถังไม้โอ๊ค 3-6 เดือน → บรรจุขวดแก้วปิดคอร์ก" .
+
+
+# ============================================
+# 15. วิสาหกิจชุมชน (CommunityEnterprise) - 24 instances
+# ============================================
+
+sce:CE_01 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแปรรูปอาหารจากเนื้อสัตว์หนองปลาน้อย" ;
+    sce:hasDescription "วิสาหกิจชุมชนแปรรูปเนื้อสัตว์ 145 หมู่ 7 ต.เหล่าปอแดง อ.เมืองสกลนคร จ.สกลนคร 47000" ;
+    sce:locatedIn sce:LaoPoDaeng ;
+    sce:hasProduct sce:SaiKrokIsan , sce:Kunchiang_01 .
+
+sce:CE_02 a sce:CommunityEnterprise ;
+    sce:hasName "ทอผ้ามัดหมี่บ้านงิ้ว" ;
+    sce:hasDescription "วิสาหกิจชุมชน 93 หมู่ 5 ต.อุ่มจาน อ.กุสุมาลย์ จ.สกลนคร 47210" ;
+    sce:locatedIn sce:UmChan ;
+    sce:hasProduct sce:PeanutRoasted .
+
+sce:CE_03 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแม่บ้านเกษตรกรไฮหย่อง" ;
+    sce:hasDescription "วิสาหกิจชุมชน 162 หมู่ 12 ต.ไฮหย่อง อ.พังโคน จ.สกลนคร 47160" ;
+    sce:locatedIn sce:HaiYong ;
+    sce:hasProduct sce:SaltedEgg .
+
+sce:CE_04 a sce:CommunityEnterprise ;
+    sce:hasName "แปรรูปน้ำผลไม้โนนหัวช้าง" ;
+    sce:hasDescription "วิสาหกิจชุมชน 3 หมู่ 8 ต.สร้างค้อ อ.ภูพาน จ.สกลนคร 47180" ;
+    sce:locatedIn sce:SangKho ;
+    sce:hasProduct sce:MakMaoJuice .
+
+sce:CE_05 a sce:CommunityEnterprise ;
+    sce:hasName "บึงโนใน ภัทรภัส การ์เด้น" ;
+    sce:hasDescription "วิสาหกิจชุมชน 169 หมู่ 5 ต.โคกสี อ.สว่างแดนดิน จ.สกลนคร 47110" ;
+    sce:locatedIn sce:KhokSi ;
+    sce:hasProduct sce:OrganicLime .
+
+sce:CE_06 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มเกษตรอินทรีย์สว่างแดนดิน" ;
+    sce:hasDescription "วิสาหกิจชุมชน 248 หมู่ 4 ต.สว่างแดนดิน อ.สว่างแดนดิน จ.สกลนคร 47110" ;
+    sce:locatedIn sce:SawangDaenDin_Sub ;
+    sce:hasProduct sce:JasmineBrownRice , sce:RiceberryBrownRice .
+
+sce:CE_08 a sce:CommunityEnterprise ;
+    sce:hasName "ข้าวฮางทิพย์" ;
+    sce:hasDescription "วิสาหกิจชุมชน 173 หมู่ 9 ต.นาคำ อ.วานรนิวาส จ.สกลนคร" ;
+    sce:locatedIn sce:NaKham ;
+    sce:hasProduct sce:KhaoHang .
+
+sce:CE_09 a sce:CommunityEnterprise ;
+    sce:hasName "แปรรูปผลผลิตเกษตรตำบลนากระตาม" ;
+    sce:hasDescription "วิสาหกิจชุมชน 16 หมู่ 3 ต.นาแก้ว อ.โพนนาแก้ว จ.สกลนคร 47230" ;
+    sce:locatedIn sce:NaKaew ;
+    sce:hasProduct sce:BananaChips .
+
+sce:CE_10 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแม่บ้านเกษตรกรลาดบัวขาว" ;
+    sce:hasDescription "วิสาหกิจชุมชน 92/4 หมู่ 1 ต.ลาดบัวขาว อ.บ้านโป่ง จ.สกลนคร" ;
+    sce:locatedIn sce:LatBuaKhao ;
+    sce:hasProduct sce:BananaGranola .
+
+sce:CE_11 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแม่บ้านเกษตรกรท่าต้นจันทร์" ;
+    sce:hasDescription "วิสาหกิจชุมชน 99 หมู่ 1 ต.ท่าต้นจันทร์ อ.คำตากล้า จ.สกลนคร" ;
+    sce:locatedIn sce:ThatonChan ;
+    sce:hasProduct sce:NamPrikReadyMade .
+
+sce:CE_12 a sce:CommunityEnterprise ;
+    sce:hasName "แม่บ้านเกษตรกรทุ่งใหญ่สามัคคี" ;
+    sce:hasDescription "วิสาหกิจชุมชน 127 หมู่ 3 ต.พังโคน อ.พังโคน จ.สกลนคร" ;
+    sce:locatedIn sce:Phangkhon_Sub ;
+    sce:hasProduct sce:Kunchiang_02 .
+
+sce:CE_13 a sce:CommunityEnterprise ;
+    sce:hasName "ปลาเค็มบ้านโฉลกหลำ" ;
+    sce:hasDescription "วิสาหกิจชุมชน 47/4 หมู่ 7 ต.นาตงวัฒนา อ.โพนนาแก้ว จ.สกลนคร" ;
+    sce:locatedIn sce:NaTongWattana ;
+    sce:hasProduct sce:SaltedFishInOil .
+
+sce:CE_14 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแม่บ้านเกษตรกรประสาทสิทธิ์" ;
+    sce:hasDescription "วิสาหกิจชุมชน 130 หมู่ 3 ต.บ้านถ่อน อ.สว่างแดนดิน จ.สกลนคร" ;
+    sce:locatedIn sce:BanThon ;
+    sce:hasProduct sce:HerbalCookie .
+
+sce:CE_15 a sce:CommunityEnterprise ;
+    sce:hasName "ขนมอบกลุ่มแม่บ้านเกษตรกรหง" ;
+    sce:hasDescription "วิสาหกิจชุมชน 42 หมู่ 6 ต.หนองกวั่ง อ.บ้านม่วง จ.สกลนคร 47140" ;
+    sce:locatedIn sce:NongKwang ;
+    sce:hasProduct sce:BrownRiceCookie .
+
+sce:CE_16 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแปรรูปผลผลิตทางการเกษตรบ้านบัว" ;
+    sce:hasDescription "วิสาหกิจชุมชน 87 หมู่ 3 ต.บ้านบัว อ.เมืองสกลนคร จ.สกลนคร 47000" ;
+    sce:locatedIn sce:BanBua ;
+    sce:hasProduct sce:NamPrikPlaRaBong .
+
+sce:CE_17 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแม่บ้านเกษตรกรดงมะไฟ" ;
+    sce:hasDescription "วิสาหกิจชุมชน 112 หมู่ 4 ต.ดงมะไฟ อ.เมืองสกลนคร จ.สกลนคร 47000" ;
+    sce:locatedIn sce:DongMaFai ;
+    sce:hasProduct sce:PlaSomFak .
+
+sce:CE_18 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแปรรูปอาหารพุทธรักษา" ;
+    sce:hasDescription "วิสาหกิจชุมชน 135 หมู่ 7 ต.ไฮหย่อง อ.พังโคน จ.สกลนคร 47160" ;
+    sce:locatedIn sce:HaiYong ;
+    sce:hasProduct sce:NamPlaRaSeasoned .
+
+sce:CE_19 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแปรรูปอาหารบ้านโพนงาม" ;
+    sce:hasDescription "วิสาหกิจชุมชน 42 หมู่ 6 ต.โพนงาม อ.อากาศอำนวย จ.สกลนคร 47170" ;
+    sce:locatedIn sce:PhonNgam ;
+    sce:hasProduct sce:NamPrikPlaRaHerbal .
+
+sce:CE_20 a sce:CommunityEnterprise ;
+    sce:hasName "แปรรูปอาหารบ้านนาโพธิ์" ;
+    sce:hasDescription "วิสาหกิจชุมชน 123 หมู่ 4 ต.นาโพธิ์ อ.กุสุมาลย์ จ.สกลนคร 47210 ประธานกลุ่ม: นายสมพร สุวรรณรัตน์" ;
+    sce:locatedIn sce:NaPhot ;
+    sce:hasProduct sce:PorkCrispySheet ;
+    sce:hasContactInfo sce:ContactInfo_CE20 .
+
+sce:CE_21 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแปรรูปผลไม้บ้านกุดแฮด" ;
+    sce:hasDescription "วิสาหกิจชุมชน 75 หมู่ 9 ต.กุดแฮด อ.กุดบาก จ.สกลนคร 47180" ;
+    sce:locatedIn sce:KutHaed ;
+    sce:hasProduct sce:MangoPreserved .
+
+sce:CE_22 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแม่บ้านแปรรูปอาหารตำบลตาลเนิ้ง" ;
+    sce:hasDescription "วิสาหกิจชุมชน 18 หมู่ 5 ต.ตาลเนิ้ง อ.เมืองสกลนคร จ.สกลนคร 47000" ;
+    sce:locatedIn sce:TanLoeng ;
+    sce:hasProduct sce:NaemNueng .
+
+sce:CE_23 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มเกษตรอินทรีย์โนนแดง" ;
+    sce:hasDescription "วิสาหกิจชุมชน 118 หมู่ 7 ต.โนนแดง อ.บ้านม่วง จ.สกลนคร 47140" ;
+    sce:locatedIn sce:NonDaeng ;
+    sce:hasProduct sce:CricketCrispy .
+
+sce:CE_24 a sce:CommunityEnterprise ;
+    sce:hasName "กลุ่มแปรรูปผลิตภัณฑ์เกษตรบ้านนาซอ" ;
+    sce:hasDescription "วิสาหกิจชุมชน 65 หมู่ 3 ต.นาซอ อ.วานรนิวาส จ.สกลนคร 47120" ;
+    sce:locatedIn sce:NaSo ;
+    sce:hasProduct sce:PotatoChipsHerbal .
+
+sce:CE_25 a sce:CommunityEnterprise ;
+    sce:hasName "เกษตรกรแปรรูปหมากเม่าภูพาน" ;
+    sce:hasDescription "วิสาหกิจชุมชน 85 หมู่ 5 ต.โคกภู อ.ภูพาน จ.สกลนคร 47180" ;
+    sce:locatedIn sce:KhokPhu ;
+    sce:hasProduct sce:MakMaoWine .
+
+
+# ============================================
+# 16. ผลิตภัณฑ์อาหาร (FoodProduct) - 25 instances
+# ============================================
+
+# ผลิตภัณฑ์ที่ 1: ไส้กรอกอีสาน
+sce:SaiKrokIsan a sce:FoodProduct ;
+    sce:hasName "ไส้กรอกอีสาน" ;
+    sce:hasDescription "ไส้กรอกอีสานสูตรดั้งเดิม เก็บได้นาน 1 สัปดาห์โดยไม่ต้องแช่เย็น" ;
+    sce:hasPrice "140"^^xsd:decimal ;
+    sce:hasWeight "1 กิโลกรัม" ;
+    sce:hasShelfLifeDays "7"^^xsd:integer ;
+    sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:Pork , sce:PorkFat , sce:PorkCasing , sce:Seasoning_Mix ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_3Star ;
+    sce:hasProductionProcess sce:Process_SaiKrokIsan ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_01 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder , sce:GovernmentOrder ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Tourist , sce:GovernmentAgency .
+
+# ผลิตภัณฑ์ที่ 2: กุนเชียง (หนองปลาน้อย)
+sce:Kunchiang_01 a sce:FoodProduct ;
+    sce:hasName "กุนเชียง (หนองปลาน้อย)" ;
+    sce:hasDescription "กุนเชียงสูตรดั้งเดิม จากวิสาหกิจชุมชนหนองปลาน้อย" ;
+    sce:hasPrice "140"^^xsd:decimal ;
+    sce:hasWeight "1 กิโลกรัม" ;
+    sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:Pork , sce:PorkFat , sce:PorkCasing , sce:Seasoning_Mix ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_3Star ;
+    sce:hasProductionProcess sce:Process_Kunchiang_01 ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_01 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
+    sce:targetsCustomer sce:GeneralConsumer .
+
+# ผลิตภัณฑ์ที่ 3: ถั่วลิสงคั่วทรายน้ำโขง
+sce:PeanutRoasted a sce:FoodProduct ;
+    sce:hasName "ถั่วลิสงคั่วทรายน้ำโขง" ;
+    sce:hasDescription "ถั่วลิสงคั่วด้วยทรายน้ำโขง ภูมิปัญญาท้องถิ่น กำลังผลิต 100 กก./เดือน" ;
+    sce:hasPrice "5"^^xsd:decimal ;
+    sce:hasWeight "1 ถุง" ;
+    sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:Peanut ;
+    sce:hasCertification sce:OTOP_4Star ;
+    sce:hasProductionProcess sce:Process_PeanutRoasted ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_02 ;
+    sce:soldVia sce:DirectSale , sce:Broker ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Reseller .
+
+# ผลิตภัณฑ์ที่ 4: ไข่เค็มผสมไอโอดีน
+sce:SaltedEgg a sce:FoodProduct ;
+    sce:hasName "ไข่เค็มผสมไอโอดีน" ;
+    sce:hasDescription "ไข่เค็มผสมไอโอดีน เพิ่มสารอาหาร กำลังผลิต 500 ฟอง/เดือน" ;
+    sce:hasPrice "5"^^xsd:decimal ;
+    sce:hasWeight "1 ฟอง" ;
+    sce:belongsToCategory sce:FermentedFood ;
+    sce:hasIngredient sce:DuckEgg , sce:Salt , sce:Iodine , sce:Water ;
+    sce:hasCertification sce:OTOP_1Star ;
+    sce:hasProductionProcess sce:Process_SaltedEgg ;
+    sce:hasPackaging sce:PlasticBox ;
+    sce:producedBy sce:CE_03 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Restaurant_Customer , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 5: น้ำหมากเม่าพร้อมดื่ม
+sce:MakMaoJuice a sce:FoodProduct ;
+    sce:hasName "น้ำหมากเม่าพร้อมดื่ม" ;
+    sce:hasDescription "น้ำหมากเม่า 100% มีสารแอนโทไซยานิน 299.9 มก./100ก. และสารโพลีฟีนอล 566 มก./100ก. ช่วยลดความเสี่ยงโรคมะเร็ง ชะลอความแก่ ลดโรคหัวใจ กำลังผลิต 750 ขวด/เดือน" ;
+    sce:hasPrice "50"^^xsd:decimal ;
+    sce:hasWeight "1 ขวด" ;
+    sce:belongsToCategory sce:Beverage ;
+    sce:hasIngredient sce:MakMao ;
+    sce:hasCertification sce:FDA_Certificate , sce:MPCH_Certificate , sce:OTOP_5Star ;
+    sce:hasNutritionInfo sce:NutritionInfo_MakMao ;
+    sce:hasProductionProcess sce:Process_MakMaoJuice ;
+    sce:hasPackaging sce:GlassBottle ;
+    sce:producedBy sce:CE_04 ;
+    sce:soldVia sce:DirectSale ;
+    sce:targetsCustomer sce:HealthConscious , sce:Tourist , sce:GiftBuyer ;
+    sce:hasReview sce:Review_MakMao_01 , sce:Review_MakMao_02 , sce:Review_MakMao_03 ;
+    sce:hasAward sce:Award_OTOP5_MakMaoJuice .
+
+# ผลิตภัณฑ์ที่ 6: มะนาวอินทรีย์
+sce:OrganicLime a sce:FoodProduct ;
+    sce:hasName "มะนาวอินทรีย์" ;
+    sce:hasDescription "มะนาวอินทรีย์ ผลใหญ่ กลิ่นหอม มีน้ำมะนาวมาก เกษตรอินทรีย์ กำลังผลิต 10,000 ผล/เดือน" ;
+    sce:hasPrice "2"^^xsd:decimal ;
+    sce:hasWeight "1 ผล" ;
+    sce:belongsToCategory sce:FreshProduce ;
+    sce:hasIngredient sce:Lime_Fruit ;
+    sce:hasCertification sce:OTOP_3Star , sce:OrganicThailand ;
+    sce:hasProductionProcess sce:Process_OrganicLime ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_05 ;
+    sce:soldVia sce:ConsignmentSale , sce:DirectSale ;
+    sce:targetsCustomer sce:Restaurant_Customer , sce:MarketVendor , sce:GeneralConsumer .
+
+# ผลิตภัณฑ์ที่ 7: ข้าวขาวดอกมะลิ 105 อินทรีย์กล้อง
+sce:JasmineBrownRice a sce:FoodProduct ;
+    sce:hasName "ข้าวขาวดอกมะลิ 105 อินทรีย์กล้อง" ;
+    sce:hasDescription "ข้าวอินทรีย์กลิ่นหอม ปลูกระบบเกษตรอินทรีย์ กำลังผลิต 200 กก./เดือน" ;
+    sce:hasPrice "50"^^xsd:decimal ;
+    sce:hasWeight "1 กิโลกรัม" ;
+    sce:belongsToCategory sce:RiceProduct ;
+    sce:hasIngredient sce:JasmineBrownRice_Ing ;
+    sce:hasCertification sce:OTOP_3Star , sce:OrganicThailand ;
+    sce:hasProductionProcess sce:Process_JasmineBrownRice ;
+    sce:hasPackaging sce:VacuumBag ;
+    sce:producedBy sce:CE_06 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:HealthConscious .
+
+# ผลิตภัณฑ์ที่ 8: ข้าวไรซ์เบอรี่อินทรีย์กล้อง
+sce:RiceberryBrownRice a sce:FoodProduct ;
+    sce:hasName "ข้าวไรซ์เบอรี่อินทรีย์กล้อง" ;
+    sce:hasDescription "ข้าวอินทรีย์มีกลิ่นหอม ปลูกระบบเกษตรอินทรีย์ กำลังผลิต 200 กก./เดือน" ;
+    sce:hasPrice "50"^^xsd:decimal ;
+    sce:hasWeight "1 กิโลกรัม" ;
+    sce:belongsToCategory sce:RiceProduct ;
+    sce:hasIngredient sce:RiceberryBrownRice_Ing ;
+    sce:hasCertification sce:OTOP_3Star , sce:OrganicThailand ;
+    sce:hasProductionProcess sce:Process_RiceberryBrownRice ;
+    sce:hasPackaging sce:VacuumBag ;
+    sce:producedBy sce:CE_06 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:HealthConscious .
+
+# ผลิตภัณฑ์ที่ 9: ข้าวฮาง
+sce:KhaoHang a sce:FoodProduct ;
+    sce:hasName "ข้าวฮาง" ;
+    sce:hasDescription "ข้าวฮาง เหมาะสำหรับผู้ป่วยเบาหวาน ไขมันสูง โรคหัวใจ โรคอ้วน ไขข้ออักเสบ โรคไต กำลังผลิต 600 กก./เดือน" ;
+    sce:hasPrice "100"^^xsd:decimal ;
+    sce:hasWeight "1 กิโลกรัม" ;
+    sce:belongsToCategory sce:RiceProduct ;
+    sce:hasIngredient sce:HangRice ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_5Star ;
+    sce:hasNutritionInfo sce:NutritionInfo_KhaoHang ;
+    sce:hasProductionProcess sce:Process_KhaoHang ;
+    sce:hasPackaging sce:VacuumBag ;
+    sce:producedBy sce:CE_08 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
+    sce:targetsCustomer sce:HealthConscious , sce:Elderly , sce:GeneralConsumer ;
+    sce:hasReview sce:Review_KhaoHang_01 , sce:Review_KhaoHang_02 , sce:Review_KhaoHang_03 ;
+    sce:hasAward sce:Award_OTOP5_KhaoHang .
+
+# ผลิตภัณฑ์ที่ 10: กล้วยเล็บมือนางฉาบ
+sce:BananaChips a sce:FoodProduct ;
+    sce:hasName "กล้วยเล็บมือนางฉาบ" ;
+    sce:hasDescription "กล้วยเล็บมือนางฉาบ อร่อย สะอาด ถูกหลักอนามัย" ;
+    sce:hasPrice "10"^^xsd:decimal ;
+    sce:hasWeight "1 ถุง" ;
+    sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:LebMueNangBanana , sce:VegetableOil , sce:Syrup , sce:Salt ;
+    sce:hasCertification sce:MPCH_Certificate , sce:OTOP_2Star ;
+    sce:hasProductionProcess sce:Process_BananaChips ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_09 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 11: กล้วยหน้าธัญพืช
+sce:BananaGranola a sce:FoodProduct ;
+    sce:hasName "กล้วยหน้าธัญพืช" ;
+    sce:hasDescription "กล้วยหน้าธัญพืช กรอบ หอม ไม่ใส่สีและสารกันบูด มีคุณค่าทางอาหาร กำลังผลิต 800 ถุง/เดือน" ;
+    sce:hasPrice "20"^^xsd:decimal ;
+    sce:hasWeight "1 ถุง" ;
+    sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:LebMueNangBanana , sce:Peanut , sce:BlackSesame , sce:Sugar , sce:VegetableOil ;
+    sce:hasCertification sce:FDA_Certificate ;
+    sce:hasNutritionInfo sce:NutritionInfo_BananaGranola ;
+    sce:hasProductionProcess sce:Process_BananaGranola ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_10 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:HealthConscious .
+
+# ผลิตภัณฑ์ที่ 12: น้ำพริกสำเร็จรูป
+sce:NamPrikReadyMade a sce:FoodProduct ;
+    sce:hasName "น้ำพริกสำเร็จรูป" ;
+    sce:hasDescription "น้ำพริกสำเร็จรูป รสชาติอร่อย เข้มข้น ปราศจากสารกันบูด ตำด้วยมือ กำลังผลิต 500 กล่อง/เดือน" ;
+    sce:hasPrice "90"^^xsd:decimal ;
+    sce:hasWeight "1 กล่อง" ;
+    sce:belongsToCategory sce:Seasoning ;
+    sce:hasIngredient sce:Chili_Dried , sce:Shallot , sce:Garlic , sce:FishSauce , sce:Sugar ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_3Star ;
+    sce:hasProductionProcess sce:Process_NamPrikReadyMade ;
+    sce:hasPackaging sce:PlasticJar ;
+    sce:producedBy sce:CE_11 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:Broker , sce:MadeToOrder ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Housewife .
+
+# ผลิตภัณฑ์ที่ 13: กุนเชียง (ทุ่งใหญ่สามัคคี)
+sce:Kunchiang_02 a sce:FoodProduct ;
+    sce:hasName "กุนเชียง (ทุ่งใหญ่สามัคคี)" ;
+    sce:hasDescription "กุนเชียง สะอาด ไม่ใส่สารกันบูด เก็บในตู้เย็นได้ 15 วัน กำลังผลิต 100 กก./เดือน" ;
+    sce:hasPrice "160"^^xsd:decimal ;
+    sce:hasWeight "1 กิโลกรัม" ;
+    sce:hasShelfLifeDays "15"^^xsd:integer ;
+    sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:Pork , sce:PorkFat , sce:PorkCasing , sce:Sugar , sce:Salt ;
+    sce:hasCertification sce:OTOP_3Star ;
+    sce:hasProductionProcess sce:Process_Kunchiang_02 ;
+    sce:hasPackaging sce:VacuumBag ;
+    sce:producedBy sce:CE_12 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
+    sce:targetsCustomer sce:GeneralConsumer .
+
+
+# ผลิตภัณฑ์ที่ 14: ปลาอินทรีย์เค็มในน้ำมัน
+sce:SaltedFishInOil a sce:FoodProduct ;
+    sce:hasName "ปลาอินทรีย์เค็มในน้ำมัน" ;
+    sce:hasDescription "ปลาอินทรีย์เค็มในน้ำมัน หอม เนื้อนิ่ม ไม่เค็ม ไม่มีสารพิษเจือปน กำลังผลิต 300 ขวด/เดือน" ;
+    sce:hasPrice "120"^^xsd:decimal ;
+    sce:hasWeight "1 ขวด" ;
+    sce:belongsToCategory sce:FermentedFood ;
+    sce:hasIngredient sce:FishOrganic , sce:Salt , sce:VegetableOil ;
+    sce:hasProductionProcess sce:Process_SaltedFishInOil ;
+    sce:hasPackaging sce:GlassBottle ;
+    sce:producedBy sce:CE_13 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
+    sce:targetsCustomer sce:GeneralConsumer .
+
+# ผลิตภัณฑ์ที่ 15: คุกกี้สมุนไพร
+sce:HerbalCookie a sce:FoodProduct ;
+    sce:hasName "คุกกี้สมุนไพร" ;
+    sce:hasDescription "คุกกี้สมุนไพร ใช้สมุนไพรเป็นส่วนประกอบ กำลังผลิต 200 กล่อง/เดือน" ;
+    sce:hasPrice "80"^^xsd:decimal ;
+    sce:hasWeight "1 กล่อง" ;
+    sce:belongsToCategory sce:Bakery ;
+    sce:hasIngredient sce:WheatFlour , sce:Butter , sce:Sugar , sce:Egg , sce:BlackSesame , sce:Herbs ;
+    sce:hasCertification sce:FDA_Certificate ;
+    sce:hasProductionProcess sce:Process_HerbalCookie ;
+    sce:hasPackaging sce:PaperBox ;
+    sce:producedBy sce:CE_14 ;
+    sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 16: คุกกี้ข้าวกล้อง
+sce:BrownRiceCookie a sce:FoodProduct ;
+    sce:hasName "คุกกี้ข้าวกล้อง" ;
+    sce:hasDescription "คุกกี้ข้าวกล้อง ทำจากข้าวกล้องแทนแป้งสาลี คุณค่าโภชนาการสูง ไม่มีสารกันบูด กรอบ หอมเฉพาะตัว กำลังผลิต 250 กล่อง/เดือน" ;
+    sce:hasPrice "55"^^xsd:decimal ;
+    sce:hasWeight "1 กล่อง" ;
+    sce:belongsToCategory sce:Bakery ;
+    sce:hasIngredient sce:BrownRice_Flour , sce:Butter , sce:Sugar , sce:Milk , sce:Egg , sce:BlackSesame ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_4Star ;
+    sce:hasProductionProcess sce:Process_BrownRiceCookie ;
+    sce:hasPackaging sce:PaperBox ;
+    sce:producedBy sce:CE_15 ;
+    sce:soldVia sce:DirectSale , sce:CommunityShop , sce:SouvenirShop , sce:OTOPExhibition ;
+    sce:targetsCustomer sce:HealthConscious , sce:Elderly , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 17: น้ำพริกปลาร้าบอง
+sce:NamPrikPlaRaBong a sce:FoodProduct ;
+    sce:hasName "น้ำพริกปลาร้าบอง" ;
+    sce:hasDescription "น้ำพริกปลาร้าบอง รสชาติเข้มข้น ไม่ใส่สารกันบูด เก็บได้นานไม่ต้องแช่เย็น กำลังผลิต 350 กระปุก/เดือน" ;
+    sce:hasPrice "50"^^xsd:decimal ;
+    sce:hasWeight "200 กรัม" ;
+    sce:belongsToCategory sce:Seasoning ;
+    sce:hasIngredient sce:PlaRa , sce:Chili_Dried , sce:Shallot , sce:Garlic , sce:Galangal , sce:Lemongrass , sce:KaffirLimeLeaf , sce:PalmSugar , sce:ShrimpPaste ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_3Star ;
+    sce:hasProductionProcess sce:Process_NamPrikPlaRaBong ;
+    sce:hasPackaging sce:PlasticJar ;
+    sce:producedBy sce:CE_16 ;
+    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop , sce:OTOPExhibition ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Restaurant_Customer , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 18: ปลาส้มฟัก
+sce:PlaSomFak a sce:FoodProduct ;
+    sce:hasName "ปลาส้มฟัก" ;
+    sce:hasDescription "ปลาส้มฟัก รสชาติอร่อย กลิ่นหอม เนื้อนุ่ม ไม่เหม็นคาว ไม่ใส่สารกันบูดและสีสังเคราะห์ กำลังผลิต 200 กก./เดือน" ;
+    sce:hasPrice "100"^^xsd:decimal ;
+    sce:hasWeight "1 กิโลกรัม" ;
+    sce:belongsToCategory sce:FermentedFood ;
+    sce:hasIngredient sce:FreshwaterFish , sce:CookedRice , sce:Garlic , sce:Salt , sce:Sugar , sce:MSG ;
+    sce:hasCertification sce:FDA_Certificate , sce:MPCH_Certificate , sce:OTOP_4Star ;
+    sce:hasProductionProcess sce:Process_PlaSomFak ;
+    sce:hasPackaging sce:VacuumBag ;
+    sce:producedBy sce:CE_17 ;
+    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:Restaurant , sce:SouvenirShop , sce:OTOPExhibition ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Restaurant_Customer , sce:Tourist ;
+    sce:hasReview sce:Review_PlaSom_01 , sce:Review_PlaSom_02 , sce:Review_PlaSom_03 .
+
+# ผลิตภัณฑ์ที่ 19: น้ำปลาร้าปรุงรส
+sce:NamPlaRaSeasoned a sce:FoodProduct ;
+    sce:hasName "น้ำปลาร้าปรุงรส" ;
+    sce:hasDescription "น้ำปลาร้าปรุงรส พร้อมใช้ รสชาติจัดจ้าน กลมกล่อม ปราศจากสารกันบูด ผ่านการฆ่าเชื้อมาตรฐาน กำลังผลิต 500 ขวด/เดือน" ;
+    sce:hasPrice "45"^^xsd:decimal ;
+    sce:hasWeight "500 มล." ;
+    sce:belongsToCategory sce:Seasoning ;
+    sce:hasIngredient sce:PlaRa , sce:Chili_Dried , sce:Garlic , sce:Shallot , sce:Lemongrass , sce:Galangal , sce:KaffirLimeLeaf , sce:PalmSugar , sce:Tamarind , sce:Water ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_3Star ;
+    sce:hasProductionProcess sce:Process_NamPlaRaSeasoned ;
+    sce:hasPackaging sce:PlasticBottle ;
+    sce:producedBy sce:CE_18 ;
+    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop , sce:OTOPExhibition , sce:SouvenirShop ;
+    sce:targetsCustomer sce:Housewife , sce:Restaurant_Customer , sce:Tourist , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 20: น้ำพริกปลาร้าสมุนไพร
+sce:NamPrikPlaRaHerbal a sce:FoodProduct ;
+    sce:hasName "น้ำพริกปลาร้าสมุนไพร" ;
+    sce:hasDescription "น้ำพริกปลาร้าสมุนไพร ผสมสมุนไพรพื้นบ้าน เข้มข้น กลมกล่อม ดีต่อสุขภาพ ไม่ใส่สารกันบูด กำลังผลิต 500 กระปุก/เดือน" ;
+    sce:hasPrice "45"^^xsd:decimal ;
+    sce:hasWeight "200 กรัม" ;
+    sce:belongsToCategory sce:Seasoning ;
+    sce:hasIngredient sce:PlaRa , sce:ChiliFresh , sce:Chili_Dried , sce:Garlic , sce:Shallot , sce:Galangal , sce:Lemongrass , sce:KaffirLimeLeaf , sce:Basil , sce:PalmSugar ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_4Star ;
+    sce:hasProductionProcess sce:Process_NamPrikPlaRaHerbal ;
+    sce:hasPackaging sce:PlasticJar ;
+    sce:producedBy sce:CE_19 ;
+    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop , sce:OTOPExhibition ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Housewife .
+
+# ผลิตภัณฑ์ที่ 21: หมูแผ่นอบกรอบ
+sce:PorkCrispySheet a sce:FoodProduct ;
+    sce:hasName "หมูแผ่นอบกรอบ" ;
+    sce:hasDescription "หมูแผ่นอบกรอบ ไม่ใช้น้ำมันทอด หอมอร่อย กรอบ ไม่อมน้ำมัน ดีต่อสุขภาพ กำลังผลิต 300 ห่อ/เดือน" ;
+    sce:hasPrice "50"^^xsd:decimal ;
+    sce:hasWeight "100 กรัม" ;
+    sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:PorkLoin , sce:FishSauce , sce:SoySauce , sce:CorianderRoot , sce:Garlic , sce:Pepper , sce:Sugar ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_4Star ;
+    sce:hasProductionProcess sce:Process_PorkCrispySheet ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_20 ;
+    sce:soldVia sce:DirectSale , sce:CommunityShop , sce:CommunityMarket , sce:OTOPExhibition , sce:SouvenirShop ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:Tourist , sce:GiftBuyer ;
+    sce:hasReview sce:Review_PorkSheet_01 , sce:Review_PorkSheet_02 , sce:Review_PorkSheet_03 .
+
+# ผลิตภัณฑ์ที่ 22: มะม่วงแช่อิ่ม
+sce:MangoPreserved a sce:FoodProduct ;
+    sce:hasName "มะม่วงแช่อิ่ม" ;
+    sce:hasDescription "มะม่วงแช่อิ่ม จากมะม่วงเขียวเสวย ผลิตตามฤดูกาลมะม่วง มีนาคม-มิถุนายน" ;
+    sce:hasPrice "40"^^xsd:decimal ;
+    sce:hasWeight "1 ถุง" ;
+    sce:belongsToCategory sce:FruitProduct ;
+    sce:hasIngredient sce:MangoGreen , sce:LimeWater , sce:SaltWater , sce:Syrup ;
+    sce:hasProductionProcess sce:Process_MangoPreserved ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_21 ;
+    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop , sce:OTOPExhibition ;
+    sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 23: แหนมเนือง
+sce:NaemNueng a sce:FoodProduct ;
+    sce:hasName "แหนมเนือง" ;
+    sce:hasDescription "แหนมเนือง สูตรดั้งเดิมแบบเวียดนาม กลมกล่อม ไม่เผ็ดเกินไป เหมาะทุกเพศทุกวัย กำลังผลิต 300 ชุด/เดือน" ;
+    sce:hasPrice "120"^^xsd:decimal ;
+    sce:hasWeight "1 ชุด (สำหรับ 2-3 คน)" ;
+    sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:PorkGround , sce:PorkBelly , sce:Garlic , sce:Pepper , sce:Sugar , sce:SeasoningSauce , sce:Cucumber , sce:Lettuce , sce:HolyBasil , sce:Mint ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_4Star ;
+    sce:hasProductionProcess sce:Process_NaemNueng ;
+    sce:hasPackaging sce:PlasticBox ;
+    sce:producedBy sce:CE_22 ;
+    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:OTOPExhibition , sce:MadeToOrder ;
+    sce:targetsCustomer sce:Family , sce:EventOrganizer , sce:Tourist , sce:ForeignTourist .
+
+# ผลิตภัณฑ์ที่ 24: จิ้งหรีดทอดกรอบปรุงรส
+sce:CricketCrispy a sce:FoodProduct ;
+    sce:hasName "จิ้งหรีดทอดกรอบปรุงรส" ;
+    sce:hasDescription "จิ้งหรีดทอดกรอบปรุงรส กรอบ โปรตีนสูง อาหารทางเลือกเพื่อสุขภาพ ไม่มีสารกันบูด กำลังผลิต 500 ถุง/เดือน" ;
+    sce:hasPrice "65"^^xsd:decimal ;
+    sce:hasWeight "30 กรัม" ;
+    sce:belongsToCategory sce:InsectFood ;
+    sce:hasIngredient sce:Cricket_Organic , sce:RiceBranOil , sce:SeaSalt , sce:KaffirLimeLeaf , sce:PandanLeaf , sce:Lemongrass , sce:ChiliPowder ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_3Star ;
+    sce:hasNutritionInfo sce:NutritionInfo_Cricket ;
+    sce:hasProductionProcess sce:Process_CricketCrispy ;
+    sce:hasPackaging sce:VacuumBag ;
+    sce:producedBy sce:CE_23 ;
+    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop , sce:OTOPExhibition , sce:OnlineFacebook , sce:OnlineLINE ;
+    sce:targetsCustomer sce:HealthConscious , sce:Tourist , sce:InsectFoodFan , sce:GiftBuyer .
+
+# ผลิตภัณฑ์ที่ 25: มันฝรั่งทอดกรอบสมุนไพร
+sce:PotatoChipsHerbal a sce:FoodProduct ;
+    sce:hasName "มันฝรั่งทอดกรอบสมุนไพร" ;
+    sce:hasDescription "มันฝรั่งทอดกรอบสมุนไพร ปรุงรสสมุนไพรพื้นบ้าน ไม่ใช้สารกันบูด ทอดน้ำมันคุณภาพดี กรอบเป็นเอกลักษณ์ กำลังผลิต 1,000 ถุง/เดือน" ;
+    sce:hasPrice "35"^^xsd:decimal ;
+    sce:hasWeight "50 กรัม" ;
+    sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:Potato_Organic , sce:RiceBranOil , sce:SeaSalt , sce:KaffirLimeLeaf , sce:TurmericPowder , sce:ChiliPowder , sce:Shallot ;
+    sce:hasCertification sce:FDA_Certificate , sce:OTOP_4Star ;
+    sce:hasProductionProcess sce:Process_PotatoChipsHerbal ;
+    sce:hasPackaging sce:SealedBag ;
+    sce:producedBy sce:CE_24 ;
+    sce:soldVia sce:DirectSale , sce:CommunityShop , sce:SchoolShop , sce:OTOPExhibition , sce:SouvenirShop ;
+    sce:targetsCustomer sce:Student , sce:Tourist , sce:GeneralConsumer .
+
+# ผลิตภัณฑ์ที่ 26 (นับเป็นที่ 25 ในระบบ): ไวน์หมากเม่าภูพาน
+sce:MakMaoWine a sce:FoodProduct ;
+    sce:hasName "ไวน์หมากเม่าภูพาน" ;
+    sce:hasDescription "ไวน์หมากเม่าภูพาน สารต้านอนุมูลอิสระสูง สีม่วงแดง กลิ่นหอมเฉพาะตัว กลมกล่อม แอลกอฮอล์ 12-14 ดีกรี กำลังผลิต 300 ขวด/เดือน ผลิตปีละครั้ง ส.ค.-ต.ค." ;
+    sce:hasPrice "350"^^xsd:decimal ;
+    sce:hasWeight "750 มล." ;
+    sce:belongsToCategory sce:AlcoholicBeverage ;
+    sce:hasIngredient sce:MakMaoFruit_Organic , sce:NaturalYeast , sce:Sugar ;
+    sce:hasCertification sce:FDA_Certificate , sce:MPCH_Certificate , sce:OTOP_5Star ;
+    sce:hasProductionProcess sce:Process_MakMaoWine ;
+    sce:hasPackaging sce:CorkBottle ;
+    sce:producedBy sce:CE_25 ;
+    sce:soldVia sce:DirectSale , sce:SouvenirShop , sce:Hotel , sce:OTOPExhibition , sce:DepartmentStore , sce:OnlineFacebook , sce:OnlineLINE , sce:OnlineShopee ;
+    sce:targetsCustomer sce:Tourist , sce:GiftBuyer , sce:WineLover , sce:Restaurant_Customer ;
+    sce:hasReview sce:Review_Wine_01 , sce:Review_Wine_02 , sce:Review_Wine_03 ;
+    sce:hasAward sce:Award_OTOP5_MakMaoWine .
+
+# ============================================
+# จบข้อมูลตัวอย่าง
+# ============================================
+
+# ============================================
+# 17. หมวดหมู่ผลิตภัณฑ์ (ProductCategory) - 11 instances
+# ============================================
+
+sce:ProcessedMeat a sce:ProductCategory ;
+    sce:hasName "แปรรูปเนื้อสัตว์" ;
+    sce:hasDescription "ผลิตภัณฑ์จากการแปรรูปเนื้อสัตว์ เช่น ไส้กรอก กุนเชียง หมูแผ่น" .
+
+sce:Snack a sce:ProductCategory ;
+    sce:hasName "ขนม/ของว่าง" ;
+    sce:hasDescription "ขนมขบเคี้ยวและของว่างต่างๆ" .
+
+sce:Beverage a sce:ProductCategory ;
+    sce:hasName "เครื่องดื่ม" ;
+    sce:hasDescription "เครื่องดื่มไม่มีแอลกอฮอล์" .
+
+sce:RiceProduct a sce:ProductCategory ;
+    sce:hasName "ผลิตภัณฑ์จากข้าว" ;
+    sce:hasDescription "ผลิตภัณฑ์จากข้าวพันธุ์ต่างๆ" .
+
+sce:FermentedFood a sce:ProductCategory ;
+    sce:hasName "อาหารหมักดอง" ;
+    sce:hasDescription "อาหารที่ผ่านกระบวนการหมักดอง" .
+
+sce:Seasoning a sce:ProductCategory ;
+    sce:hasName "เครื่องปรุงรส" ;
+    sce:hasDescription "เครื่องปรุงรสและน้ำพริกต่างๆ" .
+
+sce:FreshProduce a sce:ProductCategory ;
+    sce:hasName "ผลผลิตสด" ;
+    sce:hasDescription "ผลผลิตเกษตรสด ไม่ผ่านกระบวนการแปรรูป" .
+
+sce:Bakery a sce:ProductCategory ;
+    sce:hasName "เบเกอรี่/ขนมอบ" ;
+    sce:hasDescription "ขนมอบต่างๆ เช่น คุกกี้ เค้ก ขนมปัง" .
+
+sce:FruitProduct a sce:ProductCategory ;
+    sce:hasName "ผลิตภัณฑ์จากผลไม้" ;
+    sce:hasDescription "ผลิตภัณฑ์แปรรูปจากผลไม้" .
+
+sce:InsectFood a sce:ProductCategory ;
+    sce:hasName "อาหารจากแมลง" ;
+    sce:hasDescription "อาหารทางเลือกจากแมลง โปรตีนสูง" .
+
+sce:AlcoholicBeverage a sce:ProductCategory ;
+    sce:hasName "เครื่องดื่มแอลกอฮอล์" ;
+    sce:hasDescription "เครื่องดื่มที่มีแอลกอฮอล์ เช่น ไวน์ สุรา" .
+

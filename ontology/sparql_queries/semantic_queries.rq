@@ -1,0 +1,256 @@
+# ============================================
+# SPARQL Queries เชิงความหมาย (Semantic Queries)
+# สำหรับระบบฐานข้อมูลออนโทโลยีวิสาหกิจชุมชน จ.สกลนคร
+# ============================================
+
+PREFIX sce: <http://sakon-ce.example.org/ontology#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# ============================================
+# Query 1: ค้นหาผลิตภัณฑ์สำหรับผู้รักสุขภาพ
+# (ใช้ semantic relationship: targetsCustomer → HealthConscious)
+# ============================================
+# SELECT ?productName ?price ?enterpriseName ?description
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:targetsCustomer sce:HealthConscious ;
+#              sce:producedBy ?enterprise .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     OPTIONAL { ?product sce:hasDescription ?description }
+# }
+# ORDER BY ?price
+
+# ============================================
+# Query 2: ค้นหาผลิตภัณฑ์ที่เหมาะเป็นของฝาก
+# (ผลิตภัณฑ์ที่กลุ่มเป้าหมายคือผู้ซื้อของฝากหรือนักท่องเที่ยว)
+# ============================================
+# SELECT DISTINCT ?productName ?price ?categoryName ?enterpriseName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:belongsToCategory ?category ;
+#              sce:producedBy ?enterprise .
+#     ?category sce:hasName ?categoryName .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     { ?product sce:targetsCustomer sce:GiftBuyer }
+#     UNION
+#     { ?product sce:targetsCustomer sce:Tourist }
+# }
+# ORDER BY ?categoryName ?price
+
+# ============================================
+# Query 3: ค้นหาผลิตภัณฑ์ตามพื้นที่ (อำเภอ)
+# (ใช้ semantic chain: Product → producedBy → Enterprise → locatedIn → SubDistrict)
+# ============================================
+# SELECT ?productName ?price ?enterpriseName ?subDistrictName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:producedBy ?enterprise .
+#     ?enterprise sce:hasName ?enterpriseName ;
+#                 sce:locatedIn ?subDistrict .
+#     ?subDistrict sce:hasName ?subDistrictName .
+# }
+# ORDER BY ?subDistrictName ?productName
+
+# ============================================
+# Query 4: แนะนำผลิตภัณฑ์คล้ายกัน (ตามหมวดหมู่เดียวกัน)
+# เช่น หาผลิตภัณฑ์ในหมวดเดียวกับ "ไส้กรอกอีสาน"
+# ============================================
+# SELECT ?relatedProduct ?relatedName ?relatedPrice
+# WHERE {
+#     sce:SaiKrokIsan sce:belongsToCategory ?category .
+#     ?relatedProduct rdf:type sce:FoodProduct ;
+#                     sce:belongsToCategory ?category ;
+#                     sce:hasName ?relatedName ;
+#                     sce:hasPrice ?relatedPrice .
+#     FILTER (?relatedProduct != sce:SaiKrokIsan)
+# }
+
+# ============================================
+# Query 5: ค้นหาผลิตภัณฑ์ที่มีวัตถุดิบร่วมกัน
+# (Semantic similarity ผ่าน shared ingredients)
+# ============================================
+# SELECT ?product1Name ?product2Name (COUNT(?ingredient) AS ?sharedIngredients)
+# WHERE {
+#     ?product1 rdf:type sce:FoodProduct ;
+#               sce:hasName ?product1Name ;
+#               sce:hasIngredient ?ingredient .
+#     ?product2 rdf:type sce:FoodProduct ;
+#               sce:hasName ?product2Name ;
+#               sce:hasIngredient ?ingredient .
+#     FILTER (STR(?product1) < STR(?product2))
+# }
+# GROUP BY ?product1Name ?product2Name
+# HAVING (COUNT(?ingredient) >= 2)
+# ORDER BY DESC(?sharedIngredients)
+
+# ============================================
+# Query 6: ค้นหาผลิตภัณฑ์ตามฤดูกาล
+# (ผลิตภัณฑ์ที่ผลิตได้ตลอดปี vs ตามฤดูกาล)
+# ============================================
+# SELECT ?productName ?price ?seasonName ?enterpriseName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:producedBy ?enterprise .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     OPTIONAL {
+#         ?product sce:hasDescription ?desc .
+#         FILTER (CONTAINS(?desc, "ฤดูกาล") || CONTAINS(?desc, "ตามฤดู"))
+#     }
+# }
+
+# ============================================
+# Query 7: วิเคราะห์ช่องทางจำหน่ายยอดนิยม
+# (นับจำนวนผลิตภัณฑ์ต่อช่องทาง)
+# ============================================
+# SELECT ?channelName (COUNT(?product) AS ?productCount)
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:soldVia ?channel .
+#     ?channel sce:hasName ?channelName .
+# }
+# GROUP BY ?channelName
+# ORDER BY DESC(?productCount)
+
+# ============================================
+# Query 8: ค้นหาผลิตภัณฑ์ที่ได้มาตรฐานสูงสุด
+# (มีทั้ง อย. + OTOP 4-5 ดาว)
+# ============================================
+# SELECT ?productName ?price ?enterpriseName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:hasCertification sce:FDA_Certificate ;
+#              sce:producedBy ?enterprise .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     {
+#         ?product sce:hasCertification sce:OTOP_4Star .
+#     } UNION {
+#         ?product sce:hasCertification sce:OTOP_5Star .
+#     }
+# }
+# ORDER BY ?productName
+
+# ============================================
+# Query 9: แนะนำผลิตภัณฑ์ตามช่วงราคา
+# ============================================
+# SELECT ?productName ?price ?categoryName ?enterpriseName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:belongsToCategory ?category ;
+#              sce:producedBy ?enterprise .
+#     ?category sce:hasName ?categoryName .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     FILTER (?price >= 40 && ?price <= 100)
+# }
+# ORDER BY ?price
+
+# ============================================
+# Query 10: ค้นหาผลิตภัณฑ์ที่ขายออนไลน์
+# ============================================
+# SELECT ?productName ?price ?enterpriseName
+#        (GROUP_CONCAT(?channelName; separator=", ") AS ?onlineChannels)
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:soldVia ?channel ;
+#              sce:producedBy ?enterprise .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     ?channel sce:hasName ?channelName .
+#     FILTER (
+#         ?channel = sce:OnlineFacebook ||
+#         ?channel = sce:OnlineLINE ||
+#         ?channel = sce:OnlineShopee
+#     )
+# }
+# GROUP BY ?productName ?price ?enterpriseName
+# ORDER BY ?productName
+
+# ============================================
+# Query 11: วิเคราะห์ราคาเฉลี่ยตามหมวดหมู่
+# ============================================
+# SELECT ?categoryName (AVG(?price) AS ?avgPrice) (MIN(?price) AS ?minPrice) (MAX(?price) AS ?maxPrice) (COUNT(?product) AS ?count)
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasPrice ?price ;
+#              sce:belongsToCategory ?category .
+#     ?category sce:hasName ?categoryName .
+# }
+# GROUP BY ?categoryName
+# ORDER BY ?avgPrice
+
+# ============================================
+# Query 12: ค้นหาผลิตภัณฑ์ที่มีรีวิวคะแนนสูง
+# ============================================
+# SELECT ?productName ?price (AVG(?rating) AS ?avgRating) (COUNT(?review) AS ?reviewCount)
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:hasReview ?review .
+#     ?review sce:hasRating ?rating .
+# }
+# GROUP BY ?productName ?price
+# HAVING (AVG(?rating) >= 4.0)
+# ORDER BY DESC(?avgRating)
+
+# ============================================
+# Query 13: ค้นหาวิสาหกิจที่มีผลิตภัณฑ์หลากหลายหมวดหมู่
+# ============================================
+# SELECT ?enterpriseName (COUNT(DISTINCT ?category) AS ?categoryCount) (COUNT(?product) AS ?productCount)
+# WHERE {
+#     ?enterprise rdf:type sce:CommunityEnterprise ;
+#                 sce:hasName ?enterpriseName ;
+#                 sce:hasProduct ?product .
+#     ?product sce:belongsToCategory ?category .
+# }
+# GROUP BY ?enterpriseName
+# ORDER BY DESC(?categoryCount)
+
+# ============================================
+# Query 14: Full-text search ค้นหาผลิตภัณฑ์ด้วยคำค้น
+# (ค้นหาจาก ชื่อ หรือ คำอธิบาย)
+# ============================================
+# SELECT ?productName ?price ?description
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price .
+#     OPTIONAL { ?product sce:hasDescription ?description }
+#     FILTER (
+#         CONTAINS(LCASE(?productName), "ปลาร้า") ||
+#         CONTAINS(LCASE(COALESCE(?description, "")), "ปลาร้า")
+#     )
+# }
+
+# ============================================
+# Query 15: ค้นหาผลิตภัณฑ์อินทรีย์ทั้งหมด
+# (ผ่าน certification OrganicThailand หรือ description)
+# ============================================
+# SELECT ?productName ?price ?enterpriseName
+# WHERE {
+#     ?product rdf:type sce:FoodProduct ;
+#              sce:hasName ?productName ;
+#              sce:hasPrice ?price ;
+#              sce:producedBy ?enterprise .
+#     ?enterprise sce:hasName ?enterpriseName .
+#     {
+#         ?product sce:hasCertification sce:OrganicThailand .
+#     } UNION {
+#         ?product sce:hasDescription ?desc .
+#         FILTER (CONTAINS(?desc, "อินทรีย์") || CONTAINS(?desc, "ออร์แกนิก"))
+#     }
+# }

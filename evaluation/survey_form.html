@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบสอบถามความพึงพอใจ - ระบบวิสาหกิจชุมชนสกลนคร</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50:'#ECFDF5',100:'#D1FAE5',200:'#A7F3D0',700:'#047857',800:'#065F46',900:'#064E3B' },
+                        secondary: { 50:'#FFF7ED',100:'#FFEDD5',600:'#EA580C' },
+                        accent: { 100:'#FEF3C7',600:'#D97706' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Sarabun', sans-serif; background-color: #FFF7ED; }
+        .likert-group label { cursor: pointer; transition: all 0.2s; }
+        .likert-group input[type="radio"]:checked + span {
+            background-color: #065F46; color: white; transform: scale(1.05);
+        }
+        .likert-group label:hover span {
+            background-color: #D1FAE5;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-primary-800 text-white py-6 shadow-lg">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h1 class="text-2xl font-bold">แบบสอบถามความพึงพอใจ</h1>
+            <p class="text-primary-200 mt-1">ระบบฐานข้อมูลออนโทโลยีผลิตภัณฑ์อาหารวิสาหกิจชุมชน จ.สกลนคร</p>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 py-8">
+        <form id="surveyForm" onsubmit="submitSurvey(event)">
+
+            <!-- คำชี้แจง -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6 border-l-4 border-primary-800">
+                <h2 class="font-bold text-primary-800 mb-2">คำชี้แจง</h2>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    แบบสอบถามนี้จัดทำขึ้นเพื่อประเมินความพึงพอใจของผู้ใช้งานระบบฐานข้อมูลออนโทโลยีผลิตภัณฑ์อาหารวิสาหกิจชุมชน จังหวัดสกลนคร
+                    กรุณาเลือกคำตอบที่ตรงกับความคิดเห็นของท่านมากที่สุด
+                </p>
+                <div class="mt-3 text-xs text-gray-500">
+                    <strong>เกณฑ์การให้คะแนน:</strong>
+                    5 = มากที่สุด | 4 = มาก | 3 = ปานกลาง | 2 = น้อย | 1 = น้อยที่สุด
+                </div>
+            </div>
+
+            <!-- ข้อมูลทั่วไป -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h2 class="text-lg font-bold text-primary-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 text-sm font-bold">0</span>
+                    ข้อมูลทั่วไปของผู้ตอบแบบสอบถาม
+                </h2>
+
+                <div class="space-y-4">
+                    <!-- เพศ -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">เพศ <span class="text-red-500">*</span></label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="gender" value="male" required class="text-primary-800 focus:ring-primary-700">
+                                <span class="text-sm">ชาย</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="gender" value="female" class="text-primary-800 focus:ring-primary-700">
+                                <span class="text-sm">หญิง</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="gender" value="other" class="text-primary-800 focus:ring-primary-700">
+                                <span class="text-sm">อื่นๆ</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- อายุ -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">อายุ <span class="text-red-500">*</span></label>
+                        <select name="age" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-700">
+                            <option value="">-- เลือกช่วงอายุ --</option>
+                            <option value="under_20">ต่ำกว่า 20 ปี</option>
+                            <option value="20-30">20 - 30 ปี</option>
+                            <option value="31-40">31 - 40 ปี</option>
+                            <option value="41-50">41 - 50 ปี</option>
+                            <option value="over_50">มากกว่า 50 ปี</option>
+                        </select>
+                    </div>
+
+                    <!-- อาชีพ -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">อาชีพ <span class="text-red-500">*</span></label>
+                        <select name="occupation" required class="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-700">
+                            <option value="">-- เลือกอาชีพ --</option>
+                            <option value="student">นักศึกษา</option>
+                            <option value="government">ข้าราชการ/พนักงานรัฐ</option>
+                            <option value="private">พนักงานเอกชน</option>
+                            <option value="business">ธุรกิจส่วนตัว</option>
+                            <option value="agriculture">เกษตรกร</option>
+                            <option value="freelance">อาชีพอิสระ</option>
+                            <option value="other">อื่นๆ</option>
+                        </select>
+                    </div>
+
+                    <!-- ประสบการณ์ -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">ประสบการณ์การซื้อสินค้าออนไลน์ <span class="text-red-500">*</span></label>
+                        <div class="flex flex-wrap gap-3">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="online_exp" value="never" required class="text-primary-800">
+                                <span class="text-sm">ไม่เคย</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="online_exp" value="sometimes" class="text-primary-800">
+                                <span class="text-sm">นานๆ ครั้ง</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="online_exp" value="often" class="text-primary-800">
+                                <span class="text-sm">บ่อย</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="online_exp" value="very_often" class="text-primary-800">
+                                <span class="text-sm">บ่อยมาก</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนที่ 1: ด้านการใช้งาน -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h2 class="text-lg font-bold text-primary-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 text-sm font-bold">1</span>
+                    ด้านการใช้งาน (Usability)
+                </h2>
+                <div class="space-y-5" id="section1">
+                    <div class="likert-item" data-question="u1">
+                        <p class="text-sm text-gray-700 mb-2">1.1 ระบบใช้งานง่ายและสะดวก</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="u2">
+                        <p class="text-sm text-gray-700 mb-2">1.2 การนำทางในเว็บไซต์เข้าใจง่าย</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="u3">
+                        <p class="text-sm text-gray-700 mb-2">1.3 การค้นหาผลิตภัณฑ์ทำได้ง่าย</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="u4">
+                        <p class="text-sm text-gray-700 mb-2">1.4 ข้อมูลผลิตภัณฑ์แสดงผลชัดเจน</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="u5">
+                        <p class="text-sm text-gray-700 mb-2">1.5 ระบบตอบสนองรวดเร็ว</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนที่ 2: ด้านความถูกต้อง -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h2 class="text-lg font-bold text-primary-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 text-sm font-bold">2</span>
+                    ด้านความถูกต้องของข้อมูล (Accuracy)
+                </h2>
+                <div class="space-y-5" id="section2">
+                    <div class="likert-item" data-question="a1">
+                        <p class="text-sm text-gray-700 mb-2">2.1 ผลการค้นหาพื้นฐานตรงกับความต้องการ</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="a2">
+                        <p class="text-sm text-gray-700 mb-2">2.2 ผลการค้นหาเชิงความหมายตรงกับความต้องการ</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="a3">
+                        <p class="text-sm text-gray-700 mb-2">2.3 ข้อมูลผลิตภัณฑ์ครบถ้วนและถูกต้อง</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="a4">
+                        <p class="text-sm text-gray-700 mb-2">2.4 ข้อมูลวิสาหกิจชุมชนครบถ้วนและถูกต้อง</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="a5">
+                        <p class="text-sm text-gray-700 mb-2">2.5 การจัดหมวดหมู่ผลิตภัณฑ์เหมาะสม</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนที่ 3: ด้านประโยชน์ -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h2 class="text-lg font-bold text-primary-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 text-sm font-bold">3</span>
+                    ด้านประโยชน์ (Usefulness)
+                </h2>
+                <div class="space-y-5" id="section3">
+                    <div class="likert-item" data-question="b1">
+                        <p class="text-sm text-gray-700 mb-2">3.1 ระบบช่วยให้เข้าถึงข้อมูลผลิตภัณฑ์ได้ดีขึ้น</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="b2">
+                        <p class="text-sm text-gray-700 mb-2">3.2 การค้นหาเชิงความหมายมีประโยชน์มากกว่าการค้นหาปกติ</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="b3">
+                        <p class="text-sm text-gray-700 mb-2">3.3 ข้อมูลช่วยในการตัดสินใจซื้อสินค้า</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="b4">
+                        <p class="text-sm text-gray-700 mb-2">3.4 ระบบเป็นประโยชน์ต่อการส่งเสริมการตลาดวิสาหกิจชุมชน</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="b5">
+                        <p class="text-sm text-gray-700 mb-2">3.5 อยากใช้ระบบนี้ในการเลือกซื้อสินค้าวิสาหกิจชุมชน</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนที่ 4: ด้านความสวยงาม -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h2 class="text-lg font-bold text-primary-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 text-sm font-bold">4</span>
+                    ด้านความสวยงาม (Design)
+                </h2>
+                <div class="space-y-5" id="section4">
+                    <div class="likert-item" data-question="d1">
+                        <p class="text-sm text-gray-700 mb-2">4.1 หน้าตาเว็บไซต์สวยงามน่าใช้</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="d2">
+                        <p class="text-sm text-gray-700 mb-2">4.2 สีสันและการจัดวางเหมาะสม</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="d3">
+                        <p class="text-sm text-gray-700 mb-2">4.3 ตัวอักษรอ่านง่าย ขนาดเหมาะสม</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ส่วนที่ 5: ความพึงพอใจโดยรวม -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h2 class="text-lg font-bold text-primary-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-800 text-sm font-bold">5</span>
+                    ความพึงพอใจโดยรวม
+                </h2>
+                <div class="space-y-5" id="section5">
+                    <div class="likert-item" data-question="s1">
+                        <p class="text-sm text-gray-700 mb-2">5.1 ความพึงพอใจโดยรวมต่อระบบ</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                    <div class="likert-item" data-question="s2">
+                        <p class="text-sm text-gray-700 mb-2">5.2 จะแนะนำระบบนี้ให้ผู้อื่น</p>
+                        <div class="likert-group flex justify-center gap-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ข้อเสนอแนะ -->
+            <div class="bg-white rounded-xl shadow-md p-6 mb-6">
+                <h2 class="text-lg font-bold text-primary-800 mb-4 flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-full bg-accent-100 flex items-center justify-center text-accent-600 text-sm font-bold">+</span>
+                    ข้อเสนอแนะเพิ่มเติม
+                </h2>
+                <textarea name="suggestions" rows="4" placeholder="กรุณาให้ข้อเสนอแนะเพิ่มเติม (ถ้ามี)..."
+                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary-700 resize-none"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="text-center mb-8">
+                <button type="submit" id="submitBtn"
+                    class="bg-primary-800 text-white px-10 py-3 rounded-xl font-bold text-lg hover:bg-primary-700 transition-colors shadow-lg hover:shadow-xl">
+                    ส่งแบบสอบถาม
+                </button>
+            </div>
+        </form>
+
+        <!-- Success Message (hidden) -->
+        <div id="successMessage" class="hidden text-center py-20">
+            <div class="bg-white rounded-xl shadow-md p-10 max-w-md mx-auto">
+                <span class="text-6xl block mb-4">🎉</span>
+                <h2 class="text-2xl font-bold text-primary-800 mb-2">ขอบคุณครับ/ค่ะ!</h2>
+                <p class="text-gray-600">ข้อมูลของท่านได้ถูกบันทึกเรียบร้อยแล้ว</p>
+                <p class="text-gray-500 text-sm mt-2">ขอบคุณที่สละเวลาตอบแบบสอบถาม</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-primary-200 py-6 text-center text-sm">
+        <p>ระบบฐานข้อมูลออนโทโลยีผลิตภัณฑ์อาหารวิสาหกิจชุมชน จ.สกลนคร</p>
+        <p class="text-primary-300 mt-1">พัฒนาด้วยเทคโนโลยี Semantic Web</p>
+    </footer>
+
+    <script>
+        // สร้าง Likert Scale สำหรับทุกข้อ
+        const labels = ['น้อยที่สุด', 'น้อย', 'ปานกลาง', 'มาก', 'มากที่สุด'];
+        document.querySelectorAll('.likert-item').forEach(item => {
+            const q = item.dataset.question;
+            const group = item.querySelector('.likert-group');
+            for (let i = 1; i <= 5; i++) {
+                const label = document.createElement('label');
+                label.className = 'flex flex-col items-center';
+                label.innerHTML = `
+                    <input type="radio" name="${q}" value="${i}" required class="sr-only">
+                    <span class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-300 flex items-center justify-center text-sm font-bold text-gray-600 transition-all hover:border-primary-800">${i}</span>
+                    <span class="text-xs text-gray-400 mt-1 hidden sm:block">${labels[i-1]}</span>
+                `;
+                group.appendChild(label);
+            }
+        });
+
+        // Submit form
+        function submitSurvey(e) {
+            e.preventDefault();
+            const form = document.getElementById('surveyForm');
+            const formData = new FormData(form);
+            const data = {};
+
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+
+            // Calculate section averages
+            const sections = {
+                usability: ['u1','u2','u3','u4','u5'],
+                accuracy: ['a1','a2','a3','a4','a5'],
+                usefulness: ['b1','b2','b3','b4','b5'],
+                design: ['d1','d2','d3'],
+                satisfaction: ['s1','s2'],
+            };
+
+            data.section_averages = {};
+            for (let [section, keys] of Object.entries(sections)) {
+                const vals = keys.map(k => parseInt(data[k]) || 0);
+                data.section_averages[section] = (vals.reduce((a,b) => a+b, 0) / vals.length).toFixed(2);
+            }
+
+            data.timestamp = new Date().toISOString();
+
+            // Try to send to API
+            const API_URL = 'http://localhost:5050/api/survey';
+            fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(result => {
+                console.log('Survey submitted:', result);
+            })
+            .catch(err => {
+                console.log('API not available, saving locally');
+                // Save to localStorage as fallback
+                const surveys = JSON.parse(localStorage.getItem('surveys') || '[]');
+                surveys.push(data);
+                localStorage.setItem('surveys', JSON.stringify(surveys));
+            });
+
+            // Show success
+            form.classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
