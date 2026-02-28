@@ -2,7 +2,7 @@
 import time
 import json
 from SPARQLWrapper import SPARQLWrapper, JSON, POST, GET
-from config import FUSEKI_QUERY_ENDPOINT, FUSEKI_UPDATE_ENDPOINT, SPARQL_PREFIXES
+from config import FUSEKI_QUERY_ENDPOINT, FUSEKI_UPDATE_ENDPOINT, SPARQL_PREFIXES, FUSEKI_ADMIN_USER, FUSEKI_ADMIN_PASSWORD
 
 
 class FusekiClient:
@@ -12,6 +12,7 @@ class FusekiClient:
         self.query_endpoint = SPARQLWrapper(FUSEKI_QUERY_ENDPOINT)
         self.query_endpoint.setReturnFormat(JSON)
         self.update_endpoint = SPARQLWrapper(FUSEKI_UPDATE_ENDPOINT)
+        self.update_endpoint.setCredentials(FUSEKI_ADMIN_USER, FUSEKI_ADMIN_PASSWORD)
 
     def query(self, sparql_query, include_prefixes=True):
         """ส่ง SPARQL SELECT query และวัดเวลาตอบกลับ"""

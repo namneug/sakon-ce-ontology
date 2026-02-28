@@ -7,6 +7,8 @@ FUSEKI_DATASET = os.getenv('FUSEKI_DATASET', 'sakon_ce')
 FUSEKI_QUERY_ENDPOINT = f"{FUSEKI_URL}/{FUSEKI_DATASET}/sparql"
 FUSEKI_UPDATE_ENDPOINT = f"{FUSEKI_URL}/{FUSEKI_DATASET}/update"
 FUSEKI_DATA_ENDPOINT = f"{FUSEKI_URL}/{FUSEKI_DATASET}/data"
+FUSEKI_ADMIN_USER = os.getenv('FUSEKI_ADMIN_USER', 'admin')
+FUSEKI_ADMIN_PASSWORD = os.getenv('FUSEKI_ADMIN_PASSWORD', 'sakon_ce_admin')
 
 # Namespace ของ Ontology
 SCE_NAMESPACE = "http://sakon-ce.example.org/ontology#"
