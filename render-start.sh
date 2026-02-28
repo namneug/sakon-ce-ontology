@@ -12,13 +12,12 @@ DATASET="${FUSEKI_DATASET:-sakon_ce}"
 FLASK_PORT="${PORT:-10000}"
 ONTOLOGY_DIR="/app/ontology"
 
-# Prevent "Multiple dataset path names given" error:
-# Fuseki writes config files into FUSEKI_BASE on first run.
-# On restart, those leftover configs + the --mem CLI arg = duplicate dataset.
-# Fix: wipe FUSEKI_BASE clean every startup so only --mem is used.
+# Clean FUSEKI_BASE to prevent stale config conflicts.
+# Fuseki auto-generates config files in FUSEKI_BASE; leftover configs
+# from previous runs cause "Multiple dataset path names given" errors.
 export FUSEKI_BASE=/tmp/fuseki-run
 rm -rf "${FUSEKI_BASE}"
-mkdir -p "${FUSEKI_BASE}"
+mkdir -p "${FUSEKI_BASE}" "${FUSEKI_BASE}/databases"
 
 # ==========================================
 # Step 1: Start Flask API FIRST (so Render detects the port)
@@ -39,33 +38,53 @@ GUNICORN_PID=$!
 echo "  Gunicorn started (PID ${GUNICORN_PID}), port ${FLASK_PORT} open for Render."
 
 # ==========================================
-# Step 2: Start Fuseki in background (in-memory mode)
+# Step 2: Start Fuseki in background (no dataset args)
 # ==========================================
-echo "[2/5] Starting Fuseki (in-memory, JVM heap 200m)..."
+echo "[2/5] Starting Fuseki (no CLI dataset, JVM heap 200m)..."
 
 export JVM_ARGS="-Xmx200m -Xms100m"
 
+# Start Fuseki with NO --mem or dataset argument.
+# Dataset will be created via admin API after startup.
 ${FUSEKI_HOME}/fuseki-server \
-    --mem "/${DATASET}" \
     --port=${FUSEKI_PORT} \
     2>&1 &
 FUSEKI_PID=$!
 
 # ==========================================
-# Step 3: Wait for Fuseki to be ready
+# Step 3: Wait for Fuseki to be ready (120s timeout)
 # ==========================================
 echo "[3/5] Waiting for Fuseki to start..."
-MAX_RETRIES=60
+MAX_RETRIES=120
 RETRY=0
 until curl -sf "http://localhost:${FUSEKI_PORT}/\$/ping" > /dev/null 2>&1; do
     RETRY=$((RETRY + 1))
     if [ "$RETRY" -ge "$MAX_RETRIES" ]; then
         echo "[ERROR] Fuseki did not start after ${MAX_RETRIES} seconds"
+        echo "  Last Fuseki logs:"
+        tail -20 "${FUSEKI_BASE}/fuseki.log" 2>/dev/null || echo "  (no log file found)"
+        kill ${FUSEKI_PID} 2>/dev/null || true
         exit 1
     fi
     sleep 1
 done
 echo "  Fuseki is ready! (took ~${RETRY} seconds)"
+
+# ==========================================
+# Step 3b: Create dataset via admin API (TDB2)
+# ==========================================
+echo "  Creating dataset '${DATASET}' via admin API (TDB2)..."
+HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
+    -X POST "http://localhost:${FUSEKI_PORT}/\$/datasets" \
+    -d "dbName=${DATASET}&dbType=tdb2")
+if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+    echo "  Dataset '${DATASET}' created (HTTP ${HTTP_CODE})"
+elif [ "$HTTP_CODE" -eq 409 ]; then
+    echo "  Dataset '${DATASET}' already exists (HTTP 409), continuing..."
+else
+    echo "[ERROR] Failed to create dataset (HTTP ${HTTP_CODE})"
+    exit 1
+fi
 
 # ==========================================
 # Step 4: Load ontology data
