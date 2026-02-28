@@ -4,7 +4,7 @@
 # === ผลิตภัณฑ์ (Products) ===
 
 GET_ALL_PRODUCTS = """
-SELECT ?product ?name ?price ?description ?weight ?categoryName ?enterpriseName ?shelfLife
+SELECT ?product ?name ?price ?description ?weight ?categoryName ?enterpriseName ?shelfLife ?imageUrl
 WHERE {
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
@@ -12,6 +12,7 @@ WHERE {
     OPTIONAL { ?product sce:hasDescription ?description }
     OPTIONAL { ?product sce:hasWeight ?weight }
     OPTIONAL { ?product sce:hasShelfLifeDays ?shelfLife }
+    OPTIONAL { ?product sce:hasImageUrl ?imageUrl }
     OPTIONAL {
         ?product sce:belongsToCategory ?category .
         ?category sce:hasName ?categoryName .
@@ -26,7 +27,7 @@ ORDER BY ?name
 
 GET_PRODUCT_BY_ID = """
 SELECT ?name ?price ?description ?weight ?categoryName ?enterpriseName
-       ?enterpriseDesc ?shelfLife
+       ?enterpriseDesc ?shelfLife ?imageUrl
 WHERE {{
     sce:{product_id} a sce:FoodProduct ;
                      sce:hasName ?name ;
@@ -34,6 +35,7 @@ WHERE {{
     OPTIONAL {{ sce:{product_id} sce:hasDescription ?description }}
     OPTIONAL {{ sce:{product_id} sce:hasWeight ?weight }}
     OPTIONAL {{ sce:{product_id} sce:hasShelfLifeDays ?shelfLife }}
+    OPTIONAL {{ sce:{product_id} sce:hasImageUrl ?imageUrl }}
     OPTIONAL {{
         sce:{product_id} sce:belongsToCategory ?category .
         ?category sce:hasName ?categoryName .
@@ -463,4 +465,84 @@ WHERE {{
     sce:{district_id} sce:hasName ?districtName .
 }}
 ORDER BY ?productName
+"""
+
+# === Admin CRUD Templates ===
+
+INSERT_PRODUCT = """
+INSERT DATA {{
+    sce:{product_id} a sce:FoodProduct ;
+        sce:hasName "{name}" ;
+        sce:hasPrice {price} .
+    {description_triple}
+    {weight_triple}
+    {shelf_life_triple}
+    {category_triple}
+    {enterprise_triple}
+    {image_url_triple}
+}}
+"""
+
+# ใช้ Python format ไม่ได้กับ optional triples ตรงๆ → สร้าง helper
+def build_insert_product(product_id, name, price, description='', weight='',
+                         shelf_life='', category_id='', enterprise_id='', image_url=''):
+    """สร้าง SPARQL INSERT สำหรับผลิตภัณฑ์"""
+    triples = [
+        f'sce:{product_id} a sce:FoodProduct .',
+        f'sce:{product_id} sce:hasName "{name}" .',
+        f'sce:{product_id} sce:hasPrice {price} .',
+    ]
+    if description:
+        triples.append(f'sce:{product_id} sce:hasDescription "{description}" .')
+    if weight:
+        triples.append(f'sce:{product_id} sce:hasWeight "{weight}" .')
+    if shelf_life:
+        triples.append(f'sce:{product_id} sce:hasShelfLifeDays {shelf_life} .')
+    if category_id:
+        triples.append(f'sce:{product_id} sce:belongsToCategory sce:{category_id} .')
+    if enterprise_id:
+        triples.append(f'sce:{product_id} sce:producedBy sce:{enterprise_id} .')
+        triples.append(f'sce:{enterprise_id} sce:hasProduct sce:{product_id} .')
+    if image_url:
+        triples.append(f'sce:{product_id} sce:hasImageUrl "{image_url}" .')
+    body = "\n    ".join(triples)
+    return f"INSERT DATA {{\n    {body}\n}}"
+
+
+DELETE_PRODUCT = """
+DELETE WHERE {{
+    sce:{product_id} ?p ?o .
+}}
+"""
+
+DELETE_PRODUCT_REVERSE = """
+DELETE WHERE {{
+    ?s ?p sce:{product_id} .
+}}
+"""
+
+INSERT_ENTERPRISE = """
+INSERT DATA {{
+    sce:{enterprise_id} a sce:CommunityEnterprise ;
+        sce:hasName "{name}" .
+    {description_triple}
+}}
+"""
+
+def build_insert_enterprise(enterprise_id, name, description=''):
+    """สร้าง SPARQL INSERT สำหรับวิสาหกิจ"""
+    triples = [
+        f'sce:{enterprise_id} a sce:CommunityEnterprise .',
+        f'sce:{enterprise_id} sce:hasName "{name}" .',
+    ]
+    if description:
+        triples.append(f'sce:{enterprise_id} sce:hasDescription "{description}" .')
+    body = "\n    ".join(triples)
+    return f"INSERT DATA {{\n    {body}\n}}"
+
+
+DELETE_ENTERPRISE = """
+DELETE WHERE {{
+    sce:{enterprise_id} ?p ?o .
+}}
 """

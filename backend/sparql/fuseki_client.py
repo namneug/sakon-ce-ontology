@@ -59,6 +59,31 @@ class FusekiClient:
             parsed.append(row)
         return parsed
 
+    def update(self, sparql_update, include_prefixes=True):
+        """ส่ง SPARQL INSERT/DELETE update"""
+        start_time = time.time()
+
+        if include_prefixes and not sparql_update.strip().upper().startswith('PREFIX'):
+            sparql_update = SPARQL_PREFIXES + sparql_update
+
+        try:
+            self.update_endpoint.setQuery(sparql_update)
+            self.update_endpoint.setMethod(POST)
+            self.update_endpoint.query()
+            response_time = round((time.time() - start_time) * 1000, 2)
+
+            return {
+                'success': True,
+                'response_time_ms': response_time
+            }
+        except Exception as e:
+            response_time = round((time.time() - start_time) * 1000, 2)
+            return {
+                'success': False,
+                'error': f'เกิดข้อผิดพลาดในการ update: {str(e)}',
+                'response_time_ms': response_time
+            }
+
     def count_triples(self):
         """นับจำนวน triples ทั้งหมดใน dataset"""
         result = self.query("SELECT (COUNT(*) AS ?count) WHERE { ?s ?p ?o }")

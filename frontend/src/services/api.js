@@ -1,6 +1,8 @@
 import axios from 'axios';
 
 const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:5050/api';
+// Base URL without /api suffix (for serving uploaded files etc.)
+export const API_BASE_URL = API_BASE.replace(/\/api\/?$/, '');
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -39,5 +41,45 @@ export const getSimilarProducts = (id) => api.get(`/recommendations/${id}/simila
 
 // Health
 export const getHealth = () => api.get('/health');
+
+// Upload
+export const uploadImage = (file) => {
+  const formData = new FormData();
+  formData.append('file', file);
+  return api.post('/upload', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+};
+
+// Admin
+export const adminLogin = (username, password) =>
+  api.post('/admin/login', { username, password });
+
+export const adminLogout = (token) =>
+  api.post('/admin/logout', {}, { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminGetProducts = (token) =>
+  api.get('/admin/products', { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminCreateProduct = (token, data) =>
+  api.post('/admin/products', data, { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminUpdateProduct = (token, id, data) =>
+  api.put(`/admin/products/${id}`, data, { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminDeleteProduct = (token, id) =>
+  api.delete(`/admin/products/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminGetEnterprises = (token) =>
+  api.get('/admin/enterprises', { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminCreateEnterprise = (token, data) =>
+  api.post('/admin/enterprises', data, { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminUpdateEnterprise = (token, id, data) =>
+  api.put(`/admin/enterprises/${id}`, data, { headers: { Authorization: `Bearer ${token}` } });
+
+export const adminDeleteEnterprise = (token, id) =>
+  api.delete(`/admin/enterprises/${id}`, { headers: { Authorization: `Bearer ${token}` } });
 
 export default api;

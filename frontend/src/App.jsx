@@ -11,6 +11,8 @@ import SearchResultPage from './pages/SearchResultPage';
 import AnalyticsPage from './pages/AnalyticsPage';
 import OntologyViewerPage from './pages/OntologyViewerPage';
 import AboutPage from './pages/AboutPage';
+import ReportIssuePage from './pages/ReportIssuePage';
+import AdminPage from './pages/AdminPage';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route path="/analytics" element={<AnalyticsPage />} />
             <Route path="/ontology" element={<OntologyViewerPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/report-issue" element={<ReportIssuePage />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </main>
         <Footer />

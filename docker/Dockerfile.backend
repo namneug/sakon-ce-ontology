@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ .
 COPY evaluation/ /app/evaluation/
 
+RUN mkdir -p /app/uploads
+
 EXPOSE 5050
 
 CMD ["python", "app.py"]

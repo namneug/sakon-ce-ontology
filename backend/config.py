@@ -17,6 +17,11 @@ FLASK_HOST = os.getenv('FLASK_HOST', '0.0.0.0')
 FLASK_PORT = int(os.getenv('FLASK_PORT', 5050))
 FLASK_DEBUG = os.getenv('FLASK_ENV', 'production') == 'development'
 
+# Admin
+ADMIN_USERNAME = os.getenv('ADMIN_USERNAME', 'admin')
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD', 'sakon_ce_admin')
+ADMIN_SECRET_KEY = os.getenv('ADMIN_SECRET_KEY', 'sakon-ce-secret-key-2024')
+
 # SPARQL Prefixes ที่ใช้บ่อย
 SPARQL_PREFIXES = """
 PREFIX sce: <http://sakon-ce.example.org/ontology#>

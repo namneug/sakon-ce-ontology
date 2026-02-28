@@ -47,6 +47,8 @@ services:
       - FUSEKI_DATASET=sakon_ce
       - FLASK_HOST=0.0.0.0
       - FLASK_PORT=5050
+    volumes:
+      - ./backend/uploads:/app/uploads
     depends_on:
       fuseki:
         condition: service_healthy

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { StarIcon } from '@heroicons/react/24/solid';
+import { API_BASE_URL } from '../services/api';
 
 const categoryIcons = {
   'แปรรูปเนื้อสัตว์': '🍖',
@@ -31,14 +32,23 @@ export default function ProductCard({ product, index = 0 }) {
   const price = parseFloat(product.price) || 0;
   const category = product.categoryName || '';
   const enterprise = product.enterpriseName || '';
+  const imageUrl = product.imageUrl || '';
   const icon = categoryIcons[category] || '📦';
   const colorClass = placeholderColors[index % placeholderColors.length];
 
+  const imgSrc = imageUrl
+    ? (imageUrl.startsWith('http') ? imageUrl : `${API_BASE_URL}${imageUrl}`)
+    : null;
+
   return (
     <Link to={`/products/${id}`} className="card overflow-hidden group">
-      {/* Placeholder Image */}
-      <div className={`h-48 bg-gradient-to-br ${colorClass} flex items-center justify-center relative`}>
-        <span className="text-6xl group-hover:scale-110 transition-transform">{icon}</span>
+      {/* Product Image */}
+      <div className={`h-48 ${imgSrc ? 'bg-white' : `bg-gradient-to-br ${colorClass}`} flex items-center justify-center relative`}>
+        {imgSrc ? (
+          <img src={imgSrc} alt={name} className="h-full w-full object-cover group-hover:scale-105 transition-transform" />
+        ) : (
+          <span className="text-6xl group-hover:scale-110 transition-transform">{icon}</span>
+        )}
         {category && (
           <span className="absolute top-3 left-3 badge-primary text-xs">{category}</span>
         )}

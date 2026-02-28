@@ -4,7 +4,7 @@ import { StarIcon } from '@heroicons/react/24/solid';
 import { BuildingStorefrontIcon, ShieldCheckIcon, BeakerIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline';
 import ProductCard from '../components/ProductCard';
 import LoadingSpinner from '../components/LoadingSpinner';
-import { getProductById, getSimilarProducts } from '../services/api';
+import { getProductById, getSimilarProducts, API_BASE_URL } from '../services/api';
 
 const tabs = [
   { id: 'ingredients', label: 'ส่วนประกอบ', icon: <BeakerIcon className="w-4 h-4" /> },
@@ -72,9 +72,19 @@ export default function ProductDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Image */}
         <div className="card overflow-hidden">
-          <div className="h-80 md:h-96 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
-            <span className="text-8xl">{icon}</span>
-          </div>
+          {p.imageUrl ? (
+            <div className="h-80 md:h-96 bg-white flex items-center justify-center">
+              <img
+                src={p.imageUrl.startsWith('http') ? p.imageUrl : `${API_BASE_URL}${p.imageUrl}`}
+                alt={p.name}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          ) : (
+            <div className="h-80 md:h-96 bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center">
+              <span className="text-8xl">{icon}</span>
+            </div>
+          )}
         </div>
 
         {/* Details */}

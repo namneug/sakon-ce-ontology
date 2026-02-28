@@ -22,8 +22,24 @@ export default function Footer() {
             </h3>
             <p className="text-primary-200 text-sm leading-relaxed">
               ระบบฐานข้อมูลออนโทโลยีผลิตภัณฑ์อาหารวิสาหกิจชุมชน
-              จังหวัดสกลนคร พัฒนาด้วยเทคโนโลยี Semantic Web
+              จังหวัดสกลนคร
             </p>
+            <p className="text-primary-200 text-sm leading-relaxed mt-2">
+              <strong className="text-white">ผู้พัฒนา:</strong> อ.ปิยะนันท์ ปลื้มโชค
+            </p>
+            <p className="text-primary-200 text-sm leading-relaxed">
+              มหาวิทยาลัยราชภัฏสกลนคร
+            </p>
+            <p className="text-primary-200 text-sm leading-relaxed mt-2">
+              <strong className="text-white">งานวิจัย:</strong> การพัฒนาระบบพาณิชย์อิเล็กทรอนิกส์เชิงความหมาย
+              สำหรับผลิตภัณฑ์อาหารวิสาหกิจชุมชน จังหวัดสกลนคร
+              โดยใช้ออนโทโลยี
+            </p>
+            <div className="mt-3">
+              <Link to="/report-issue" className="text-accent-300 hover:text-white text-sm transition-colors underline">
+                แจ้งปัญหาการใช้งาน
+              </Link>
+            </div>
           </div>
 
           {/* Categories */}

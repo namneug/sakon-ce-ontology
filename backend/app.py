@@ -12,6 +12,8 @@ from routes.enterprises import enterprises_bp
 from routes.search import search_bp
 from routes.categories import categories_bp
 from routes.analytics import analytics_bp
+from routes.upload import upload_bp
+from routes.admin import admin_bp
 from sparql.fuseki_client import fuseki_client
 from services.recommendation import recommendation_service
 
@@ -25,6 +27,8 @@ app.register_blueprint(enterprises_bp)
 app.register_blueprint(search_bp)
 app.register_blueprint(categories_bp)
 app.register_blueprint(analytics_bp)
+app.register_blueprint(upload_bp)
+app.register_blueprint(admin_bp)
 
 
 # === Routes หลัก ===
