@@ -12,10 +12,34 @@ DATASET="${FUSEKI_DATASET:-sakon_ce}"
 FLASK_PORT="${PORT:-10000}"
 ONTOLOGY_DIR="/app/ontology"
 
+# Prevent "Multiple dataset path names given" error:
+# Set FUSEKI_BASE to a clean directory so Fuseki doesn't load
+# leftover configs from its default run/ directory.
+export FUSEKI_BASE=/tmp/fuseki-run
+mkdir -p "${FUSEKI_BASE}"
+
 # ==========================================
-# Step 1: Start Fuseki in background (in-memory mode)
+# Step 1: Start Flask API FIRST (so Render detects the port)
 # ==========================================
-echo "[1/4] Starting Fuseki (in-memory, JVM heap 200m)..."
+echo "[1/4] Starting Flask API on port ${FLASK_PORT}..."
+
+export FLASK_PORT="${FLASK_PORT}"
+
+gunicorn \
+    --bind "0.0.0.0:${FLASK_PORT}" \
+    --workers 2 \
+    --timeout 120 \
+    --access-logfile - \
+    --error-logfile - \
+    app:app &
+GUNICORN_PID=$!
+
+echo "  Gunicorn started (PID ${GUNICORN_PID}), port ${FLASK_PORT} open for Render."
+
+# ==========================================
+# Step 2: Start Fuseki in background (in-memory mode)
+# ==========================================
+echo "[2/4] Starting Fuseki (in-memory, JVM heap 200m)..."
 
 export JVM_ARGS="-Xmx200m -Xms100m"
 
@@ -26,9 +50,9 @@ ${FUSEKI_HOME}/fuseki-server \
 FUSEKI_PID=$!
 
 # ==========================================
-# Step 2: Wait for Fuseki to be ready
+# Step 3: Wait for Fuseki to be ready
 # ==========================================
-echo "[2/4] Waiting for Fuseki to start..."
+echo "[3/4] Waiting for Fuseki to start..."
 MAX_RETRIES=60
 RETRY=0
 until curl -sf "http://localhost:${FUSEKI_PORT}/\$/ping" > /dev/null 2>&1; do
@@ -42,9 +66,9 @@ done
 echo "  Fuseki is ready! (took ~${RETRY} seconds)"
 
 # ==========================================
-# Step 3: Load ontology data
+# Step 4: Load ontology data
 # ==========================================
-echo "[3/4] Loading ontology data..."
+echo "[4/4] Loading ontology data..."
 
 # Load OWL schema
 if [ -f "${ONTOLOGY_DIR}/sakon_ce_ontology.owl" ]; then
@@ -75,18 +99,9 @@ TRIPLE_COUNT=$(curl -s "http://localhost:${FUSEKI_PORT}/${DATASET}/sparql" \
     python3 -c "import sys,json; print(json.load(sys.stdin)['results']['bindings'][0]['count']['value'])" 2>/dev/null || echo "unknown")
 echo "  Total triples: ${TRIPLE_COUNT}"
 
-# ==========================================
-# Step 4: Start Flask API (via gunicorn)
-# ==========================================
-echo "[4/4] Starting Flask API on port ${FLASK_PORT}..."
+echo "============================================"
+echo "  Startup complete! Flask + Fuseki running."
 echo "============================================"
 
-export FLASK_PORT="${FLASK_PORT}"
-
-exec gunicorn \
-    --bind "0.0.0.0:${FLASK_PORT}" \
-    --workers 2 \
-    --timeout 120 \
-    --access-logfile - \
-    --error-logfile - \
-    app:app
+# Keep the script alive by waiting for gunicorn
+wait ${GUNICORN_PID}

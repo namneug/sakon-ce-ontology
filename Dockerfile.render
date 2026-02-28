@@ -43,4 +43,7 @@ RUN chmod +x /app/render-start.sh
 # Create uploads directory
 RUN mkdir -p /app/uploads
 
+# Remove default Fuseki run/ directory to prevent "Multiple dataset path names" error
+RUN rm -rf ${FUSEKI_HOME}/run
+
 CMD ["/app/render-start.sh"]
