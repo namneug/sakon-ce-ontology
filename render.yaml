@@ -1,0 +1,58 @@
+# Render Blueprint - Sakon CE Ontology
+# Auto-deploy from GitHub: https://github.com/namneug/sakon-ce-ontology
+
+services:
+  # Backend: Flask API + Apache Jena Fuseki (in-memory) in one Docker container
+  - type: web
+    name: sakon-ce-backend
+    runtime: docker
+    dockerfilePath: ./Dockerfile.render
+    dockerContext: .
+    repo: https://github.com/namneug/sakon-ce-ontology
+    branch: main
+    plan: free
+    region: singapore
+    healthCheckPath: /api/health
+    envVars:
+      - key: FUSEKI_URL
+        value: http://localhost:3030
+      - key: FUSEKI_DATASET
+        value: sakon_ce
+      - key: FUSEKI_ADMIN_USER
+        value: admin
+      - key: FUSEKI_ADMIN_PASSWORD
+        value: sakon_ce_admin
+      - key: FLASK_HOST
+        value: 0.0.0.0
+      - key: FLASK_ENV
+        value: production
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: ADMIN_SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://sakon-ce-frontend.onrender.com
+
+  # Frontend: React static site with SPA routing
+  - type: web
+    name: sakon-ce-frontend
+    runtime: static
+    repo: https://github.com/namneug/sakon-ce-ontology
+    branch: main
+    buildCommand: cd frontend && npm install && npm run build && cp ../evaluation/survey_form.html build/survey.html
+    staticPublishPath: frontend/build
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /static/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://sakon-ce-backend.onrender.com/api
+      - key: NODE_VERSION
+        value: "20"

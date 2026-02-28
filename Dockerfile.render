@@ -1,0 +1,46 @@
+# Dockerfile.render - Combined Flask API + Apache Jena Fuseki for Render.com
+# Runs both Fuseki (in-memory triple store) and Flask in a single container
+
+FROM python:3.9-slim
+
+# Install Java JRE (for Fuseki) and curl (for health checks & data loading)
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        openjdk-17-jre-headless \
+        curl \
+        wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Download and install Apache Jena Fuseki
+ENV FUSEKI_VERSION=4.10.0
+ENV FUSEKI_HOME=/opt/fuseki
+RUN wget -q "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-${FUSEKI_VERSION}.tar.gz" \
+        -O /tmp/fuseki.tar.gz && \
+    mkdir -p ${FUSEKI_HOME} && \
+    tar -xzf /tmp/fuseki.tar.gz -C ${FUSEKI_HOME} --strip-components=1 && \
+    rm /tmp/fuseki.tar.gz
+
+# Set up application directory
+WORKDIR /app
+
+# Install Python dependencies
+COPY backend/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY backend/ .
+
+# Copy ontology data files (loaded into Fuseki at startup)
+COPY ontology/ /app/ontology/
+
+# Copy evaluation files (survey form)
+COPY evaluation/ /app/evaluation/
+
+# Copy startup script
+COPY render-start.sh /app/render-start.sh
+RUN chmod +x /app/render-start.sh
+
+# Create uploads directory
+RUN mkdir -p /app/uploads
+
+CMD ["/app/render-start.sh"]

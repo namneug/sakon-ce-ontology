@@ -9,3 +9,6 @@ evaluation/results/*.csv
 evaluation/results/*.json
 *.log
 .DS_Store
+.env
+backend/uploads/
+README.md

@@ -16,7 +16,7 @@ SCE_PREFIX = "sce"
 
 # การตั้งค่า Flask
 FLASK_HOST = os.getenv('FLASK_HOST', '0.0.0.0')
-FLASK_PORT = int(os.getenv('FLASK_PORT', 5050))
+FLASK_PORT = int(os.getenv('PORT', os.getenv('FLASK_PORT', 5050)))
 FLASK_DEBUG = os.getenv('FLASK_ENV', 'production') == 'development'
 
 # Admin

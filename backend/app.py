@@ -18,7 +18,7 @@ from sparql.fuseki_client import fuseki_client
 from services.recommendation import recommendation_service
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=os.getenv('CORS_ORIGINS', '*').split(','))
 
 
 # === ลงทะเบียน Blueprints ===
