@@ -85,7 +85,7 @@ function ProductForm({ initial, onSave, onCancel, token }) {
     if (!file) return;
     setUploading(true);
     try {
-      const res = await uploadImage(file);
+      const res = await uploadImage(token, file);
       setForm({ ...form, imageUrl: res.data.url });
     } catch (err) {
       alert(err.response?.data?.error || 'อัปโหลดไม่สำเร็จ');

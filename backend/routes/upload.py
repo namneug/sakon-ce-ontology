@@ -3,6 +3,7 @@ import os
 import uuid
 from flask import Blueprint, request, jsonify, send_from_directory
 from werkzeug.utils import secure_filename
+from routes.auth import require_admin
 
 upload_bp = Blueprint('upload', __name__)
 
@@ -18,6 +19,7 @@ def allowed_file(filename):
 
 
 @upload_bp.route('/api/upload', methods=['POST'])
+@require_admin
 def upload_image():
     """อัปโหลดรูปภาพ - รับ multipart/form-data"""
     if 'file' not in request.files:

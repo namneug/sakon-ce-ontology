@@ -43,11 +43,11 @@ export const getSimilarProducts = (id) => api.get(`/recommendations/${id}/simila
 export const getHealth = () => api.get('/health');
 
 // Upload
-export const uploadImage = (file) => {
+export const uploadImage = (token, file) => {
   const formData = new FormData();
   formData.append('file', file);
   return api.post('/upload', formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${token}` },
   });
 };
 

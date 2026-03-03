@@ -1,6 +1,5 @@
 # Routes สำหรับ Admin Panel - จัดการผลิตภัณฑ์และวิสาหกิจชุมชน
 import uuid
-import functools
 from flask import Blueprint, request, jsonify
 from config import ADMIN_USERNAME, ADMIN_PASSWORD, SCE_NAMESPACE
 from sparql.fuseki_client import fuseki_client
@@ -9,25 +8,9 @@ from sparql.queries import (
     build_insert_product, DELETE_PRODUCT, DELETE_PRODUCT_REVERSE,
     build_insert_enterprise, DELETE_ENTERPRISE,
 )
+from routes.auth import admin_tokens, require_admin
 
 admin_bp = Blueprint('admin', __name__)
-
-# In-memory token store
-_admin_tokens = set()
-
-
-def require_admin(f):
-    """Decorator ตรวจสอบ Bearer token"""
-    @functools.wraps(f)
-    def decorated(*args, **kwargs):
-        auth = request.headers.get('Authorization', '')
-        if not auth.startswith('Bearer '):
-            return jsonify({'error': 'ต้องเข้าสู่ระบบก่อน'}), 401
-        token = auth.split(' ', 1)[1]
-        if token not in _admin_tokens:
-            return jsonify({'error': 'Token ไม่ถูกต้องหรือหมดอายุ'}), 401
-        return f(*args, **kwargs)
-    return decorated
 
 
 # === Authentication ===
@@ -44,7 +27,7 @@ def admin_login():
 
     if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
         token = uuid.uuid4().hex
-        _admin_tokens.add(token)
+        admin_tokens.add(token)
         return jsonify({'message': 'เข้าสู่ระบบสำเร็จ', 'token': token})
     else:
         return jsonify({'error': 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'}), 401
@@ -55,7 +38,7 @@ def admin_login():
 def admin_logout():
     """ออกจากระบบ Admin"""
     token = request.headers.get('Authorization', '').split(' ', 1)[1]
-    _admin_tokens.discard(token)
+    admin_tokens.discard(token)
     return jsonify({'message': 'ออกจากระบบสำเร็จ'})
 
 
