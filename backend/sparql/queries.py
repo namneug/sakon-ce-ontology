@@ -4,7 +4,7 @@
 # === ผลิตภัณฑ์ (Products) ===
 
 GET_ALL_PRODUCTS = """
-SELECT ?product ?name ?price ?description ?weight ?categoryName ?enterpriseName ?shelfLife ?imageUrl
+SELECT ?product ?name ?price ?description ?weight ?category ?categoryName ?enterprise ?enterpriseName ?shelfLife ?imageUrl
 WHERE {
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;

@@ -1,8 +1,11 @@
 # ตัวเชื่อมต่อ Apache Jena Fuseki ผ่าน SPARQLWrapper
 import time
 import json
+import logging
 from SPARQLWrapper import SPARQLWrapper, JSON, POST, GET
 from config import FUSEKI_QUERY_ENDPOINT, FUSEKI_UPDATE_ENDPOINT, SPARQL_PREFIXES, FUSEKI_ADMIN_USER, FUSEKI_ADMIN_PASSWORD
+
+logger = logging.getLogger(__name__)
 
 
 class FusekiClient:
@@ -67,6 +70,8 @@ class FusekiClient:
         if include_prefixes and not sparql_update.strip().upper().startswith('PREFIX'):
             sparql_update = SPARQL_PREFIXES + sparql_update
 
+        logger.info("[SPARQL UPDATE] Query:\n%s", sparql_update)
+
         try:
             self.update_endpoint.setQuery(sparql_update)
             self.update_endpoint.setMethod(POST)
@@ -79,6 +84,7 @@ class FusekiClient:
             }
         except Exception as e:
             response_time = round((time.time() - start_time) * 1000, 2)
+            logger.error("[SPARQL UPDATE] FAILED: %s\nQuery was:\n%s", str(e), sparql_update)
             return {
                 'success': False,
                 'error': f'เกิดข้อผิดพลาดในการ update: {str(e)}',

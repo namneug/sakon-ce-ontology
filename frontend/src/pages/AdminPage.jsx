@@ -401,8 +401,8 @@ export default function AdminPage() {
                 description: editItem.description || '',
                 weight: editItem.weight || '',
                 shelfLife: editItem.shelfLife || '',
-                categoryId: editItem.categoryName || '',
-                enterpriseId: editItem.enterpriseName || '',
+                categoryId: editItem.category || '',
+                enterpriseId: editItem.enterprise || '',
                 imageUrl: editItem.imageUrl || '',
               } : null}
               onSave={handleSaveProduct}
