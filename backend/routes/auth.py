@@ -1,30 +1,42 @@
-# Shared authentication utilities for admin routes
-import os
+# Shared authentication utilities for admin routes — JWT stateless
 import functools
 import logging
+import jwt
+from datetime import datetime, timedelta, timezone
 from flask import request, jsonify
+from config import ADMIN_SECRET_KEY
 
 logger = logging.getLogger(__name__)
 
-# In-memory token store (shared across blueprints)
-admin_tokens = set()
+JWT_ALGORITHM = 'HS256'
+JWT_EXPIRY_HOURS = 24
+
+
+def create_token(username):
+    """สร้าง JWT token สำหรับ admin"""
+    payload = {
+        'sub': username,
+        'iat': datetime.now(timezone.utc),
+        'exp': datetime.now(timezone.utc) + timedelta(hours=JWT_EXPIRY_HOURS),
+    }
+    return jwt.encode(payload, ADMIN_SECRET_KEY, algorithm=JWT_ALGORITHM)
 
 
 def require_admin(f):
-    """Decorator ตรวจสอบ Bearer token"""
+    """Decorator ตรวจสอบ JWT token"""
     @functools.wraps(f)
     def decorated(*args, **kwargs):
         auth = request.headers.get('Authorization', '')
-        logger.info("[AUTH] %s %s | Authorization: %s | PID: %s | tokens_count: %d",
-                     request.method, request.path,
-                     'present' if auth else 'MISSING',
-                     os.getpid(), len(admin_tokens))
         if not auth.startswith('Bearer '):
             return jsonify({'error': 'ต้องเข้าสู่ระบบก่อน'}), 401
         token = auth.split(' ', 1)[1]
-        if token not in admin_tokens:
-            logger.warning("[AUTH] Token NOT found in admin_tokens (PID %s, %d tokens stored)",
-                           os.getpid(), len(admin_tokens))
-            return jsonify({'error': 'Token ไม่ถูกต้องหรือหมดอายุ'}), 401
+        try:
+            jwt.decode(token, ADMIN_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+        except jwt.ExpiredSignatureError:
+            logger.warning("[AUTH] JWT expired for %s %s", request.method, request.path)
+            return jsonify({'error': 'Token หมดอายุ กรุณาเข้าสู่ระบบใหม่'}), 401
+        except jwt.InvalidTokenError:
+            logger.warning("[AUTH] Invalid JWT for %s %s", request.method, request.path)
+            return jsonify({'error': 'Token ไม่ถูกต้อง'}), 401
         return f(*args, **kwargs)
     return decorated

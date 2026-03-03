@@ -1,5 +1,4 @@
 # Routes สำหรับ Admin Panel - จัดการผลิตภัณฑ์และวิสาหกิจชุมชน
-import os
 import uuid
 import logging
 from flask import Blueprint, request, jsonify
@@ -10,7 +9,7 @@ from sparql.queries import (
     build_insert_product, DELETE_PRODUCT, DELETE_PRODUCT_REVERSE,
     build_insert_enterprise, DELETE_ENTERPRISE,
 )
-from routes.auth import admin_tokens, require_admin
+from routes.auth import create_token, require_admin
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +20,7 @@ admin_bp = Blueprint('admin', __name__)
 
 @admin_bp.route('/api/admin/login', methods=['POST'])
 def admin_login():
-    """เข้าสู่ระบบ Admin"""
+    """เข้าสู่ระบบ Admin — สร้าง JWT token"""
     data = request.get_json()
     if not data:
         return jsonify({'error': 'ไม่มีข้อมูล'}), 400
@@ -30,20 +29,16 @@ def admin_login():
     password = data.get('password', '')
 
     if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
-        token = uuid.uuid4().hex
-        admin_tokens.add(token)
-        logger.info("[LOGIN] Token created (PID %s, total tokens: %d)", os.getpid(), len(admin_tokens))
+        token = create_token(username)
+        logger.info("[LOGIN] JWT created for user: %s", username)
         return jsonify({'message': 'เข้าสู่ระบบสำเร็จ', 'token': token})
     else:
         return jsonify({'error': 'ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง'}), 401
 
 
 @admin_bp.route('/api/admin/logout', methods=['POST'])
-@require_admin
 def admin_logout():
-    """ออกจากระบบ Admin"""
-    token = request.headers.get('Authorization', '').split(' ', 1)[1]
-    admin_tokens.discard(token)
+    """ออกจากระบบ Admin — frontend ลบ token เอง"""
     return jsonify({'message': 'ออกจากระบบสำเร็จ'})
 
 
