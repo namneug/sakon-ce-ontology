@@ -47,7 +47,7 @@ export const uploadImage = (token, file) => {
   const formData = new FormData();
   formData.append('file', file);
   return api.post('/upload', formData, {
-    headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${token}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
