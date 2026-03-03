@@ -19,7 +19,11 @@ def create_token(username):
         'iat': datetime.now(timezone.utc),
         'exp': datetime.now(timezone.utc) + timedelta(hours=JWT_EXPIRY_HOURS),
     }
-    return jwt.encode(payload, ADMIN_SECRET_KEY, algorithm=JWT_ALGORITHM)
+    token = jwt.encode(payload, ADMIN_SECRET_KEY, algorithm=JWT_ALGORITHM)
+    # PyJWT < 2.0 returns bytes; ensure we always return str
+    if isinstance(token, bytes):
+        token = token.decode('utf-8')
+    return token
 
 
 def require_admin(f):

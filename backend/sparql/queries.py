@@ -478,6 +478,7 @@ def sparql_escape_string(value):
     value = value.replace('\n', '\\n')
     value = value.replace('\r', '\\r')
     value = value.replace('\t', '\\t')
+    value = value.replace('/', '\\u002F')
     return value
 
 
