@@ -467,6 +467,20 @@ WHERE {{
 ORDER BY ?productName
 """
 
+def sparql_escape_string(value):
+    """Escape special characters for SPARQL string literals."""
+    if not value:
+        return value
+    value = str(value)
+    value = value.replace('\\', '\\\\')
+    value = value.replace('"', '\\"')
+    value = value.replace("'", "\\'")
+    value = value.replace('\n', '\\n')
+    value = value.replace('\r', '\\r')
+    value = value.replace('\t', '\\t')
+    return value
+
+
 # === Admin CRUD Templates ===
 
 INSERT_PRODUCT = """
@@ -487,14 +501,17 @@ INSERT DATA {{
 def build_insert_product(product_id, name, price, description='', weight='',
                          shelf_life='', category_id='', enterprise_id='', image_url=''):
     """สร้าง SPARQL INSERT สำหรับผลิตภัณฑ์"""
+    name = sparql_escape_string(name)
     triples = [
         f'sce:{product_id} a sce:FoodProduct .',
         f'sce:{product_id} sce:hasName "{name}" .',
         f'sce:{product_id} sce:hasPrice {price} .',
     ]
     if description:
+        description = sparql_escape_string(description)
         triples.append(f'sce:{product_id} sce:hasDescription "{description}" .')
     if weight:
+        weight = sparql_escape_string(weight)
         triples.append(f'sce:{product_id} sce:hasWeight "{weight}" .')
     if shelf_life:
         triples.append(f'sce:{product_id} sce:hasShelfLifeDays {shelf_life} .')
@@ -504,6 +521,7 @@ def build_insert_product(product_id, name, price, description='', weight='',
         triples.append(f'sce:{product_id} sce:producedBy sce:{enterprise_id} .')
         triples.append(f'sce:{enterprise_id} sce:hasProduct sce:{product_id} .')
     if image_url:
+        image_url = sparql_escape_string(image_url)
         triples.append(f'sce:{product_id} sce:hasImageUrl "{image_url}" .')
     body = "\n    ".join(triples)
     return f"INSERT DATA {{\n    {body}\n}}"
@@ -531,11 +549,13 @@ INSERT DATA {{
 
 def build_insert_enterprise(enterprise_id, name, description=''):
     """สร้าง SPARQL INSERT สำหรับวิสาหกิจ"""
+    name = sparql_escape_string(name)
     triples = [
         f'sce:{enterprise_id} a sce:CommunityEnterprise .',
         f'sce:{enterprise_id} sce:hasName "{name}" .',
     ]
     if description:
+        description = sparql_escape_string(description)
         triples.append(f'sce:{enterprise_id} sce:hasDescription "{description}" .')
     body = "\n    ".join(triples)
     return f"INSERT DATA {{\n    {body}\n}}"
