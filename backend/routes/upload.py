@@ -1,17 +1,22 @@
 # Routes สำหรับอัปโหลดรูปภาพผลิตภัณฑ์
 import os
-import uuid
-from flask import Blueprint, request, jsonify, send_from_directory
-from werkzeug.utils import secure_filename
+import cloudinary
+import cloudinary.uploader
+from flask import Blueprint, request, jsonify
 from routes.auth import require_admin
 
 upload_bp = Blueprint('upload', __name__)
 
-UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'uploads')
 ALLOWED_EXTENSIONS = {'jpg', 'jpeg', 'png'}
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5MB
 
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+# Configure Cloudinary from environment variables
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+    secure=True
+)
 
 
 def allowed_file(filename):
@@ -21,7 +26,7 @@ def allowed_file(filename):
 @upload_bp.route('/api/upload', methods=['POST'])
 @require_admin
 def upload_image():
-    """อัปโหลดรูปภาพ - รับ multipart/form-data"""
+    """อัปโหลดรูปภาพไปยัง Cloudinary"""
     if 'file' not in request.files:
         return jsonify({'error': 'ไม่พบไฟล์ในคำขอ'}), 400
 
@@ -39,21 +44,18 @@ def upload_image():
     if size > MAX_FILE_SIZE:
         return jsonify({'error': 'ขนาดไฟล์ต้องไม่เกิน 5MB'}), 400
 
-    # สร้างชื่อไฟล์ด้วย UUID
-    ext = file.filename.rsplit('.', 1)[1].lower()
-    filename = f"{uuid.uuid4().hex}.{ext}"
-    filepath = os.path.join(UPLOAD_FOLDER, filename)
-    file.save(filepath)
+    # อัปโหลดไป Cloudinary
+    try:
+        result = cloudinary.uploader.upload(
+            file,
+            folder='sakon-ce-products',
+            resource_type='image'
+        )
+        url = result['secure_url']
+    except Exception as e:
+        return jsonify({'error': f'อัปโหลดไป Cloudinary ไม่สำเร็จ: {str(e)}'}), 500
 
     return jsonify({
         'message': 'อัปโหลดสำเร็จ',
-        'filename': filename,
-        'url': f'/api/uploads/{filename}'
+        'url': url
     })
-
-
-@upload_bp.route('/api/uploads/<filename>')
-def serve_upload(filename):
-    """Serve ไฟล์รูปภาพที่อัปโหลด"""
-    safe_name = secure_filename(filename)
-    return send_from_directory(UPLOAD_FOLDER, safe_name)
