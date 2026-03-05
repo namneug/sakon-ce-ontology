@@ -37,8 +37,19 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 text-center">
+      <section className="relative text-white overflow-hidden"
+        style={{
+          backgroundImage: `url('https://res.cloudinary.com/dmsngm0pd/image/upload/sakon-products/hero-bg_opzmnw.png')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center bottom',
+        }}>
+        {/* Dark green overlay */}
+        <div className="absolute inset-0 bg-primary-900/60"></div>
+        {/* Floating leaves */}
+        {[...Array(5)].map((_, i) => (
+          <span key={i} className={`floating-leaf floating-leaf-${i}`} aria-hidden="true">🍃</span>
+        ))}
+        <div className="relative max-w-7xl mx-auto px-4 py-16 md:py-24 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             ตลาดออนไลน์วิสาหกิจชุมชน
           </h1>

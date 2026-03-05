@@ -31,7 +31,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-2xl">🌾</span>
+            <span className="text-2xl rice-sway">🌾</span>
             <div>
               <h1 className="text-lg font-bold leading-tight">วิสาหกิจชุมชนสกลนคร</h1>
               <p className="text-xs text-primary-200 leading-tight hidden sm:block">Ontology-based E-commerce</p>

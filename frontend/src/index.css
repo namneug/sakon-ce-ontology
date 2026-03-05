@@ -34,3 +34,72 @@ body {
     @apply badge bg-accent-100 text-accent-800;
   }
 }
+
+/* Rice logo sway animation */
+.rice-sway {
+  display: inline-block;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+/* Floating leaves animation */
+.floating-leaf {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-leaf-0 {
+  top: 10%;
+  left: -5%;
+  animation: leaf-drift 12s linear infinite;
+  animation-delay: 0s;
+}
+.floating-leaf-1 {
+  top: 30%;
+  left: -5%;
+  animation: leaf-drift 15s linear infinite;
+  animation-delay: 3s;
+}
+.floating-leaf-2 {
+  top: 60%;
+  left: -5%;
+  animation: leaf-drift 10s linear infinite;
+  animation-delay: 6s;
+}
+.floating-leaf-3 {
+  top: 20%;
+  left: -5%;
+  animation: leaf-drift 14s linear infinite;
+  animation-delay: 2s;
+}
+.floating-leaf-4 {
+  top: 50%;
+  left: -5%;
+  animation: leaf-drift 11s linear infinite;
+  animation-delay: 8s;
+}
+
+@keyframes leaf-drift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(105vw, 30px) rotate(360deg);
+    opacity: 0;
+  }
+}
