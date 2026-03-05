@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body, #root {
-    font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
-    background-color: #e8f5e9 !important;
-    color: #1F2937;
-  }
+html, body, #root {
+  background-color: #e8f5e9 !important;
+}
+
+body {
+  font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
+  color: #1F2937;
 }
 
 @layer components {
