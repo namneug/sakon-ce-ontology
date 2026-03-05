@@ -356,8 +356,9 @@ Tested with 20 queries (10 basic + 10 semantic), 5 rounds each:
 
 ## Author
 
-**Piyanun Pluemchok (อ.ปิยะนันท์ ปลื่มโชค)**
-Sakon Nakhon Rajabhat University (มหาวิทยาลัยราชภัฏสกลนคร)
+**Piya Pluem (อ.ปิยะ ปลื้ม)**
+Department of Innovation and Computer Education, Sakon Nakhon Rajabhat University
+(สาขาวิชานวัตกรรมและคอมพิวเตอร์ศึกษา มหาวิทยาลัยราชภัฏสกลนคร)
 
 ---
 

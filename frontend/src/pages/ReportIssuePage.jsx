@@ -39,10 +39,10 @@ export default function ReportIssuePage() {
       {/* ข้อมูลผู้รับ */}
       <div className="bg-primary-50 rounded-xl p-4 mb-6">
         <p className="text-sm text-gray-700">
-          <strong>ผู้รับ:</strong> อ.ปิยะนันท์ ปลื้มโชค
+          <strong>ผู้รับ:</strong> อ.ปิยะ ปลื้ม
         </p>
         <p className="text-sm text-gray-500">
-          สาขานวัตกรรมและคอมพิวเตอร์ศึกษา มหาวิทยาลัยราชภัฏสกลนคร
+          สาขาวิชานวัตกรรมและคอมพิวเตอร์ศึกษา มหาวิทยาลัยราชภัฏสกลนคร
         </p>
         <p className="text-sm text-gray-500">
           อีเมล: namneung@snru.ac.th
