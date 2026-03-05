@@ -106,13 +106,14 @@ WHERE {{
 """
 
 GET_PRODUCTS_BY_CATEGORY = """
-SELECT ?product ?name ?price ?description ?enterpriseName
+SELECT ?product ?name ?price ?description ?enterpriseName ?imageUrl
 WHERE {{
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
              sce:hasPrice ?price ;
              sce:belongsToCategory sce:{category_id} .
     OPTIONAL {{ ?product sce:hasDescription ?description }}
+    OPTIONAL {{ ?product sce:hasImageUrl ?imageUrl }}
     OPTIONAL {{
         ?product sce:producedBy ?enterprise .
         ?enterprise sce:hasName ?enterpriseName .
@@ -122,12 +123,13 @@ ORDER BY ?name
 """
 
 GET_PRODUCTS_BY_PRICE_RANGE = """
-SELECT ?product ?name ?price ?categoryName ?enterpriseName
+SELECT ?product ?name ?price ?categoryName ?enterpriseName ?imageUrl
 WHERE {{
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
              sce:hasPrice ?price .
     FILTER (?price >= {min_price} && ?price <= {max_price})
+    OPTIONAL {{ ?product sce:hasImageUrl ?imageUrl }}
     OPTIONAL {{
         ?product sce:belongsToCategory ?category .
         ?category sce:hasName ?categoryName .
@@ -178,11 +180,12 @@ WHERE {{
 """
 
 GET_ENTERPRISE_PRODUCTS = """
-SELECT ?product ?productName ?price ?categoryName
+SELECT ?product ?productName ?price ?categoryName ?imageUrl
 WHERE {{
     sce:{enterprise_id} sce:hasProduct ?product .
     ?product sce:hasName ?productName ;
              sce:hasPrice ?price .
+    OPTIONAL {{ ?product sce:hasImageUrl ?imageUrl }}
     OPTIONAL {{
         ?product sce:belongsToCategory ?category .
         ?category sce:hasName ?categoryName .
@@ -286,12 +289,13 @@ ORDER BY DESC(?avgRating)
 # === ค้นหา (Search) ===
 
 SEARCH_PRODUCTS_BY_TEXT = """
-SELECT ?product ?name ?price ?categoryName ?enterpriseName ?description
+SELECT ?product ?name ?price ?categoryName ?enterpriseName ?description ?imageUrl
 WHERE {{
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
              sce:hasPrice ?price .
     OPTIONAL {{ ?product sce:hasDescription ?description }}
+    OPTIONAL {{ ?product sce:hasImageUrl ?imageUrl }}
     OPTIONAL {{
         ?product sce:belongsToCategory ?category .
         ?category sce:hasName ?categoryName .
@@ -309,7 +313,7 @@ ORDER BY ?name
 """
 
 SEARCH_BY_CERTIFICATION = """
-SELECT ?product ?name ?price ?certName ?enterpriseName
+SELECT ?product ?name ?price ?certName ?enterpriseName ?imageUrl
 WHERE {{
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
@@ -317,6 +321,7 @@ WHERE {{
              sce:hasCertification ?cert .
     ?cert sce:hasName ?certName .
     FILTER (CONTAINS(LCASE(?certName), LCASE("{search_term}")))
+    OPTIONAL {{ ?product sce:hasImageUrl ?imageUrl }}
     OPTIONAL {{
         ?product sce:producedBy ?enterprise .
         ?enterprise sce:hasName ?enterpriseName .
@@ -328,13 +333,14 @@ ORDER BY ?name
 # === Semantic Queries ===
 
 SEMANTIC_HEALTH_PRODUCTS = """
-SELECT ?product ?name ?price ?description ?categoryName
+SELECT ?product ?name ?price ?description ?categoryName ?imageUrl
 WHERE {
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
              sce:hasPrice ?price ;
              sce:targetsCustomer sce:HealthConscious .
     OPTIONAL { ?product sce:hasDescription ?description }
+    OPTIONAL { ?product sce:hasImageUrl ?imageUrl }
     OPTIONAL {
         ?product sce:belongsToCategory ?category .
         ?category sce:hasName ?categoryName .
@@ -344,7 +350,7 @@ ORDER BY ?name
 """
 
 SEMANTIC_GIFT_PRODUCTS = """
-SELECT DISTINCT ?product ?name ?price ?categoryName ?enterpriseName
+SELECT DISTINCT ?product ?name ?price ?categoryName ?enterpriseName ?imageUrl
 WHERE {
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
@@ -352,6 +358,7 @@ WHERE {
     { ?product sce:targetsCustomer sce:GiftBuyer }
     UNION
     { ?product sce:targetsCustomer sce:Tourist }
+    OPTIONAL { ?product sce:hasImageUrl ?imageUrl }
     OPTIONAL {
         ?product sce:belongsToCategory ?category .
         ?category sce:hasName ?categoryName .
@@ -365,13 +372,14 @@ ORDER BY ?price
 """
 
 SEMANTIC_ORGANIC_PRODUCTS = """
-SELECT ?product ?name ?price ?enterpriseName
+SELECT ?product ?name ?price ?enterpriseName ?imageUrl
 WHERE {
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
              sce:hasPrice ?price ;
              sce:producedBy ?enterprise .
     ?enterprise sce:hasName ?enterpriseName .
+    OPTIONAL { ?product sce:hasImageUrl ?imageUrl }
     {
         ?product sce:hasCertification sce:OrganicThailand .
     } UNION {
@@ -383,7 +391,7 @@ ORDER BY ?name
 """
 
 SEMANTIC_PREMIUM_PRODUCTS = """
-SELECT ?product ?name ?price ?enterpriseName
+SELECT ?product ?name ?price ?enterpriseName ?imageUrl
 WHERE {
     ?product a sce:FoodProduct ;
              sce:hasName ?name ;
@@ -391,6 +399,7 @@ WHERE {
              sce:hasCertification sce:FDA_Certificate ;
              sce:producedBy ?enterprise .
     ?enterprise sce:hasName ?enterpriseName .
+    OPTIONAL { ?product sce:hasImageUrl ?imageUrl }
     {
         ?product sce:hasCertification sce:OTOP_4Star .
     } UNION {
@@ -401,7 +410,7 @@ ORDER BY ?name
 """
 
 SEMANTIC_ONLINE_PRODUCTS = """
-SELECT ?product ?name ?price ?enterpriseName
+SELECT ?product ?name ?price ?enterpriseName ?imageUrl
        (GROUP_CONCAT(DISTINCT ?channelName; separator=", ") AS ?onlineChannels)
 WHERE {
     ?product a sce:FoodProduct ;
@@ -411,18 +420,19 @@ WHERE {
              sce:producedBy ?enterprise .
     ?enterprise sce:hasName ?enterpriseName .
     ?channel sce:hasName ?channelName .
+    OPTIONAL { ?product sce:hasImageUrl ?imageUrl }
     FILTER (
         ?channel = sce:OnlineFacebook ||
         ?channel = sce:OnlineLINE ||
         ?channel = sce:OnlineShopee
     )
 }
-GROUP BY ?product ?name ?price ?enterpriseName
+GROUP BY ?product ?name ?price ?enterpriseName ?imageUrl
 ORDER BY ?name
 """
 
 SEMANTIC_SIMILAR_PRODUCTS = """
-SELECT ?relatedProduct ?relatedName ?relatedPrice ?categoryName
+SELECT ?relatedProduct ?relatedName ?relatedPrice ?categoryName ?imageUrl
 WHERE {{
     sce:{product_id} sce:belongsToCategory ?category .
     ?relatedProduct a sce:FoodProduct ;
@@ -430,6 +440,7 @@ WHERE {{
                     sce:hasName ?relatedName ;
                     sce:hasPrice ?relatedPrice .
     ?category sce:hasName ?categoryName .
+    OPTIONAL {{ ?relatedProduct sce:hasImageUrl ?imageUrl }}
     FILTER (?relatedProduct != sce:{product_id})
 }}
 ORDER BY ?relatedName
@@ -453,7 +464,7 @@ LIMIT 20
 """
 
 SEMANTIC_PRODUCTS_BY_DISTRICT = """
-SELECT ?productName ?price ?enterpriseName ?districtName
+SELECT ?product ?productName ?price ?enterpriseName ?districtName ?imageUrl
 WHERE {{
     ?product a sce:FoodProduct ;
              sce:hasName ?productName ;
@@ -463,6 +474,7 @@ WHERE {{
                 sce:locatedIn ?subDistrict .
     ?subDistrict sce:locatedIn sce:{district_id} .
     sce:{district_id} sce:hasName ?districtName .
+    OPTIONAL {{ ?product sce:hasImageUrl ?imageUrl }}
 }}
 ORDER BY ?productName
 """

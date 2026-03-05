@@ -248,6 +248,7 @@ export default function ProductDetailPage() {
                 name: s.relatedName,
                 price: s.relatedPrice,
                 categoryName: s.categoryName,
+                imageUrl: s.imageUrl,
               }} index={i} />
             ))}
           </div>

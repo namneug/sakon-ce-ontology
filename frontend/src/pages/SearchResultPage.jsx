@@ -159,6 +159,7 @@ export default function SearchResultPage() {
                 price: p.price || '',
                 categoryName: p.categoryName || '',
                 enterpriseName: p.enterpriseName || '',
+                imageUrl: p.imageUrl || '',
               }}
               index={i} />
           ))}

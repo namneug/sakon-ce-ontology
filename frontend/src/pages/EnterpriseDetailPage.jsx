@@ -88,6 +88,7 @@ export default function EnterpriseDetailPage() {
                 name: p.productName,
                 price: p.price,
                 categoryName: p.categoryName,
+                imageUrl: p.imageUrl,
               }} index={i} />
             ))}
           </div>
