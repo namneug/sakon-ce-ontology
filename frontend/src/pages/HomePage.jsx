@@ -1,10 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BuildingStorefrontIcon, CubeIcon, TagIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 import SearchBar from '../components/SearchBar';
 import ProductCard from '../components/ProductCard';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { getProducts, getEnterprises, getAnalyticsOverview } from '../services/api';
+
+function AnimatedCounter({ end, duration = 1500 }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const target = typeof end === 'string' ? parseInt(end.replace(/,/g, ''), 10) : end;
+    if (!target || started.current) return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const startTime = performance.now();
+        const step = (now) => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setCount(Math.floor(eased * target));
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    }, { threshold: 0.3 });
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [end, duration]);
+
+  return <span ref={ref}>{count.toLocaleString()}</span>;
+}
 
 const categoryCards = [
   { id: 'ProcessedMeat', label: 'แปรรูปเนื้อสัตว์', icon: '🍖', color: 'from-rose-100 to-rose-200' },
@@ -45,10 +75,6 @@ export default function HomePage() {
         }}>
         {/* Dark green overlay */}
         <div className="absolute inset-0 bg-primary-900/60"></div>
-        {/* Floating leaves */}
-        {[...Array(5)].map((_, i) => (
-          <span key={i} className={`floating-leaf floating-leaf-${i}`} aria-hidden="true">🍃</span>
-        ))}
         <div className="relative max-w-7xl mx-auto px-4 pt-16 pb-28 md:pt-24 md:pb-36 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             ตลาดออนไลน์วิสาหกิจชุมชน
@@ -67,15 +93,20 @@ export default function HomePage() {
         <section className="max-w-7xl mx-auto px-4 -mt-20 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: <CubeIcon className="w-8 h-8" />, value: stats.product_count || 0, label: 'ผลิตภัณฑ์' },
-              { icon: <BuildingStorefrontIcon className="w-8 h-8" />, value: stats.enterprise_count || 0, label: 'วิสาหกิจชุมชน' },
-              { icon: <TagIcon className="w-8 h-8" />, value: stats.category_count || 0, label: 'หมวดหมู่' },
-              { icon: <ChartBarIcon className="w-8 h-8" />, value: stats.triple_count?.toLocaleString() || 0, label: 'RDF Triples' },
+              { icon: <CubeIcon className="w-10 h-10" />, value: stats.product_count || 0, label: 'ผลิตภัณฑ์', desc: `จาก ${stats.enterprise_count || 0} วิสาหกิจชุมชน`, gradient: 'from-emerald-500 to-teal-600', iconBg: 'bg-emerald-100', iconColor: 'text-emerald-600' },
+              { icon: <BuildingStorefrontIcon className="w-10 h-10" />, value: stats.enterprise_count || 0, label: 'วิสาหกิจชุมชน', desc: 'ในจังหวัดสกลนคร', gradient: 'from-blue-500 to-indigo-600', iconBg: 'bg-blue-100', iconColor: 'text-blue-600' },
+              { icon: <TagIcon className="w-10 h-10" />, value: stats.category_count || 0, label: 'หมวดหมู่', desc: 'ประเภทผลิตภัณฑ์อาหาร', gradient: 'from-amber-500 to-orange-600', iconBg: 'bg-amber-100', iconColor: 'text-amber-600' },
+              { icon: <ChartBarIcon className="w-10 h-10" />, value: stats.triple_count || 0, label: 'RDF Triples', desc: 'ข้อมูลในฐานความรู้', gradient: 'from-purple-500 to-pink-600', iconBg: 'bg-purple-100', iconColor: 'text-purple-600' },
             ].map((s, i) => (
-              <div key={i} className="card p-5 text-center">
-                <div className="text-primary-600 flex justify-center mb-2">{s.icon}</div>
-                <div className="text-2xl md:text-3xl font-bold text-gray-800">{s.value}</div>
-                <div className="text-sm text-gray-500">{s.label}</div>
+              <div key={i} className="stat-card bg-white rounded-2xl shadow-lg p-6 text-center border border-gray-100 hover:scale-105 hover:shadow-2xl transition-all duration-300 cursor-default">
+                <div className={`w-16 h-16 ${s.iconBg} rounded-2xl flex items-center justify-center mx-auto mb-3 ${s.iconColor}`}>
+                  {s.icon}
+                </div>
+                <div className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-1">
+                  <AnimatedCounter end={s.value} />
+                </div>
+                <div className={`text-sm font-bold bg-gradient-to-r ${s.gradient} bg-clip-text text-transparent`}>{s.label}</div>
+                <div className="text-xs text-gray-400 mt-1">{s.desc}</div>
               </div>
             ))}
           </div>

@@ -17,7 +17,13 @@ import AdminPage from './pages/AdminPage';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col relative">
+        {/* Global floating leaves */}
+        <div className="floating-leaves-container" aria-hidden="true">
+          {[...Array(10)].map((_, i) => (
+            <span key={i} className={`floating-leaf leaf-${i}`}>🍃</span>
+          ))}
+        </div>
         <Header />
         <main className="flex-1">
           <Routes>
