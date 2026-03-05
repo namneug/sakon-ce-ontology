@@ -788,6 +788,49 @@ sce:SeasoningSauce a sce:Ingredient ;
     sce:hasName "ซอสปรุงรส" ;
     sce:hasDescription "ซอสปรุงรสสำเร็จ" .
 
+sce:MulberryLeaf a sce:Ingredient ;
+    sce:hasName "ใบหม่อน" ;
+    sce:hasDescription "ใบหม่อนสด คัดเลือกใบอ่อน" .
+
+sce:PorkSkin a sce:Ingredient ;
+    sce:hasName "หนังหมู" ;
+    sce:hasDescription "หนังหมูสด สะอาด" .
+
+sce:Beef a sce:Ingredient ;
+    sce:hasName "เนื้อโค" ;
+    sce:hasDescription "เนื้อโคขุนคุณภาพ" .
+
+sce:RiceFlour a sce:Ingredient ;
+    sce:hasName "แป้งข้าวเจ้า" ;
+    sce:hasDescription "แป้งข้าวเจ้าคุณภาพ" .
+
+sce:TapiocaStarch a sce:Ingredient ;
+    sce:hasName "แป้งมันสำปะหลัง" ;
+    sce:hasDescription "แป้งมันสำปะหลัง" .
+
+sce:RedLotus a sce:Ingredient ;
+    sce:hasName "ดอกบัวแดง" ;
+    sce:hasDescription "ดอกบัวแดงจากทะเลบัวแดง จ.สกลนคร" .
+
+sce:BlackPepperCorn a sce:Ingredient ;
+    sce:hasName "พริกไทยดำเม็ด" ;
+    sce:hasDescription "พริกไทยดำเม็ดคัดเกรด" .
+
+sce:Starch a sce:Ingredient ;
+    sce:hasName "แป้งทอด" ;
+    sce:hasDescription "แป้งทอดกรอบ" .
+
+sce:GrassFeed a sce:Ingredient ;
+    sce:hasName "หญ้าเนเปียร์" ;
+    sce:hasDescription "หญ้าเนเปียร์สำหรับเลี้ยงโค" .
+
+sce:Concentrate a sce:Ingredient ;
+    sce:hasName "อาหารข้น" ;
+    sce:hasDescription "อาหารข้นสำหรับโคขุน" .
+
+sce:Banana_Ripe a sce:Ingredient ;
+    sce:hasName "กล้วยสุก" ;
+    sce:hasDescription "กล้วยเล็บมือนางสุก" .
 
 # ============================================
 # 13. รีวิว (Review) - 15 instances
@@ -977,6 +1020,61 @@ sce:Process_MakMaoWine a sce:ProductionProcess ;
     sce:hasName "กระบวนการผลิตไวน์หมากเม่า" ;
     sce:hasDescription "คัดเลือกหมากเม่าสุก (ส.ค.-ต.ค.) → ล้างคัดแยก → บีบคั้นสุญญากาศ → กรอง → ปรับความหวาน → เติมยีสต์ → หมักในถังสแตนเลส 6-12 เดือน → กรองตะกอนบ่มในถังไม้โอ๊ค 3-6 เดือน → บรรจุขวดแก้วปิดคอร์ก" .
 
+sce:Process_MulberryTea a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตชาใบหม่อน" ;
+    sce:hasDescription "คัดเลือกใบหม่อนอ่อน → ล้างสะอาด → นึ่งฆ่าเชื้อ → หั่นละเอียด → อบแห้งอุณหภูมิต่ำ → คั่วเบาให้หอม → บรรจุซองชา → บรรจุกล่อง" .
+
+sce:Process_HerbalSausage a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตไส้กรอกสมุนไพร" ;
+    sce:hasDescription "คัดเลือกเนื้อหมูและมัน → สับละเอียด → ผสมสมุนไพรพื้นบ้าน กระเทียม พริกไทย → นวดเข้ากัน → บรรจุในไส้หมู → ตากให้แห้ง → บรรจุสุญญากาศ" .
+
+sce:Process_KaepMoo a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตแคปหมู" ;
+    sce:hasDescription "คัดเลือกหนังหมูสด → ล้างสะอาด → ต้มจนสุก → หั่นชิ้นบาง → ตากแดดให้แห้ง → ทอดในน้ำมันร้อน → สะเด็ดน้ำมัน → โรยเกลือ → พักเย็น → บรรจุ" .
+
+sce:Process_OrganicMulberryTea a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตชาใบหม่อนออแกนิค" ;
+    sce:hasDescription "คัดเลือกใบหม่อนเกษตรอินทรีย์ → ล้างน้ำสะอาด → นึ่งฆ่าเชื้อ → หั่นละเอียด → อบแห้งอุณหภูมิต่ำ → คั่วเบา → ตรวจสอบคุณภาพ → บรรจุซองชา → บรรจุกล่อง" .
+
+sce:Process_FattenedBeef a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตเนื้อโคขุน" ;
+    sce:hasDescription "เลี้ยงโคด้วยหญ้าเนเปียร์และอาหารข้น 8-12 เดือน → คัดเลือกโคน้ำหนัก 500+ กก. → ชำแหละตามมาตรฐาน → ตัดแต่งเนื้อ → บ่มเนื้อ → บรรจุสุญญากาศ" .
+
+sce:Process_NamPrikTaDaeng a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตน้ำพริกตาแดง" ;
+    sce:hasDescription "คัดเลือกพริกแห้งเกรดดี → คั่วให้หอม → โขลกรวมกับหอมแดง กระเทียม → ปรุงรสด้วยน้ำปลา น้ำตาลปี๊บ → ผัดจนหอม → พักเย็น → บรรจุ" .
+
+sce:Process_PlaRaHerbal a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตปลาร้าสมุนไพร" ;
+    sce:hasDescription "คัดเลือกปลาร้าหมักดั้งเดิม → ล้าง → ต้มกับสมุนไพร ข่า ตะไคร้ ใบมะกรูด → กรอง → เติมเกลือ → บ่มต่อ 1-2 สัปดาห์ → กรองอีกครั้ง → บรรจุขวด" .
+
+sce:Process_KhaoKriabPakMor a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตข้าวเกรียบปากหม้อ" ;
+    sce:hasDescription "ผสมแป้งข้าวเจ้ากับแป้งมัน → เติมน้ำนวดจนเนียน → ปรุงรส → หยอดบนผ้าขึงปากหม้อนึ่ง → นึ่งจนสุก → ลอกออก → ตากแดดให้แห้ง → บรรจุ" .
+
+sce:Process_MakMaoColdPressed a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตน้ำหมากเม่าสกัดเย็น" ;
+    sce:hasDescription "คัดเลือกหมากเม่าสุก → ล้างสะอาด → บีบสกัดเย็นอุณหภูมิต่ำ → กรองละเอียด → บรรจุขวดแก้ว → ปิดฝาสุญญากาศ → ติดฉลาก" .
+
+sce:Process_SolarDriedBanana a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตกล้วยอบพลังงานแสงอาทิตย์" ;
+    sce:hasDescription "คัดเลือกกล้วยสุกงอม → ปอกเปลือก → วางบนตะแกรง → อบในตู้พลังงานแสงอาทิตย์ 2-3 วัน → พลิกกลับ → ตรวจสอบความชื้น → บรรจุ" .
+
+sce:Process_KhaoKriabPakMorCrispy a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตข้าวเกรียบปากหม้ออบกรอบ" ;
+    sce:hasDescription "ผสมแป้งข้าวเจ้ากับแป้งมัน → นวดจนเนียน → หยอดบนผ้าขึงปากหม้อ → นึ่งสุก → ตากแดด → อบกรอบในเตาอบ → ปรุงรส → บรรจุ" .
+
+sce:Process_RedLotusTea a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตชาดอกบัวแดง" ;
+    sce:hasDescription "เก็บดอกบัวแดงสด → คัดเลือกกลีบสมบูรณ์ → ล้างสะอาด → อบแห้งอุณหภูมิต่ำ → บดหยาบ → ผสมกับชาเขียว → บรรจุซองชา → บรรจุกล่อง" .
+
+sce:Process_MooYorBlackPepper a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตหมูยอพริกไทยดำ" ;
+    sce:hasDescription "คัดเลือกเนื้อหมูสด → บดละเอียด → ผสมแป้ง เครื่องปรุง พริกไทยดำเม็ด → นวดจนเหนียว → ห่อใบตอง → นึ่งจนสุก → พักเย็น → บรรจุสุญญากาศ" .
+
+sce:Process_SaltedFishOil a sce:ProductionProcess ;
+    sce:hasName "กระบวนการผลิตปลาดองเค็มน้ำมัน" ;
+    sce:hasDescription "คัดเลือกปลาสดน้ำจืด → ล้างสะอาด → หมักเกลือ 3-5 วัน → ตากแดดจนแห้ง → แช่ในน้ำมันพืช → บรรจุขวดแก้ว → ปิดฝา" .
 
 # ============================================
 # 15. วิสาหกิจชุมชน (CommunityEnterprise) - 24 instances
@@ -1052,7 +1150,7 @@ sce:CE_13 a sce:CommunityEnterprise ;
     sce:hasName "ปลาเค็มบ้านโฉลกหลำ" ;
     sce:hasDescription "วิสาหกิจชุมชน 47/4 หมู่ 7 ต.นาตงวัฒนา อ.โพนนาแก้ว จ.สกลนคร" ;
     sce:locatedIn sce:NaTongWattana ;
-    sce:hasProduct sce:SaltedFishInOil , sce:SaltedFishOil , sce:SaltedFishInOilVariant .
+    sce:hasProduct sce:SaltedFishInOil , sce:SaltedFishOil .
 
 sce:CE_14 a sce:CommunityEnterprise ;
     sce:hasName "กลุ่มแม่บ้านเกษตรกรประสาทสิทธิ์" ;
@@ -1082,7 +1180,7 @@ sce:CE_18 a sce:CommunityEnterprise ;
     sce:hasName "กลุ่มแปรรูปอาหารพุทธรักษา" ;
     sce:hasDescription "วิสาหกิจชุมชน 135 หมู่ 7 ต.ไฮหย่อง อ.พังโคน จ.สกลนคร 47160" ;
     sce:locatedIn sce:HaiYong ;
-    sce:hasProduct sce:NamPlaRaSeasoned , sce:NamPlaRa .
+    sce:hasProduct sce:NamPlaRaSeasoned .
 
 sce:CE_19 a sce:CommunityEnterprise ;
     sce:hasName "กลุ่มแปรรูปอาหารบ้านโพนงาม" ;
@@ -1134,7 +1232,7 @@ sce:CE_26 a sce:CommunityEnterprise ;
     sce:hasName "กลุ่มเลี้ยงโคขุนสกลนคร" ;
     sce:hasDescription "วิสาหกิจชุมชนเลี้ยงโคขุน อ.เมืองสกลนคร จ.สกลนคร" ;
     sce:locatedIn sce:MueangSakonNakhon ;
-    sce:hasProduct sce:FattenedBeef , sce:CrispyBeef .
+    sce:hasProduct sce:FattenedBeef .
 
 sce:CE_27 a sce:CommunityEnterprise ;
     sce:hasName "กลุ่มผลิตชาสมุนไพรสกลนคร" ;
@@ -1199,7 +1297,7 @@ sce:PeanutRoasted a sce:FoodProduct ;
     sce:producedBy sce:CE_02 ;
     sce:soldVia sce:DirectSale , sce:Broker ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Reseller ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ถั่วลิสงคั่วทรายน้ำโขง_t8ftfo.png" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ถั่วลิสงคั่วทรายน้ำโขง_otok7m.png" .
 
 # ผลิตภัณฑ์ที่ 4: ไข่เค็มผสมไอโอดีน
 sce:SaltedEgg a sce:FoodProduct ;
@@ -1214,7 +1312,8 @@ sce:SaltedEgg a sce:FoodProduct ;
     sce:hasPackaging sce:PlasticBox ;
     sce:producedBy sce:CE_03 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
-    sce:targetsCustomer sce:GeneralConsumer , sce:Restaurant_Customer , sce:GiftBuyer .
+    sce:targetsCustomer sce:GeneralConsumer , sce:Restaurant_Customer , sce:GiftBuyer ;
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ไข่เค็มผสมไอโอดีน_vufwzj.png" .
 
 # ผลิตภัณฑ์ที่ 5: น้ำหมากเม่าพร้อมดื่ม
 sce:MakMaoJuice a sce:FoodProduct ;
@@ -1232,7 +1331,8 @@ sce:MakMaoJuice a sce:FoodProduct ;
     sce:soldVia sce:DirectSale ;
     sce:targetsCustomer sce:HealthConscious , sce:Tourist , sce:GiftBuyer ;
     sce:hasReview sce:Review_MakMao_01 , sce:Review_MakMao_02 , sce:Review_MakMao_03 ;
-    sce:hasAward sce:Award_OTOP5_MakMaoJuice .
+    sce:hasAward sce:Award_OTOP5_MakMaoJuice ;
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำหมากเม่าพร้อมดื่ม_wvu71h.png" .
 
 # ผลิตภัณฑ์ที่ 6: มะนาวอินทรีย์
 sce:OrganicLime a sce:FoodProduct ;
@@ -1477,7 +1577,8 @@ sce:NamPrikPlaRaHerbal a sce:FoodProduct ;
     sce:hasPackaging sce:PlasticJar ;
     sce:producedBy sce:CE_19 ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop , sce:OTOPExhibition ;
-    sce:targetsCustomer sce:GeneralConsumer , sce:Housewife .
+    sce:targetsCustomer sce:GeneralConsumer , sce:Housewife ;
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำพริกปลาร้าสมุนไพร_cyzzho.png" .
 
 # ผลิตภัณฑ์ที่ 21: หมูแผ่นอบกรอบ
 sce:PorkCrispySheet a sce:FoodProduct ;
@@ -1493,7 +1594,8 @@ sce:PorkCrispySheet a sce:FoodProduct ;
     sce:producedBy sce:CE_20 ;
     sce:soldVia sce:DirectSale , sce:CommunityShop , sce:CommunityMarket , sce:OTOPExhibition , sce:SouvenirShop ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Tourist , sce:GiftBuyer ;
-    sce:hasReview sce:Review_PorkSheet_01 , sce:Review_PorkSheet_02 , sce:Review_PorkSheet_03 .
+    sce:hasReview sce:Review_PorkSheet_01 , sce:Review_PorkSheet_02 , sce:Review_PorkSheet_03 ;
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/หมูแผ่นอบกรอบ_ciaboy.png" .
 
 # ผลิตภัณฑ์ที่ 22: มะม่วงแช่อิ่ม
 sce:MangoPreserved a sce:FoodProduct ;
@@ -1574,7 +1676,8 @@ sce:MakMaoWine a sce:FoodProduct ;
     sce:soldVia sce:DirectSale , sce:SouvenirShop , sce:Hotel , sce:OTOPExhibition , sce:DepartmentStore , sce:OnlineFacebook , sce:OnlineLINE , sce:OnlineShopee ;
     sce:targetsCustomer sce:Tourist , sce:GiftBuyer , sce:WineLover , sce:Restaurant_Customer ;
     sce:hasReview sce:Review_Wine_01 , sce:Review_Wine_02 , sce:Review_Wine_03 ;
-    sce:hasAward sce:Award_OTOP5_MakMaoWine .
+    sce:hasAward sce:Award_OTOP5_MakMaoWine ;
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ไวน์หมากเม่าภูพาน_svcrkf.png" .
 
 
 # ============================================
@@ -1588,6 +1691,8 @@ sce:MulberryTea a sce:FoodProduct ;
     sce:hasPrice "60"^^xsd:decimal ;
     sce:hasWeight "1 กล่อง" ;
     sce:belongsToCategory sce:Beverage ;
+    sce:hasIngredient sce:MulberryLeaf , sce:Water ;
+    sce:hasProductionProcess sce:Process_MulberryTea ;
     sce:producedBy sce:CE_27 ;
     sce:hasPackaging sce:PaperBox ;
     sce:soldVia sce:DirectSale , sce:CommunityShop , sce:OTOPExhibition ;
@@ -1601,6 +1706,8 @@ sce:HerbalSausage a sce:FoodProduct ;
     sce:hasPrice "150"^^xsd:decimal ;
     sce:hasWeight "1 กิโลกรัม" ;
     sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:Pork , sce:PorkFat , sce:PorkCasing , sce:Herbs , sce:Garlic , sce:Pepper ;
+    sce:hasProductionProcess sce:Process_HerbalSausage ;
     sce:producedBy sce:CE_01 ;
     sce:hasPackaging sce:VacuumBag ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
@@ -1614,6 +1721,8 @@ sce:KaepMoo a sce:FoodProduct ;
     sce:hasPrice "50"^^xsd:decimal ;
     sce:hasWeight "100 กรัม" ;
     sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:PorkSkin , sce:VegetableOil , sce:Salt ;
+    sce:hasProductionProcess sce:Process_KaepMoo ;
     sce:producedBy sce:CE_20 ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop ;
@@ -1627,6 +1736,8 @@ sce:SaltedFishOil a sce:FoodProduct ;
     sce:hasPrice "100"^^xsd:decimal ;
     sce:hasWeight "1 ขวด" ;
     sce:belongsToCategory sce:FermentedFood ;
+    sce:hasIngredient sce:FishOrganic , sce:Salt , sce:VegetableOil ;
+    sce:hasProductionProcess sce:Process_SaltedFishOil ;
     sce:producedBy sce:CE_13 ;
     sce:hasPackaging sce:GlassBottle ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
@@ -1640,6 +1751,8 @@ sce:OrganicMulberryTea a sce:FoodProduct ;
     sce:hasPrice "80"^^xsd:decimal ;
     sce:hasWeight "1 กล่อง" ;
     sce:belongsToCategory sce:Beverage ;
+    sce:hasIngredient sce:MulberryLeaf , sce:Water ;
+    sce:hasProductionProcess sce:Process_OrganicMulberryTea ;
     sce:hasCertification sce:OrganicThailand ;
     sce:producedBy sce:CE_27 ;
     sce:hasPackaging sce:PaperBox ;
@@ -1654,6 +1767,8 @@ sce:FattenedBeef a sce:FoodProduct ;
     sce:hasPrice "350"^^xsd:decimal ;
     sce:hasWeight "1 กิโลกรัม" ;
     sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:Beef , sce:GrassFeed , sce:Concentrate ;
+    sce:hasProductionProcess sce:Process_FattenedBeef ;
     sce:producedBy sce:CE_26 ;
     sce:hasPackaging sce:VacuumBag ;
     sce:soldVia sce:DirectSale , sce:MadeToOrder , sce:Restaurant ;
@@ -1667,6 +1782,8 @@ sce:NamPrikTaDaeng a sce:FoodProduct ;
     sce:hasPrice "55"^^xsd:decimal ;
     sce:hasWeight "200 กรัม" ;
     sce:belongsToCategory sce:Seasoning ;
+    sce:hasIngredient sce:Chili_Dried , sce:Shallot , sce:Garlic , sce:FishSauce , sce:PalmSugar ;
+    sce:hasProductionProcess sce:Process_NamPrikTaDaeng ;
     sce:producedBy sce:CE_16 ;
     sce:hasPackaging sce:PlasticJar ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop ;
@@ -1680,24 +1797,14 @@ sce:PlaRaHerbal a sce:FoodProduct ;
     sce:hasPrice "65"^^xsd:decimal ;
     sce:hasWeight "500 มล." ;
     sce:belongsToCategory sce:FermentedFood ;
+    sce:hasIngredient sce:PlaRa , sce:Herbs , sce:Salt , sce:Galangal , sce:Lemongrass , sce:KaffirLimeLeaf ;
+    sce:hasProductionProcess sce:Process_PlaRaHerbal ;
     sce:producedBy sce:CE_19 ;
     sce:hasPackaging sce:PlasticBottle ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop ;
     sce:targetsCustomer sce:Housewife , sce:Restaurant_Customer , sce:GeneralConsumer ;
     sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาร้าสมุนไพร_uaorjk.png" .
 
-# ผลิตภัณฑ์ที่ 35: ปลาดองเค็มในน้ำมัน
-sce:SaltedFishInOilVariant a sce:FoodProduct ;
-    sce:hasName "ปลาดองเค็มในน้ำมัน" ;
-    sce:hasDescription "ปลาดองเค็มในน้ำมัน เนื้อปลานุ่ม รสเค็มกำลังดี หอมน้ำมัน เก็บได้นาน" ;
-    sce:hasPrice "110"^^xsd:decimal ;
-    sce:hasWeight "1 ขวด" ;
-    sce:belongsToCategory sce:FermentedFood ;
-    sce:producedBy sce:CE_13 ;
-    sce:hasPackaging sce:GlassBottle ;
-    sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
-    sce:targetsCustomer sce:GeneralConsumer , sce:Housewife ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาดองเค็มในน้ำมัน_wcenjq.png" .
 
 # ผลิตภัณฑ์ที่ 36: ข้าวเกรียบปากหม้อ
 sce:KhaoKriabPakMor a sce:FoodProduct ;
@@ -1706,6 +1813,8 @@ sce:KhaoKriabPakMor a sce:FoodProduct ;
     sce:hasPrice "30"^^xsd:decimal ;
     sce:hasWeight "1 ถุง" ;
     sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:RiceFlour , sce:TapiocaStarch , sce:Salt , sce:Water ;
+    sce:hasProductionProcess sce:Process_KhaoKriabPakMor ;
     sce:producedBy sce:CE_28 ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop ;
@@ -1719,38 +1828,16 @@ sce:MakMaoColdPressed a sce:FoodProduct ;
     sce:hasPrice "120"^^xsd:decimal ;
     sce:hasWeight "1 ขวด" ;
     sce:belongsToCategory sce:Beverage ;
+    sce:hasIngredient sce:MakMao ;
+    sce:hasProductionProcess sce:Process_MakMaoColdPressed ;
     sce:hasCertification sce:FDA_Certificate ;
     sce:producedBy sce:CE_04 ;
     sce:hasPackaging sce:GlassBottle ;
     sce:soldVia sce:DirectSale , sce:SouvenirShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:HealthConscious , sce:Tourist , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำหมากเม่าสกัดเย็น_r4fo3z.png" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำหมากเม่าสกัดเย็น_doueuc.png" .
 
-# ผลิตภัณฑ์ที่ 38: น้ำปลาร้า
-sce:NamPlaRa a sce:FoodProduct ;
-    sce:hasName "น้ำปลาร้า" ;
-    sce:hasDescription "น้ำปลาร้า หมักแบบดั้งเดิม รสชาติเข้มข้น กลมกล่อม ใช้ปรุงอาหารอีสาน" ;
-    sce:hasPrice "35"^^xsd:decimal ;
-    sce:hasWeight "500 มล." ;
-    sce:belongsToCategory sce:Seasoning ;
-    sce:producedBy sce:CE_18 ;
-    sce:hasPackaging sce:PlasticBottle ;
-    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop ;
-    sce:targetsCustomer sce:Housewife , sce:Restaurant_Customer , sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำปลาร้า_mkiy3n.png" .
 
-# ผลิตภัณฑ์ที่ 39: เนื้ออบกรอบ
-sce:CrispyBeef a sce:FoodProduct ;
-    sce:hasName "เนื้ออบกรอบ" ;
-    sce:hasDescription "เนื้ออบกรอบ กรอบ หอม ทำจากเนื้อโคขุนคุณภาพ ปรุงรสด้วยสมุนไพร" ;
-    sce:hasPrice "80"^^xsd:decimal ;
-    sce:hasWeight "100 กรัม" ;
-    sce:belongsToCategory sce:Snack ;
-    sce:producedBy sce:CE_26 ;
-    sce:hasPackaging sce:SealedBag ;
-    sce:soldVia sce:DirectSale , sce:CommunityShop , sce:SouvenirShop , sce:OTOPExhibition ;
-    sce:targetsCustomer sce:GeneralConsumer , sce:Tourist , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/เนื้ออบกรอบ_htvqsp.png" .
 
 # ผลิตภัณฑ์ที่ 40: กล้วยอบพลังงานแสงอาทิตย์
 sce:SolarDriedBanana a sce:FoodProduct ;
@@ -1759,6 +1846,8 @@ sce:SolarDriedBanana a sce:FoodProduct ;
     sce:hasPrice "25"^^xsd:decimal ;
     sce:hasWeight "1 ถุง" ;
     sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:Banana_Ripe ;
+    sce:hasProductionProcess sce:Process_SolarDriedBanana ;
     sce:hasProductionMethod sce:SolarDrying ;
     sce:producedBy sce:CE_09 ;
     sce:hasPackaging sce:SealedBag ;
@@ -1773,6 +1862,8 @@ sce:KhaoKriabPakMorCrispy a sce:FoodProduct ;
     sce:hasPrice "35"^^xsd:decimal ;
     sce:hasWeight "1 ถุง" ;
     sce:belongsToCategory sce:Snack ;
+    sce:hasIngredient sce:RiceFlour , sce:TapiocaStarch , sce:Salt , sce:Water ;
+    sce:hasProductionProcess sce:Process_KhaoKriabPakMorCrispy ;
     sce:producedBy sce:CE_28 ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop , sce:OTOPExhibition ;
@@ -1786,6 +1877,8 @@ sce:RedLotusTea a sce:FoodProduct ;
     sce:hasPrice "90"^^xsd:decimal ;
     sce:hasWeight "1 กล่อง" ;
     sce:belongsToCategory sce:Beverage ;
+    sce:hasIngredient sce:RedLotus , sce:Water ;
+    sce:hasProductionProcess sce:Process_RedLotusTea ;
     sce:producedBy sce:CE_27 ;
     sce:hasPackaging sce:PaperBox ;
     sce:soldVia sce:DirectSale , sce:SouvenirShop , sce:OTOPExhibition , sce:OnlineFacebook ;
@@ -1799,6 +1892,8 @@ sce:MooYorBlackPepper a sce:FoodProduct ;
     sce:hasPrice "60"^^xsd:decimal ;
     sce:hasWeight "500 กรัม" ;
     sce:belongsToCategory sce:ProcessedMeat ;
+    sce:hasIngredient sce:Pork , sce:Starch , sce:BlackPepperCorn , sce:Garlic , sce:Pepper , sce:Salt , sce:Sugar ;
+    sce:hasProductionProcess sce:Process_MooYorBlackPepper ;
     sce:producedBy sce:CE_22 ;
     sce:hasPackaging sce:VacuumBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:OTOPExhibition , sce:MadeToOrder ;
