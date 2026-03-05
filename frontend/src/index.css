@@ -57,39 +57,39 @@ body {
 }
 
 .floating-leaf-0 {
-  top: 10%;
-  left: -5%;
-  animation: leaf-drift 12s linear infinite;
+  top: -10%;
+  left: 10%;
+  animation: leaf-fall 10s ease-in infinite;
   animation-delay: 0s;
 }
 .floating-leaf-1 {
-  top: 30%;
-  left: -5%;
-  animation: leaf-drift 15s linear infinite;
-  animation-delay: 3s;
-}
-.floating-leaf-2 {
-  top: 60%;
-  left: -5%;
-  animation: leaf-drift 10s linear infinite;
-  animation-delay: 6s;
-}
-.floating-leaf-3 {
-  top: 20%;
-  left: -5%;
-  animation: leaf-drift 14s linear infinite;
+  top: -10%;
+  left: 35%;
+  animation: leaf-fall 13s ease-in infinite;
   animation-delay: 2s;
 }
+.floating-leaf-2 {
+  top: -10%;
+  left: 60%;
+  animation: leaf-fall 11s ease-in infinite;
+  animation-delay: 5s;
+}
+.floating-leaf-3 {
+  top: -10%;
+  left: 80%;
+  animation: leaf-fall 14s ease-in infinite;
+  animation-delay: 1s;
+}
 .floating-leaf-4 {
-  top: 50%;
-  left: -5%;
-  animation: leaf-drift 11s linear infinite;
-  animation-delay: 8s;
+  top: -10%;
+  left: 50%;
+  animation: leaf-fall 12s ease-in infinite;
+  animation-delay: 7s;
 }
 
-@keyframes leaf-drift {
+@keyframes leaf-fall {
   0% {
-    transform: translate(0, 0) rotate(0deg);
+    transform: translateY(0) translateX(0) rotate(0deg);
     opacity: 0;
   }
   10% {
@@ -99,7 +99,7 @@ body {
     opacity: 0.3;
   }
   100% {
-    transform: translate(105vw, 30px) rotate(360deg);
+    transform: translateY(120%) translateX(30px) rotate(180deg);
     opacity: 0;
   }
 }

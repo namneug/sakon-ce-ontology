@@ -39,7 +39,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative text-white overflow-hidden"
         style={{
-          backgroundImage: `url('https://res.cloudinary.com/dmsngm0pd/image/upload/sakon-products/hero-bg_opzmnw.png')`,
+          backgroundImage: `url('https://res.cloudinary.com/dmsngm0pd/image/upload/hero-bg_opzmnw')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center bottom',
         }}>
