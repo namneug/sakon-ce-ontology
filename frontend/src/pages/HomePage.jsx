@@ -49,7 +49,7 @@ export default function HomePage() {
         {[...Array(5)].map((_, i) => (
           <span key={i} className={`floating-leaf floating-leaf-${i}`} aria-hidden="true">🍃</span>
         ))}
-        <div className="relative max-w-7xl mx-auto px-4 py-16 md:py-24 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 pt-16 pb-28 md:pt-24 md:pb-36 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             ตลาดออนไลน์วิสาหกิจชุมชน
           </h1>
@@ -64,7 +64,7 @@ export default function HomePage() {
 
       {/* Stats */}
       {stats && (
-        <section className="max-w-7xl mx-auto px-4 -mt-8">
+        <section className="max-w-7xl mx-auto px-4 -mt-20 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               { icon: <CubeIcon className="w-8 h-8" />, value: stats.product_count || 0, label: 'ผลิตภัณฑ์' },
