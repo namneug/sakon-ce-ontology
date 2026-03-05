@@ -1244,7 +1244,7 @@ sce:CE_28 a sce:CommunityEnterprise ;
     sce:hasName "กลุ่มแปรรูปข้าวเกรียบพังโคน" ;
     sce:hasDescription "วิสาหกิจชุมชนแปรรูปข้าวเกรียบ อ.พังโคน จ.สกลนคร" ;
     sce:locatedIn sce:Phangkhon_Sub ;
-    sce:hasProduct sce:KhaoKriabPakMor , sce:KhaoKriabPakMorCrispy .
+    sce:hasProduct sce:KhaoKriabPakMorCrispy .
 
 # ============================================
 # 16. ผลิตภัณฑ์อาหาร (FoodProduct) - 25 instances
@@ -1805,21 +1805,6 @@ sce:PlaRaHerbal a sce:FoodProduct ;
     sce:targetsCustomer sce:Housewife , sce:Restaurant_Customer , sce:GeneralConsumer ;
     sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาร้าสมุนไพร_uaorjk.png" .
 
-
-# ผลิตภัณฑ์ที่ 36: ข้าวเกรียบปากหม้อ
-sce:KhaoKriabPakMor a sce:FoodProduct ;
-    sce:hasName "ข้าวเกรียบปากหม้อ" ;
-    sce:hasDescription "ข้าวเกรียบปากหม้อ สูตรดั้งเดิม กรอบ อร่อย ทำจากแป้งข้าวคุณภาพ" ;
-    sce:hasPrice "30"^^xsd:decimal ;
-    sce:hasWeight "1 ถุง" ;
-    sce:belongsToCategory sce:Snack ;
-    sce:hasIngredient sce:RiceFlour , sce:TapiocaStarch , sce:Salt , sce:Water ;
-    sce:hasProductionProcess sce:Process_KhaoKriabPakMor ;
-    sce:producedBy sce:CE_28 ;
-    sce:hasPackaging sce:SealedBag ;
-    sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop ;
-    sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวเกรียบปากหม้อ_s3fegq.png" .
 
 # ผลิตภัณฑ์ที่ 37: น้ำหมากเม่าสกัดเย็น
 sce:MakMaoColdPressed a sce:FoodProduct ;
