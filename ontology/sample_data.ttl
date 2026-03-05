@@ -1167,7 +1167,7 @@ sce:SaiKrokIsan a sce:FoodProduct ;
     sce:producedBy sce:CE_01 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder , sce:GovernmentOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Tourist , sce:GovernmentAgency ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ไส้กรอกอีสาน_bpv6nf.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ไส้กรอกอีสาน_bpv6nf.png" .
 
 # ผลิตภัณฑ์ที่ 2: กุนเชียง (หนองปลาน้อย)
 sce:Kunchiang_01 a sce:FoodProduct ;
@@ -1183,7 +1183,7 @@ sce:Kunchiang_01 a sce:FoodProduct ;
     sce:producedBy sce:CE_01 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
     sce:targetsCustomer sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กุนเชียง_หนองปลาน้อย.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กุนเชียง_หนองปลาน้อย_iz3gmz.png" .
 
 # ผลิตภัณฑ์ที่ 3: ถั่วลิสงคั่วทรายน้ำโขง
 sce:PeanutRoasted a sce:FoodProduct ;
@@ -1199,7 +1199,7 @@ sce:PeanutRoasted a sce:FoodProduct ;
     sce:producedBy sce:CE_02 ;
     sce:soldVia sce:DirectSale , sce:Broker ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Reseller ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ถั่วลิสงคั่วทรายน้ำโขง.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ถั่วลิสงคั่วทรายน้ำโขง_t8ftfo.png" .
 
 # ผลิตภัณฑ์ที่ 4: ไข่เค็มผสมไอโอดีน
 sce:SaltedEgg a sce:FoodProduct ;
@@ -1248,7 +1248,7 @@ sce:OrganicLime a sce:FoodProduct ;
     sce:producedBy sce:CE_05 ;
     sce:soldVia sce:ConsignmentSale , sce:DirectSale ;
     sce:targetsCustomer sce:Restaurant_Customer , sce:MarketVendor , sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/มะนาว_ml8vhq.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/มะนาว_ml8vhq.webp" .
 
 # ผลิตภัณฑ์ที่ 7: ข้าวขาวดอกมะลิ 105 อินทรีย์กล้อง
 sce:JasmineBrownRice a sce:FoodProduct ;
@@ -1264,7 +1264,7 @@ sce:JasmineBrownRice a sce:FoodProduct ;
     sce:producedBy sce:CE_06 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:HealthConscious ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวขาวดอกมะลิ_105_อินทรีย์กล้อง.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวขาวดอกมะลิ_105_อินทรีย์กล้อง_vz9wbi.webp" .
 
 # ผลิตภัณฑ์ที่ 8: ข้าวไรซ์เบอรี่อินทรีย์กล้อง
 sce:RiceberryBrownRice a sce:FoodProduct ;
@@ -1280,7 +1280,7 @@ sce:RiceberryBrownRice a sce:FoodProduct ;
     sce:producedBy sce:CE_06 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:HealthConscious ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวไรซ์เบอรี่อินทรีย์กล้อง.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวไรซ์เบอรี่อินทรีย์กล้อง_r5oj90.webp" .
 
 # ผลิตภัณฑ์ที่ 9: ข้าวฮาง
 sce:KhaoHang a sce:FoodProduct ;
@@ -1315,7 +1315,7 @@ sce:BananaChips a sce:FoodProduct ;
     sce:producedBy sce:CE_09 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กล้วยเล็บมือนางฉาบ.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กล้วยเล็บมือนางฉาบ_fwdbuq.png" .
 
 # ผลิตภัณฑ์ที่ 11: กล้วยหน้าธัญพืช
 sce:BananaGranola a sce:FoodProduct ;
@@ -1332,7 +1332,7 @@ sce:BananaGranola a sce:FoodProduct ;
     sce:producedBy sce:CE_10 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:HealthConscious ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กล้วยหน้าธัญพืช_f7w7uf.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กล้วยหน้าธัญพืช_f7w7uf.webp" .
 
 # ผลิตภัณฑ์ที่ 12: น้ำพริกสำเร็จรูป
 sce:NamPrikReadyMade a sce:FoodProduct ;
@@ -1348,7 +1348,7 @@ sce:NamPrikReadyMade a sce:FoodProduct ;
     sce:producedBy sce:CE_11 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:Broker , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Housewife ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำพริกสำเร็จรูป_srsmmo.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำพริกสำเร็จรูป_srsmmo.png" .
 
 # ผลิตภัณฑ์ที่ 13: กุนเชียง (ทุ่งใหญ่สามัคคี)
 sce:Kunchiang_02 a sce:FoodProduct ;
@@ -1365,7 +1365,7 @@ sce:Kunchiang_02 a sce:FoodProduct ;
     sce:producedBy sce:CE_12 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กุนเชียง_ทุ่งใหญ่สามัคคี.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กุนเชียง_ทุ่งใหญ่สามัคคี_h30dbh.webp" .
 
 
 # ผลิตภัณฑ์ที่ 14: ปลาอินทรีย์เค็มในน้ำมัน
@@ -1381,7 +1381,7 @@ sce:SaltedFishInOil a sce:FoodProduct ;
     sce:producedBy sce:CE_13 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
     sce:targetsCustomer sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาอินทรีย์เค็มในน้ำมัน.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาอินทรีย์เค็มในน้ำมัน_ggv94k.webp" .
 
 # ผลิตภัณฑ์ที่ 15: คุกกี้สมุนไพร
 sce:HerbalCookie a sce:FoodProduct ;
@@ -1397,7 +1397,7 @@ sce:HerbalCookie a sce:FoodProduct ;
     sce:producedBy sce:CE_14 ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
     sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/คุกกี้สมุนไพร_wao2hu.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/คุกกี้สมุนไพร_wao2hu.webp" .
 
 # ผลิตภัณฑ์ที่ 16: คุกกี้ข้าวกล้อง
 sce:BrownRiceCookie a sce:FoodProduct ;
@@ -1413,7 +1413,7 @@ sce:BrownRiceCookie a sce:FoodProduct ;
     sce:producedBy sce:CE_15 ;
     sce:soldVia sce:DirectSale , sce:CommunityShop , sce:SouvenirShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:HealthConscious , sce:Elderly , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/คุกกี้ข้าวกล้อง_q0kyrq.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/คุกกี้ข้าวกล้อง_q0kyrq.webp" .
 
 # ผลิตภัณฑ์ที่ 17: น้ำพริกปลาร้าบอง
 sce:NamPrikPlaRaBong a sce:FoodProduct ;
@@ -1429,7 +1429,7 @@ sce:NamPrikPlaRaBong a sce:FoodProduct ;
     sce:producedBy sce:CE_16 ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Restaurant_Customer , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาร้าบอง_acdxao.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาร้าบอง_acdxao.png" .
 
 # ผลิตภัณฑ์ที่ 18: ปลาส้มฟัก
 sce:PlaSomFak a sce:FoodProduct ;
@@ -1446,7 +1446,7 @@ sce:PlaSomFak a sce:FoodProduct ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:Restaurant , sce:SouvenirShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Restaurant_Customer , sce:Tourist ;
     sce:hasReview sce:Review_PlaSom_01 , sce:Review_PlaSom_02 , sce:Review_PlaSom_03 ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาส้มฟัก_xulwmw.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาส้มฟัก_xulwmw.webp" .
 
 # ผลิตภัณฑ์ที่ 19: น้ำปลาร้าปรุงรส
 sce:NamPlaRaSeasoned a sce:FoodProduct ;
@@ -1462,7 +1462,7 @@ sce:NamPlaRaSeasoned a sce:FoodProduct ;
     sce:producedBy sce:CE_18 ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop , sce:OTOPExhibition , sce:SouvenirShop ;
     sce:targetsCustomer sce:Housewife , sce:Restaurant_Customer , sce:Tourist , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำปลาร้าปรุงรส_xlxmhm.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำปลาร้าปรุงรส_xlxmhm.png" .
 
 # ผลิตภัณฑ์ที่ 20: น้ำพริกปลาร้าสมุนไพร
 sce:NamPrikPlaRaHerbal a sce:FoodProduct ;
@@ -1508,7 +1508,7 @@ sce:MangoPreserved a sce:FoodProduct ;
     sce:producedBy sce:CE_21 ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/มะม่วงสุกแช่อิ่ม_yscg4p.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/มะม่วงสุกแช่อิ่ม_yscg4p.png" .
 
 # ผลิตภัณฑ์ที่ 23: แหนมเนือง
 sce:NaemNueng a sce:FoodProduct ;
@@ -1524,7 +1524,7 @@ sce:NaemNueng a sce:FoodProduct ;
     sce:producedBy sce:CE_22 ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:OTOPExhibition , sce:MadeToOrder ;
     sce:targetsCustomer sce:Family , sce:EventOrganizer , sce:Tourist , sce:ForeignTourist ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/แหนมเนือง_qh5oao.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/แหนมเนือง_qh5oao.png" .
 
 # ผลิตภัณฑ์ที่ 24: จิ้งหรีดทอดกรอบปรุงรส
 sce:CricketCrispy a sce:FoodProduct ;
@@ -1541,7 +1541,7 @@ sce:CricketCrispy a sce:FoodProduct ;
     sce:producedBy sce:CE_23 ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop , sce:OTOPExhibition , sce:OnlineFacebook , sce:OnlineLINE ;
     sce:targetsCustomer sce:HealthConscious , sce:Tourist , sce:InsectFoodFan , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/จิ้งหรีด_wfmowf.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/จิ้งหรีด_wfmowf.webp" .
 
 # ผลิตภัณฑ์ที่ 25: มันฝรั่งทอดกรอบสมุนไพร
 sce:PotatoChipsHerbal a sce:FoodProduct ;
@@ -1557,7 +1557,7 @@ sce:PotatoChipsHerbal a sce:FoodProduct ;
     sce:producedBy sce:CE_24 ;
     sce:soldVia sce:DirectSale , sce:CommunityShop , sce:SchoolShop , sce:OTOPExhibition , sce:SouvenirShop ;
     sce:targetsCustomer sce:Student , sce:Tourist , sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/มันฝรั่ง_hks9ab.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/มันฝรั่ง_hks9ab.webp" .
 
 # ผลิตภัณฑ์ที่ 26 (นับเป็นที่ 25 ในระบบ): ไวน์หมากเม่าภูพาน
 sce:MakMaoWine a sce:FoodProduct ;
@@ -1592,7 +1592,7 @@ sce:MulberryTea a sce:FoodProduct ;
     sce:hasPackaging sce:PaperBox ;
     sce:soldVia sce:DirectSale , sce:CommunityShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:HealthConscious , sce:Elderly , sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ชาใบหม่อน_qfca6f.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ชาใบหม่อน_qfca6f.webp" .
 
 # ผลิตภัณฑ์ที่ 28: ไส้กรอกสมุนไพร
 sce:HerbalSausage a sce:FoodProduct ;
@@ -1605,7 +1605,7 @@ sce:HerbalSausage a sce:FoodProduct ;
     sce:hasPackaging sce:VacuumBag ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:HealthConscious ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ไส้กรอกสมุนไพร_hiai39.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ใส้กรอกสมุนไพร_hiai39.webp" .
 
 # ผลิตภัณฑ์ที่ 29: แคปหมู
 sce:KaepMoo a sce:FoodProduct ;
@@ -1618,7 +1618,7 @@ sce:KaepMoo a sce:FoodProduct ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Tourist , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/แคปหมู_fxgirf.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/แคปหมู_fxgirf.webp" .
 
 # ผลิตภัณฑ์ที่ 30: ปลาดองเค็มน้ำมัน
 sce:SaltedFishOil a sce:FoodProduct ;
@@ -1631,7 +1631,7 @@ sce:SaltedFishOil a sce:FoodProduct ;
     sce:hasPackaging sce:GlassBottle ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Housewife ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาดองเค็มน้ำมัน_arftdy.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาดองเค็มน้ำมัน_arftdy.webp" .
 
 # ผลิตภัณฑ์ที่ 31: ชาใบหม่อนออแกนิค
 sce:OrganicMulberryTea a sce:FoodProduct ;
@@ -1645,7 +1645,7 @@ sce:OrganicMulberryTea a sce:FoodProduct ;
     sce:hasPackaging sce:PaperBox ;
     sce:soldVia sce:DirectSale , sce:CommunityShop , sce:OTOPExhibition , sce:OnlineFacebook ;
     sce:targetsCustomer sce:HealthConscious , sce:Elderly , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ชาใบหม่อนออแกนิค.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ชาใบหม่อนออแกนิค_iifyvm.webp" .
 
 # ผลิตภัณฑ์ที่ 32: เนื้อโคขุน
 sce:FattenedBeef a sce:FoodProduct ;
@@ -1658,7 +1658,7 @@ sce:FattenedBeef a sce:FoodProduct ;
     sce:hasPackaging sce:VacuumBag ;
     sce:soldVia sce:DirectSale , sce:MadeToOrder , sce:Restaurant ;
     sce:targetsCustomer sce:Restaurant_Customer , sce:GeneralConsumer , sce:EventOrganizer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/เนื้อโคขุน_st3iwh.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/เนื้อโคขุน_st3iwh.webp" .
 
 # ผลิตภัณฑ์ที่ 33: น้ำพริกตาแดง
 sce:NamPrikTaDaeng a sce:FoodProduct ;
@@ -1671,7 +1671,7 @@ sce:NamPrikTaDaeng a sce:FoodProduct ;
     sce:hasPackaging sce:PlasticJar ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Housewife , sce:Restaurant_Customer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำพริกตาแดง_abtxnk.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำพริกตาแดง_abtxnk.webp" .
 
 # ผลิตภัณฑ์ที่ 34: ปลาร้าสมุนไพร
 sce:PlaRaHerbal a sce:FoodProduct ;
@@ -1684,7 +1684,7 @@ sce:PlaRaHerbal a sce:FoodProduct ;
     sce:hasPackaging sce:PlasticBottle ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop ;
     sce:targetsCustomer sce:Housewife , sce:Restaurant_Customer , sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาร้าสมุนไพร_uaorjk.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาร้าสมุนไพร_uaorjk.png" .
 
 # ผลิตภัณฑ์ที่ 35: ปลาดองเค็มในน้ำมัน
 sce:SaltedFishInOilVariant a sce:FoodProduct ;
@@ -1697,7 +1697,7 @@ sce:SaltedFishInOilVariant a sce:FoodProduct ;
     sce:hasPackaging sce:GlassBottle ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Housewife ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาดองเค็มในน้ำมัน.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ปลาดองเค็มในน้ำมัน_wcenjq.png" .
 
 # ผลิตภัณฑ์ที่ 36: ข้าวเกรียบปากหม้อ
 sce:KhaoKriabPakMor a sce:FoodProduct ;
@@ -1710,7 +1710,7 @@ sce:KhaoKriabPakMor a sce:FoodProduct ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop ;
     sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวเกรียบปากหม้อ.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวเกรียบปากหม้อ_s3fegq.png" .
 
 # ผลิตภัณฑ์ที่ 37: น้ำหมากเม่าสกัดเย็น
 sce:MakMaoColdPressed a sce:FoodProduct ;
@@ -1724,7 +1724,7 @@ sce:MakMaoColdPressed a sce:FoodProduct ;
     sce:hasPackaging sce:GlassBottle ;
     sce:soldVia sce:DirectSale , sce:SouvenirShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:HealthConscious , sce:Tourist , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำหมากเม่าสกัดเย็น.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำหมากเม่าสกัดเย็น_r4fo3z.png" .
 
 # ผลิตภัณฑ์ที่ 38: น้ำปลาร้า
 sce:NamPlaRa a sce:FoodProduct ;
@@ -1737,7 +1737,7 @@ sce:NamPlaRa a sce:FoodProduct ;
     sce:hasPackaging sce:PlasticBottle ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:CommunityShop ;
     sce:targetsCustomer sce:Housewife , sce:Restaurant_Customer , sce:GeneralConsumer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำปลาร้า_mkiy3n.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/น้ำปลาร้า_mkiy3n.png" .
 
 # ผลิตภัณฑ์ที่ 39: เนื้ออบกรอบ
 sce:CrispyBeef a sce:FoodProduct ;
@@ -1750,7 +1750,7 @@ sce:CrispyBeef a sce:FoodProduct ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:CommunityShop , sce:SouvenirShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Tourist , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/เนื้ออบกรอบ_htvqsp.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/เนื้ออบกรอบ_htvqsp.png" .
 
 # ผลิตภัณฑ์ที่ 40: กล้วยอบพลังงานแสงอาทิตย์
 sce:SolarDriedBanana a sce:FoodProduct ;
@@ -1764,7 +1764,7 @@ sce:SolarDriedBanana a sce:FoodProduct ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:ConsignmentSale , sce:SouvenirShop ;
     sce:targetsCustomer sce:HealthConscious , sce:GeneralConsumer , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กล้วยพลังงานแสงอาทิตย์.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/กล้วยพลังงานแสดงอาทิตย์_u9b88y.webp" .
 
 # ผลิตภัณฑ์ที่ 41: ข้าวเกรียบปากหม้ออบกรอบ
 sce:KhaoKriabPakMorCrispy a sce:FoodProduct ;
@@ -1777,7 +1777,7 @@ sce:KhaoKriabPakMorCrispy a sce:FoodProduct ;
     sce:hasPackaging sce:SealedBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:SouvenirShop , sce:OTOPExhibition ;
     sce:targetsCustomer sce:GeneralConsumer , sce:GiftBuyer , sce:Student ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวเกรียบปากหม้ออบกรอบ.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ข้าวเกรียบปากหม้ออบกรม_o5s5lv.webp" .
 
 # ผลิตภัณฑ์ที่ 42: ชาดอกบัวแดง
 sce:RedLotusTea a sce:FoodProduct ;
@@ -1790,7 +1790,7 @@ sce:RedLotusTea a sce:FoodProduct ;
     sce:hasPackaging sce:PaperBox ;
     sce:soldVia sce:DirectSale , sce:SouvenirShop , sce:OTOPExhibition , sce:OnlineFacebook ;
     sce:targetsCustomer sce:Tourist , sce:HealthConscious , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ชาดอกบัวแดง_dhyhbn.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/ชาดอกบัวแดง_dhyhbn.webp" .
 
 # ผลิตภัณฑ์ที่ 43: หมูยอพริกไทยดำ
 sce:MooYorBlackPepper a sce:FoodProduct ;
@@ -1803,7 +1803,7 @@ sce:MooYorBlackPepper a sce:FoodProduct ;
     sce:hasPackaging sce:VacuumBag ;
     sce:soldVia sce:DirectSale , sce:CommunityMarket , sce:OTOPExhibition , sce:MadeToOrder ;
     sce:targetsCustomer sce:GeneralConsumer , sce:Family , sce:GiftBuyer ;
-    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/หมูยอพริกไทยดำ_xgzz9q.jpg" .
+    sce:hasImageUrl "https://res.cloudinary.com/dmsngm0pd/image/upload/หมูยอพริกไทยดำ_xgzz9q.webp" .
 
 # ============================================
 # จบข้อมูลตัวอย่าง
