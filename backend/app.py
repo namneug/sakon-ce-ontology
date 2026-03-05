@@ -2,6 +2,9 @@
 # ระบบฐานข้อมูลออนโทโลยีวิสาหกิจชุมชน จ.สกลนคร
 import json
 import os
+import threading
+import time
+import urllib.request
 from datetime import datetime
 from flask import Flask, jsonify, request
 from flask_cors import CORS
@@ -159,6 +162,25 @@ def not_found(e):
 @app.errorhandler(500)
 def internal_error(e):
     return jsonify({'error': 'เกิดข้อผิดพลาดภายในระบบ'}), 500
+
+
+# === Keep-alive self-ping (ป้องกัน Render free tier หลับ) ===
+
+def keep_alive():
+    """Ping ตัวเองทุก 14 นาทีเพื่อไม่ให้ server หลับ"""
+    url = os.getenv('RENDER_EXTERNAL_URL', '').rstrip('/')
+    if not url:
+        return  # ไม่ได้รันบน Render ไม่ต้อง ping
+    health_url = f"{url}/api/health"
+    while True:
+        time.sleep(14 * 60)
+        try:
+            urllib.request.urlopen(health_url, timeout=10)
+        except Exception:
+            pass
+
+ping_thread = threading.Thread(target=keep_alive, daemon=True)
+ping_thread.start()
 
 
 if __name__ == '__main__':
