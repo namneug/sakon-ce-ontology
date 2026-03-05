@@ -50,6 +50,48 @@ body {
   50% { transform: rotate(3deg); }
 }
 
+/* Hero shimmer light sweep */
+.hero-shimmer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255,255,255,0.12) 45%,
+    rgba(255,255,255,0.15) 50%,
+    rgba(255,255,255,0.12) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  animation: shimmer-sweep 6s ease-in-out infinite;
+}
+@keyframes shimmer-sweep {
+  0%, 100% { left: -100%; }
+  40%, 60% { left: 150%; }
+}
+
+/* Category icon bounce */
+.category-icon {
+  display: inline-block;
+  animation: icon-bounce 2.5s ease-in-out infinite;
+}
+@keyframes icon-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
 /* Floating leaves - global, full page */
 .floating-leaves-container {
   position: fixed;

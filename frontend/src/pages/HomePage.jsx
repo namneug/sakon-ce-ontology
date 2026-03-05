@@ -37,12 +37,12 @@ function AnimatedCounter({ end, duration = 1500 }) {
 }
 
 const categoryCards = [
-  { id: 'ProcessedMeat', label: 'แปรรูปเนื้อสัตว์', icon: '🍖', color: 'from-rose-100 to-rose-200' },
-  { id: 'Beverage', label: 'เครื่องดื่ม', icon: '🥤', color: 'from-sky-100 to-sky-200' },
-  { id: 'Snack', label: 'ขนม/ของว่าง', icon: '🍪', color: 'from-amber-100 to-amber-200' },
-  { id: 'FermentedFood', label: 'อาหารหมักดอง', icon: '🫙', color: 'from-purple-100 to-purple-200' },
-  { id: 'Seasoning', label: 'เครื่องปรุงรส', icon: '🌶️', color: 'from-red-100 to-red-200' },
-  { id: 'RiceProduct', label: 'ผลิตภัณฑ์จากข้าว', icon: '🌾', color: 'from-emerald-100 to-emerald-200' },
+  { id: 'ProcessedMeat', label: 'แปรรูปเนื้อสัตว์', icon: '🍖', bg: 'from-emerald-100 to-green-200 hover:from-emerald-200 hover:to-green-300', delay: 0 },
+  { id: 'Beverage', label: 'เครื่องดื่ม', icon: '🥤', bg: 'from-teal-100 to-emerald-200 hover:from-teal-200 hover:to-emerald-300', delay: 1 },
+  { id: 'Snack', label: 'ขนม/ของว่าง', icon: '🍪', bg: 'from-green-100 to-teal-200 hover:from-green-200 hover:to-teal-300', delay: 2 },
+  { id: 'FermentedFood', label: 'อาหารหมักดอง', icon: '🫙', bg: 'from-lime-100 to-green-200 hover:from-lime-200 hover:to-green-300', delay: 3 },
+  { id: 'Seasoning', label: 'เครื่องปรุงรส', icon: '🌶️', bg: 'from-emerald-100 to-lime-200 hover:from-emerald-200 hover:to-lime-300', delay: 4 },
+  { id: 'RiceProduct', label: 'ผลิตภัณฑ์จากข้าว', icon: '🌾', bg: 'from-green-100 to-emerald-200 hover:from-green-200 hover:to-emerald-300', delay: 5 },
 ];
 
 export default function HomePage() {
@@ -75,6 +75,8 @@ export default function HomePage() {
         }}>
         {/* Dark green overlay */}
         <div className="absolute inset-0 bg-primary-900/60"></div>
+        {/* Shimmer light sweep */}
+        <div className="hero-shimmer"></div>
         <div className="relative max-w-7xl mx-auto px-4 pt-16 pb-28 md:pt-24 md:pb-36 text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
             ตลาดออนไลน์วิสาหกิจชุมชน
@@ -119,9 +121,9 @@ export default function HomePage() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {categoryCards.map(cat => (
             <Link key={cat.id} to={`/products?category=${cat.id}`}
-              className={`card p-4 text-center bg-gradient-to-br ${cat.color} hover:scale-105 transition-transform`}>
-              <span className="text-4xl block mb-2">{cat.icon}</span>
-              <span className="text-sm font-medium text-gray-700">{cat.label}</span>
+              className={`rounded-2xl p-5 text-center bg-gradient-to-br ${cat.bg} border border-green-200/50 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300`}>
+              <span className="text-5xl block mb-3 category-icon" style={{ animationDelay: `${cat.delay * 0.3}s` }}>{cat.icon}</span>
+              <span className="text-sm font-semibold text-primary-800">{cat.label}</span>
             </Link>
           ))}
         </div>
