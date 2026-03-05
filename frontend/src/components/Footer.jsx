@@ -25,7 +25,10 @@ export default function Footer() {
               จังหวัดสกลนคร
             </p>
             <p className="text-primary-200 text-sm leading-relaxed mt-2">
-              <strong className="text-white">ผู้พัฒนา:</strong> อาจารย์ปิยะ ปลื้ม (นวัตกรรมและคอมพิวเตอร์ศึกษา)
+              <strong className="text-white">ผู้พัฒนา:</strong> อาจารย์ปิยะ ปลื้ม
+            </p>
+            <p className="text-primary-200 text-sm leading-relaxed">
+              สาขานวัตกรรมและคอมพิวเตอร์ศึกษา
             </p>
             <p className="text-primary-200 text-sm leading-relaxed">
               มหาวิทยาลัยราชภัฏสกลนคร
