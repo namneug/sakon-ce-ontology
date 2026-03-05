@@ -26,7 +26,7 @@ export FLASK_PORT="${FLASK_PORT}"
 
 gunicorn \
     --bind "0.0.0.0:${FLASK_PORT}" \
-    --workers 2 \
+    --workers 1 \
     --timeout 120 \
     --access-logfile - \
     --error-logfile - \
@@ -38,9 +38,9 @@ echo "  Gunicorn started (PID ${GUNICORN_PID}), port ${FLASK_PORT} open for Rend
 # ==========================================
 # Step 2: Start Fuseki in background (no dataset args)
 # ==========================================
-echo "[2/5] Starting Fuseki (no CLI dataset, JVM heap 200m)..."
+echo "[2/5] Starting Fuseki (no CLI dataset, JVM heap 128m, SerialGC)..."
 
-export JVM_ARGS="-Xmx200m -Xms100m"
+export JVM_ARGS="-Xmx128m -Xms64m -XX:+UseSerialGC"
 
 # Start Fuseki with NO --mem or dataset argument.
 # Dataset will be created via admin API after startup.
